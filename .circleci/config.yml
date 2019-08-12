@@ -9,7 +9,7 @@ jobs:
         environment:
           MYSQL_USER: root
           MYSQL_DB: app_test
-          MYSQ_PASSWORD: passwrod
+          MYSQ_PASSWORD: password
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
