@@ -5,11 +5,11 @@ jobs:
       # specify the version you desire here
       - image: circleci/ruby:2.6.3
 
-      - image:circleci/mysql:5.5.62
+      - image: circleci/mysql:5.5.62
         environment:
-          MYSQL_USER:root
-          MYSQL_DB:app_test
-          MYSQ_PASSWORD:passwrod
+          MYSQL_USER: root
+          MYSQL_DB: app_test
+          MYSQ_PASSWORD: passwrod
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
