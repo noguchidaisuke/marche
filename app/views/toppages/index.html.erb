@@ -1,0 +1,33 @@
+<% content_for :cover do %>
+  <div class="cover">
+    <div class="cover-inner">
+      <div class="cover-contents">
+        <h1>お得なお店を見つける</h1>
+        <% unless logged_in? %>
+          <%= link_to '食べログを始める', signup_path, class: 'btn btn-success btn-lg' %>
+        <% else %>
+          <div class="text-center">
+            <%= form_tag(new_restaurant_path, method: :get, class: 'form-inline') do %>
+              <div class="form-group">
+                <%= text_field_tag :freeword, @freeword, class: 'form-control input-lg', placeholder: "キーワードを入力", size: 40 %>
+              </div>
+              <%= submit_tag 'レストランを検索', class: 'btn btn-success btn-lg' %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+<% unless logged_in? %>
+<p>about aaaaaaaaaaaaaaaaa</p>
+<%=link_to 'Twitterでログイン', 'auth/twitter' %>
+<% end %>
+<%= render 'restaurants/restaurants',restaurants: @restaurants %>
+
+<% if session[:user_id] %>
+  <p>ログイン済み</p>
+<% else %>
+  <p>未ログイン</p>
+<% end %>
+  

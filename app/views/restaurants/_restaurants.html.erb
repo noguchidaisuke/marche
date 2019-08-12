@@ -1,0 +1,28 @@
+<% if restaurants %>
+  <div class="row">
+    <% restaurants.each do |restaurant| %>
+      <div class="item">
+        <div class="col-md-6 col-sm-4 col-xs-12">
+          <div class="panel panel-default">
+            
+            <div class="panel-heading text-center">
+              <div class="panel-title"><%= link_to restaurant.name, restaurant.url %></p></div>
+              <img src="<%= restaurant.shop_image1 %>" alt="" >
+            </div>
+            <div class="panel-body">
+              
+              
+                <p class="item-pr"><%= restaurant.pr_short %></p>
+              
+              <div class="buttons text-center">
+                <% if logged_in? %>
+                  <%= render 'likes/like_button', restaurant:restaurant %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

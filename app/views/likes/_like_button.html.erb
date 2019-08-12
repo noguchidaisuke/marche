@@ -1,0 +1,12 @@
+<% if current_user.like?(restaurant) %>
+  <%= form_tag(like_path(restaurant.id),  method: :delete ) do  %>
+    <%= hidden_field_tag :restarurant_id, restaurant.id %>
+    <%= submit_tag 'お気に入りを外す', class: 'btn btn-danger btn-xs' %>
+  <% end %>
+<% else %>
+  <%= form_tag('/likes', method: :post) do %>
+    <%= hidden_field_tag :restaurant_g_id, restaurant.g_id %>
+    <%= submit_tag 'お気に入りに追加', class: 'btn btn-warning btn-xs' %>
+  <% end %>
+<% end %>
+

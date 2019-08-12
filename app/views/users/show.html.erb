@@ -1,0 +1,14 @@
+<div class="user-profile">
+  <div class="icon text-center">
+  <% if current_user.image %>
+    <img src="<%= current_user.image %>" alt="">
+  <% else %>
+    <img src="<%= gravatar_url(@user,size: 100) %>" alt="" class0"img-circle">
+  <% end %>
+  </div>
+  <div class="name text-center">
+    <h1><%= @user.name %></h1>
+  </div>
+</div>
+
+<%= render 'restaurants/restaurants', restaurants: @restaurants %>

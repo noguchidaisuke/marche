@@ -1,0 +1,106 @@
+@charset "utf-8";
+/* user image設定 */
+
+
+/* body */
+body {
+  background: white;
+}
+footer {
+  margin-top: 40px;
+}
+
+/* navbar */
+
+.navbar-header img {
+  margin-top: 5px;
+  height: 40px;
+}
+
+/* cover */
+.cover {
+  margin-top: -20px;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 300px;
+  background: url("gnavi_top") center center no-repeat;
+  background-size: cover;
+}
+.cover .cover-inner {
+  height: 100%;
+  margin: auto;
+  display: table;
+}
+.cover .cover-inner .cover-contents {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  position: relative;
+}
+.cover .cover-inner .cover-contents h1 {
+  margin: 0 0 20px 0;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 0.15em;
+}
+
+.search {
+  margin-bottom: 20px;
+}
+
+/* item */
+.panel {
+  background-color: white;
+}
+.item .panel-body {
+  max-height: 200px;
+  background-color: #FF6600;
+  
+}
+
+.item .buttons form {
+  display: inline-block;
+  margin: 0 5px;
+  margin-top: 15px;
+}
+
+.item .panel-heading {
+  height: 400px;
+}
+.item .panel-heading img {
+  margin-top: 20px;
+  height: 100%;
+  max-width: 100%;
+  max-height:250px;
+  width:auto;
+}
+p.item-title {
+  /* 文の行数を2行に保ち、最後に ... を追加するスタイル */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+
+.panel-title {
+  border-left: 4px solid #FF6600;
+  padding-bottom: 20px;
+  padding: 20px;
+  font-weight: bold;
+  font-size:1.5em;
+  background-color: white;
+}
+
+.item {
+  margin:0 auto;
+}
+
+.item-pr {
+  background-color: white;
+  color:black;
+  width:75%;
+  margin:0 auto;
+  padding:10px 10px 10px 10px;
+  border-radius: 8px;
+}
