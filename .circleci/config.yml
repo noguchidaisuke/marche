@@ -1,48 +1,22 @@
 version: 2
 jobs:
   build:
-    docker:
-      # specify the version you desire here
-      - image: circleci/ruby:2.6.3
-        environment:
-          RAILS_ENV: test
-
-      - image: circleci/mysql:5.5.62
-        environment:
-          MYSQL_USER: root
-          MYSQL_DB: app_test
-          MYSQ_PASSWORD: password
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
-
-    working_directory: ~/repo
-
+    machine:
+      image: circleci/classic:edge
     steps:
       - checkout
-
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "Gemfile.lock" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
       - run:
-          name: install dependencies
-          command: |
-            bundle install --path vendor/bundle
-
-      - save_cache:
-          paths:
-            - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-
-      # Database setup
-      - run: bundle exec rails db:create
-      
-
-      # run tests!
-      - run: bundle exec rspec spec/controllers/users_controller_spec.rb
+          name: docker-compose build
+          command: docker-compose build
+      - run:
+          name: docker-compose up
+          command: docker-compose up -d
+      - run:
+          name: "before_test: setup db"
+          command: docker-compose run web rails db:create db:migrate
+      - run:
+          name: test
+          command: docker-compose run web bundle exec rspec #RSpecを使う場合は、bundle exec rspec
+      - run:
+          name: docker-compose down
+          command: docker-compose down
