@@ -21,6 +21,8 @@ class ApplicationController < ActionController::Base
      shop_image1 = rest['image_url']['shop_image1']
      pc = rest['coupon_url']['pc']
      pr_short = rest['pr']['pr_short']
+     latitude = rest['latitude']
+     longitude = rest['longitude']
      
      return {
        g_id: g_id,
@@ -28,7 +30,9 @@ class ApplicationController < ActionController::Base
        url: url,
        shop_image1: shop_image1,
        pc: pc,
-       pr_short: pr_short
+       pr_short: pr_short,
+       latitude: latitude,
+       longitude: longitude
      }
   end
 end

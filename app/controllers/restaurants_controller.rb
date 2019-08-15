@@ -19,13 +19,13 @@ class RestaurantsController < ApplicationController
     if response_json.present?
       response_json['rest'].each do |rest| 
         restaurant = Restaurant.new(read(rest))
+        restaurant.save
         @restaurants << restaurant
       end
     end
   end
   
   def show
-    
     @restaurant = Restaurant.find(params[:id])
     @like_users = @restaurant.like_users
   end
