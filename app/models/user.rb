@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :likes
   has_many :restaurants, through: :likes
   has_many :like_restaurants, through: :likes, source: :restaurant
+  has_many :comments
   
   def like(restaurant) #user.like(restaurant)でお気に入り
     self.likes.find_or_create_by(restaurant_id: restaurant.id)

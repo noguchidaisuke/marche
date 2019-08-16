@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190815043101) do
+ActiveRecord::Schema.define(version: 20190815090737) do
+
+  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "comment"
+    t.integer  "restaurant_id"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["restaurant_id"], name: "index_comments_on_restaurant_id", using: :btree
+    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+  end
 
   create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
@@ -47,6 +57,8 @@ ActiveRecord::Schema.define(version: 20190815043101) do
     t.string   "uid"
   end
 
+  add_foreign_key "comments", "restaurants"
+  add_foreign_key "comments", "users"
   add_foreign_key "likes", "restaurants"
   add_foreign_key "likes", "users"
 end
