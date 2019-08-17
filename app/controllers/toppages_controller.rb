@@ -1,5 +1,5 @@
 class ToppagesController < ApplicationController
   def index
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.page(params[:page]).per(10)
   end
 end
