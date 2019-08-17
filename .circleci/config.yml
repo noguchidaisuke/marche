@@ -16,7 +16,10 @@ jobs:
           command: sleep 1
       - run:
           name: "before_test: setup db"
-          command: docker-compose run web rails db:create db:migrate
+          command: docker-compose run web rails db:create
+      - run:
+          name: "db migrate"
+          command: dokcer-compose run web rails db:migrate
       - run:
           name: test
           command: docker-compose run web bundle exec rspec #RSpecを使う場合は、bundle exec rspec
