@@ -1,20 +1,9 @@
 version: 2
 jobs:
   build:
-    docker:
-        - image: circleci/ruby:2.6.3
-            environment:
-                RAILS_ENV: test
-                MYSQL_HOST: 127.0.0.1
-
-        - image: circleci/mysql:5.7
-            environment:
-                MYSQL_USER: root
-                MYSQL_DB: app_test
-                MYSQ_PASSWORD: password
-                ports:
-                    - "3306:3306"
-
+    machine:
+      image: circleci/classic:edge
+      
     steps:
       - checkout
       - run:
