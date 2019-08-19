@@ -7,10 +7,10 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.6'
+gem 'rails', '~> 5.2.1'
 # Use mysql as the database for Active Record
 gem 'mysql2'
-# Use Puma as the app server
+# Use Puma as the app server                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -45,7 +45,10 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rails-controller-testing'
   gem 'rspec_junit_formatter'
-
+  gem 'factory_bot_rails', '~> 4.11'
+  gem 'capybara', '>= 2.15'
+  gem 'webdrivers'
+  gem 'selenium-webdriver'
 end
 
 group :development do
