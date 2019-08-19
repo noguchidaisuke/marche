@@ -1,29 +1,34 @@
 version: 2
 jobs:
   build:
+    docker:
     machine:
       image: circleci/classic:edge
-    
+
+    working_directory: ~/rest-web
+
     steps:
       - checkout
+
       - run:
-          name: docker-compose build
-          command: docker-compose build
+          name: image build
+          command: |
+            docker-compose up -d
+
       - run:
-          name: docker-compose up
-          command: docker-compose up -d
+          name: docker-compose ps
+          command: |
+            docker-compose ps
       - run:
-          name: sleep for waiting launch db
-          command: sleep 1
+          name: sleep for DB launch
+          command: |
+            sleep 10
+
       - run:
-          name: "before_test: setup db"
-          command: docker-compose run web rails db:create
-      - run:
-          name: "db migrate"
-          command: docker-compose run web rails db:migrate
+          name: migrate db
+          command: docker-compose run web rails db:create db:migrate
+
       - run:
           name: test
-          command: docker-compose run web bundle exec rspec #RSpecを使う場合は、bundle exec rspec
-      - run:
-          name: docker-compose down
-          command: docker-compose down
+          command: |
+            docker-compose exec web bundle exec  rspec ./spec/models/
