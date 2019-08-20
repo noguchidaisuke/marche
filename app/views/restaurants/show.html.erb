@@ -4,18 +4,19 @@
             <% if logged_in? %>
               <%= render 'likes/like_button', restaurant: @restaurant %>
             <% end %>        
-  <p class="text-center"><%= link_to 'ぐるなびページ', @restaurant.url, target: '_blank' %></p>
+  <p class="text-center"><%= link_to 'ぐるなびページ', @restaurant.url, target: '_blank',class: 'btn-gradient-3d-orange' %></p>
 
 
 
 <div id="map">
 </div>
-
-<div class="p-comment__list">
-  <div class="p-comment__listTitle">コメント</div>
-    <%= render @restaurant.comments %>
+<div class="comment_area">
+  <div class="p-comment__list">
+    <div class="p-comment__listTitle">コメント</div>
+      <%= render @restaurant.comments %>
+  </div>
+  <%= render 'comments/comment_form',comment: @comment %>
 </div>
-<%= render 'comments/comment_form',comment: @comment %>
 <%= render 'charges/charge'%>
 
 <style>

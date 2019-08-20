@@ -6,3 +6,10 @@ describe '足し算' do
         expect(a).to eq 2
     end
 end
+
+describe 'ユーザー作成' do
+    it '確かめる' do
+        @user = User.new
+        expect(@user.save).to be_falsy
+    end
+end

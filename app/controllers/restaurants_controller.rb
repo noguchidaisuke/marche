@@ -8,7 +8,7 @@ class RestaurantsController < ApplicationController
     url = 'https://api.gnavi.co.jp/RestSearchAPI/v3/'
 
     params = {
-      keyid: '4cd1a81fec528e1c5fc0dfa8ca16e7a2',
+      keyid: ENV['GURUNAVI_API_KEY'],
       freeword: @freeword
     }
     
@@ -17,10 +17,19 @@ class RestaurantsController < ApplicationController
     #response_jsonにjsonの形でparamsのリクエストに応じたレスポンスが帰ってくる
     response_json = JSON.parse(response.body) 
     if response_json.present?
-      response_json['rest'].each do |rest| 
-        restaurant = Restaurant.new(read(rest))
-        restaurant.save
-        @restaurants << restaurant
+      begin
+        response_json['rest'].each do |rest| 
+          restaurant = Restaurant.new(read(rest))
+          if Restaurant.find_by(g_id: restaurant[:g_id])
+            restaurant = Restaurant.find_by(g_id: restaurant[:g_id])
+          else
+            restaurant.save 
+          end
+          @restaurants << restaurant
+        end
+      rescue
+        flash[:danger]='該当のお店が見つかりませんでした。他のキーワードでお願いします'
+        redirect_to root_path
       end
     end
   end
