@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :new, :create]
   resources :restaurants, only: [:show, :new]
   resources :likes, only:[:create, :destroy]
+  resources :charges, only: [:new,:create]
   #resources :restaurants drouo
    # member do
     #  get :like_microposts
