@@ -46,9 +46,8 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rspec_junit_formatter'
   gem 'factory_bot_rails', '~> 4.11'
-  gem 'capybara', '>= 2.15'
-  gem 'webdrivers'
-  gem 'selenium-webdriver'
+  gem 'capybara'
+  gem 'faker'
 end
 
 group :development do

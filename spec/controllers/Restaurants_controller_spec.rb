@@ -1,12 +1,13 @@
 require 'rails_helper'
+require 'faraday'
 
 RSpec.describe RestaurantsController, type: :controller do
     describe 'APItest' do
-        let(:freeword){'肉'}
         let(:url){'https://api.gnavi.co.jp/RestSearchAPI/v3/'}
-        let(:keyid){ENV['GURUNAVI_API_KEY']}
+        let(:params){{keyid: ENV['GURUNAVI_API_KEY'],freeword: '肉'}}
         it do
-            expect(freeword).to eq('肉')
+            Faraday.get(url,params)
+            expect(response.status).to eq 200
         end
     end
 end

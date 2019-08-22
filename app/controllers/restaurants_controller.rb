@@ -12,8 +12,7 @@ class RestaurantsController < ApplicationController
       freeword: @freeword
     }
     
-    conn = Faraday.new(url: url)
-    response = conn.get '', params
+    response = Faraday.get(url,params)
     #response_jsonにjsonの形でparamsのリクエストに応じたレスポンスが帰ってくる
     response_json = JSON.parse(response.body) 
     if response_json.present?
