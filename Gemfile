@@ -35,7 +35,7 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'kaminari'
 gem 'stripe'
-
+gem 'unicorn'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

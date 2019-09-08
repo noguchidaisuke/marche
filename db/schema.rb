@@ -10,51 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190815090737) do
+ActiveRecord::Schema.define(version: 2019_08_15_090737) do
 
-  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "comment"
-    t.integer  "restaurant_id"
-    t.integer  "user_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["restaurant_id"], name: "index_comments_on_restaurant_id", using: :btree
-    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+  create_table "comments", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "comment"
+    t.integer "restaurant_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["restaurant_id"], name: "index_comments_on_restaurant_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id"
-    t.integer  "restaurant_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["restaurant_id"], name: "index_likes_on_restaurant_id", using: :btree
-    t.index ["user_id", "restaurant_id"], name: "index_likes_on_user_id_and_restaurant_id_and_type", unique: true, using: :btree
-    t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
+  create_table "likes", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "restaurant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["restaurant_id"], name: "index_likes_on_restaurant_id"
+    t.index ["user_id", "restaurant_id"], name: "index_likes_on_user_id_and_restaurant_id_and_type", unique: true
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
-  create_table "restaurants", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "g_id"
-    t.string   "name"
-    t.string   "url"
-    t.string   "pc"
-    t.string   "shop_image1"
-    t.string   "pr_short"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.float    "latitude",    limit: 24
-    t.float    "longitude",   limit: 24
+  create_table "restaurants", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "g_id"
+    t.string "name"
+    t.string "url"
+    t.string "pc"
+    t.string "shop_image1"
+    t.string "pr_short"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.date     "birthday"
-    t.string   "image"
-    t.string   "provider"
-    t.string   "uid"
+  create_table "users", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date "birthday"
+    t.string "image"
+    t.string "provider"
+    t.string "uid"
   end
 
   add_foreign_key "comments", "restaurants"
