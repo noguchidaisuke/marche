@@ -1,0 +1,26 @@
+I, [2019-09-08T14:43:26.882518 #5757]  INFO -- : Refreshing Gem list
+F, [2019-09-08T14:43:34.302680 #5757] FATAL -- : error adding listener addr=/Users/noguchidaisuke/gnavi/tmp/sockets/unicorn.sock
+bundler: failed to load command: unicorn_rails (/Users/noguchidaisuke/.rbenv/versions/2.6.3/bin/unicorn_rails)
+ArgumentError: socket=/Users/noguchidaisuke/gnavi/tmp/sockets/unicorn.sock specified but it is not a socket!
+  /Users/noguchidaisuke/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/unicorn-5.5.1/lib/unicorn/socket_helper.rb:132:in `bind_listen'
+  /Users/noguchidaisuke/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:243:in `listen'
+  /Users/noguchidaisuke/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:850:in `block in bind_new_listeners!'
+  /Users/noguchidaisuke/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:850:in `each'
+  /Users/noguchidaisuke/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:850:in `bind_new_listeners!'
+  /Users/noguchidaisuke/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:142:in `start'
+  /Users/noguchidaisuke/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/unicorn-5.5.1/bin/unicorn_rails:209:in `<top (required)>'
+  /Users/noguchidaisuke/.rbenv/versions/2.6.3/bin/unicorn_rails:23:in `load'
+  /Users/noguchidaisuke/.rbenv/versions/2.6.3/bin/unicorn_rails:23:in `<top (required)>'
+I, [2019-09-08T14:46:20.600590 #5828]  INFO -- : Refreshing Gem list
+I, [2019-09-08T14:46:27.433597 #5828]  INFO -- : listening on addr=/Users/noguchidaisuke/gnavi/tmp/sockets/unicorn.sock fd=14
+I, [2019-09-08T14:46:28.179254 #5828]  INFO -- : master process ready
+I, [2019-09-08T14:46:28.182881 #5849]  INFO -- : worker=0 ready
+I, [2019-09-08T14:46:28.192601 #5850]  INFO -- : worker=1 ready
+I, [2019-09-08T14:51:07.162792 #5916]  INFO -- : Refreshing Gem list
+I, [2019-09-08T14:51:13.546199 #5916]  INFO -- : unlinking existing socket=/Users/noguchidaisuke/gnavi/tmp/sockets/unicorn.sock
+I, [2019-09-08T14:51:13.547668 #5916]  INFO -- : listening on addr=/Users/noguchidaisuke/gnavi/tmp/sockets/unicorn.sock fd=14
+I, [2019-09-08T14:51:14.238448 #5937]  INFO -- : worker=0 ready
+I, [2019-09-08T14:51:14.239844 #5916]  INFO -- : master process ready
+I, [2019-09-08T14:51:14.246687 #5938]  INFO -- : worker=1 ready
+D, [2019-09-08T17:02:36.262207 #5916] DEBUG -- : waiting 16.0s after suspend/hibernation
+D, [2019-09-08T17:44:24.093726 #5916] DEBUG -- : waiting 16.0s after suspend/hibernation
