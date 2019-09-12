@@ -39,6 +39,7 @@ gem 'unicorn'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
@@ -66,7 +67,3 @@ gem 'dotenv-rails'
 
 gem 'faraday'
 
-
-group :production do
-  gem 'pg', '0.21.0'
-end

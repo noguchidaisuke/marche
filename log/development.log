@@ -13086,3 +13086,526 @@ Processing by RestaurantsController#show as HTML
 Completed 200 OK in 106ms (Views: 102.3ms | ActiveRecord: 1.7ms)
 
 
+  [1m[35m (16.9ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Started GET "/" for 127.0.0.1 at 2019-09-09 18:18:31 +0900
+  [1m[35m (11.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (18.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ToppagesController#index as HTML
+  Rendering toppages/index.html.erb within layouts/application
+  [1m[36mUser Load (10.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mRestaurant Load (4.4ms)[0m  [1m[34mSELECT  `restaurants`.* FROM `restaurants` LIMIT 10 OFFSET 0[0m
+  [1m[36mRestaurant Exists (10.5ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 1 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (69.1ms)
+  [1m[36mRestaurant Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 2 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (1.6ms)
+  [1m[36mRestaurant Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 3 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (1.4ms)
+  [1m[36mRestaurant Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 4 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (1.4ms)
+  [1m[36mRestaurant Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 5 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (1.5ms)
+  [1m[36mRestaurant Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 6 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (1.4ms)
+  [1m[36mRestaurant Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 7 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (1.4ms)
+  [1m[36mRestaurant Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 8 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (1.4ms)
+  [1m[36mRestaurant Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 9 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (1.4ms)
+  [1m[36mRestaurant Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 10 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (1.4ms)
+  Rendered restaurants/_restaurants.html.erb (141.8ms)
+  [1m[35m (14.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `restaurants`[0m
+  Rendered toppages/index.html.erb within layouts/application (1757.8ms)
+  Rendered layouts/_navbar.html.erb (1.3ms)
+  Rendered layouts/_flash_messages.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 2055ms (Views: 1777.7ms | ActiveRecord: 254.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-09-09 18:20:48 +0900
+Processing by ToppagesController#index as HTML
+  Rendering toppages/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mRestaurant Load (2.1ms)[0m  [1m[34mSELECT  `restaurants`.* FROM `restaurants` LIMIT 10 OFFSET 0[0m
+  [1m[36mRestaurant Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 1 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (86.6ms)
+  [1m[36mRestaurant Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 2 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (1.5ms)
+  [1m[36mRestaurant Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 3 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (1.5ms)
+  [1m[36mRestaurant Exists (6.3ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 4 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (7.3ms)
+  [1m[36mRestaurant Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 5 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (1.5ms)
+  [1m[36mRestaurant Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 6 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (1.4ms)
+  [1m[36mRestaurant Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 7 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (1.4ms)
+  [1m[36mRestaurant Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 8 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (1.6ms)
+  [1m[36mRestaurant Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 9 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (1.8ms)
+  [1m[36mRestaurant Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 10 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (1.6ms)
+  Rendered restaurants/_restaurants.html.erb (147.4ms)
+  [1m[35m (8.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `restaurants`[0m
+  Rendered toppages/index.html.erb within layouts/application (1678.9ms)
+  Rendered layouts/_navbar.html.erb (1.2ms)
+  Rendered layouts/_flash_messages.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 1870ms (Views: 1719.8ms | ActiveRecord: 93.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-09-09 18:21:00 +0900
+Processing by ToppagesController#index as HTML
+  Rendering toppages/index.html.erb within layouts/application
+  [1m[36mUser Load (5.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mRestaurant Load (2.5ms)[0m  [1m[34mSELECT  `restaurants`.* FROM `restaurants` LIMIT 10 OFFSET 0[0m
+  [1m[36mRestaurant Exists (2.1ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 1 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (8.1ms)
+  [1m[36mRestaurant Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 2 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (1.5ms)
+  [1m[36mRestaurant Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 3 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (2.1ms)
+  [1m[36mRestaurant Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 4 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (3.1ms)
+  [1m[36mRestaurant Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 5 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (1.6ms)
+  [1m[36mRestaurant Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 6 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (2.1ms)
+  [1m[36mRestaurant Exists (2.2ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 7 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (3.4ms)
+  [1m[36mRestaurant Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 8 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (1.7ms)
+  [1m[36mRestaurant Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 9 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (1.7ms)
+  [1m[36mRestaurant Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 10 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (14.0ms)
+  Rendered restaurants/_restaurants.html.erb (59.1ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `restaurants`[0m
+  Rendered toppages/index.html.erb within layouts/application (95.4ms)
+  Rendered layouts/_navbar.html.erb (1.2ms)
+  Rendered layouts/_flash_messages.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 167ms (Views: 141.3ms | ActiveRecord: 16.0ms)
+
+
+  [1m[35m (6.9ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Started GET "/" for 127.0.0.1 at 2019-09-09 19:00:16 +0900
+  [1m[35m (45.1ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ToppagesController#index as HTML
+  Rendering toppages/index.html.erb within layouts/application
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mRestaurant Load (2.8ms)[0m  [1m[34mSELECT  `restaurants`.* FROM `restaurants` LIMIT 10 OFFSET 0[0m
+  [1m[36mRestaurant Exists (2.4ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 1 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (83.2ms)
+  [1m[36mRestaurant Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 2 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (2.4ms)
+  [1m[36mRestaurant Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 3 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (2.3ms)
+  [1m[36mRestaurant Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 4 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (2.1ms)
+  [1m[36mRestaurant Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 5 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (2.1ms)
+  [1m[36mRestaurant Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 6 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (2.7ms)
+  [1m[36mRestaurant Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 7 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (2.8ms)
+  [1m[36mRestaurant Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 8 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (2.5ms)
+  [1m[36mRestaurant Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 9 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (2.0ms)
+  [1m[36mRestaurant Exists (2.7ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 10 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (4.3ms)
+  Rendered restaurants/_restaurants.html.erb (182.8ms)
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM `restaurants`[0m
+  Rendered toppages/index.html.erb within layouts/application (1605.4ms)
+  Rendered layouts/_navbar.html.erb (2.3ms)
+  Rendered layouts/_flash_messages.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 1953ms (Views: 1840.6ms | ActiveRecord: 85.2ms)
+
+
+Started HEAD "/" for 127.0.0.1 at 2019-09-09 19:00:27 +0900
+Processing by ToppagesController#index as */*
+  Rendering toppages/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mRestaurant Load (2.1ms)[0m  [1m[34mSELECT  `restaurants`.* FROM `restaurants` LIMIT 10 OFFSET 0[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered restaurants/_restaurants.html.erb (66.9ms)
+  [1m[35m (6.8ms)[0m  [1m[34mSELECT COUNT(*) FROM `restaurants`[0m
+  Rendered toppages/index.html.erb within layouts/application (1272.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered layouts/_navbar.html.erb (2.2ms)
+  Rendered layouts/_flash_messages.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 1385ms (Views: 1306.2ms | ActiveRecord: 58.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-09-09 20:06:32 +0900
+  [1m[35m (25.8ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Processing by ToppagesController#index as HTML
+  Rendering toppages/index.html.erb within layouts/application
+  [1m[36mUser Load (23.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mRestaurant Load (8.9ms)[0m  [1m[34mSELECT  `restaurants`.* FROM `restaurants` LIMIT 10 OFFSET 0[0m
+  [1m[36mRestaurant Exists (3.9ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 1 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (6052.4ms)
+  [1m[36mRestaurant Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 2 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (4.0ms)
+  [1m[36mRestaurant Exists (3.7ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 3 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (9.2ms)
+  [1m[36mRestaurant Exists (2.7ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 4 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (5.1ms)
+  [1m[36mRestaurant Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 5 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (4.2ms)
+  [1m[36mRestaurant Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 6 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (11.1ms)
+  [1m[36mRestaurant Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 7 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (3.1ms)
+  [1m[36mRestaurant Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 8 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (3.0ms)
+  [1m[36mRestaurant Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 9 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (3.2ms)
+  [1m[36mRestaurant Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `restaurants` INNER JOIN `likes` ON `restaurants`.`id` = `likes`.`restaurant_id` WHERE `likes`.`user_id` = 1 AND `restaurants`.`id` = 10 LIMIT 1[0m
+  Rendered likes/_like_button.html.erb (3.5ms)
+  Rendered restaurants/_restaurants.html.erb (6254.9ms)
+  [1m[35m (24.8ms)[0m  [1m[34mSELECT COUNT(*) FROM `restaurants`[0m
+  Rendered toppages/index.html.erb within layouts/application (7019.9ms)
+  Rendered layouts/_navbar.html.erb (6.5ms)
+  Rendered layouts/_flash_messages.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (3.1ms)
+Completed 200 OK in 7458ms (Views: 7036.5ms | ActiveRecord: 350.3ms)
+
+
+Started GET "/" for ::1 at 2019-09-10 18:25:50 +0900
+  [1m[35m (3.1ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (14.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ToppagesController#index as HTML
+  Rendering toppages/index.html.erb within layouts/application
+  [1m[36mUser Load (12.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mRestaurant Load (10.4ms)[0m  [1m[34mSELECT  `restaurants`.* FROM `restaurants` LIMIT 10 OFFSET 0[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered restaurants/_restaurants.html.erb (216.9ms)
+  [1m[35m (4.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `restaurants`[0m
+  Rendered toppages/index.html.erb within layouts/application (1570.6ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered layouts/_navbar.html.erb (1.7ms)
+  Rendered layouts/_flash_messages.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 1765ms (Views: 1554.6ms | ActiveRecord: 196.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-09-10 18:26:47 +0900
+  [1m[35m (1.0ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (4.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ToppagesController#index as HTML
+  Rendering toppages/index.html.erb within layouts/application
+  [1m[36mUser Load (6.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mRestaurant Load (11.2ms)[0m  [1m[34mSELECT  `restaurants`.* FROM `restaurants` LIMIT 10 OFFSET 0[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered restaurants/_restaurants.html.erb (105.3ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `restaurants`[0m
+  Rendered toppages/index.html.erb within layouts/application (2199.2ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered layouts/_navbar.html.erb (2.7ms)
+  Rendered layouts/_flash_messages.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 2577ms (Views: 2477.9ms | ActiveRecord: 65.4ms)
+
+
+  [1m[35m (6.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Started GET "/" for 127.0.0.1 at 2019-09-10 19:39:25 +0900
+  [1m[35m (3.9ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ToppagesController#index as HTML
+  Rendering toppages/index.html.erb within layouts/application
+  [1m[36mUser Load (10.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mRestaurant Load (10.6ms)[0m  [1m[34mSELECT  `restaurants`.* FROM `restaurants` LIMIT 10 OFFSET 0[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered restaurants/_restaurants.html.erb (178.0ms)
+  [1m[35m (4.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `restaurants`[0m
+  Rendered toppages/index.html.erb within layouts/application (1588.2ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered layouts/_navbar.html.erb (1.7ms)
+  Rendered layouts/_flash_messages.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 1828ms (Views: 1653.1ms | ActiveRecord: 157.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-09-10 19:39:34 +0900
+Processing by ToppagesController#index as HTML
+  Rendering toppages/index.html.erb within layouts/application
+  [1m[36mUser Load (19.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mRestaurant Load (15.6ms)[0m  [1m[34mSELECT  `restaurants`.* FROM `restaurants` LIMIT 10 OFFSET 0[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered restaurants/_restaurants.html.erb (148.8ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `restaurants`[0m
+  Rendered toppages/index.html.erb within layouts/application (1848.7ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered layouts/_navbar.html.erb (1.6ms)
+  Rendered layouts/_flash_messages.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 1943ms (Views: 1750.3ms | ActiveRecord: 155.7ms)
+
+
+  [1m[35m (2.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Started GET "/" for 127.0.0.1 at 2019-09-10 19:40:57 +0900
+  [1m[35m (45.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ToppagesController#index as HTML
+  Rendering toppages/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mRestaurant Load (12.1ms)[0m  [1m[34mSELECT  `restaurants`.* FROM `restaurants` LIMIT 10 OFFSET 0[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered restaurants/_restaurants.html.erb (132.2ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `restaurants`[0m
+  Rendered toppages/index.html.erb within layouts/application (1061.7ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered layouts/_navbar.html.erb (2.7ms)
+  Rendered layouts/_flash_messages.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 1234ms (Views: 1095.3ms | ActiveRecord: 122.8ms)
+
+
+  [1m[35m (8.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Started GET "/" for 127.0.0.1 at 2019-09-10 20:56:47 +0900
+  [1m[35m (6.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (6.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ToppagesController#index as HTML
+  Rendering toppages/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mRestaurant Load (1.2ms)[0m  [1m[34mSELECT  `restaurants`.* FROM `restaurants` LIMIT 10 OFFSET 0[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered restaurants/_restaurants.html.erb (221.4ms)
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `restaurants`[0m
+  Rendered toppages/index.html.erb within layouts/application (1597.1ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered layouts/_navbar.html.erb (1.9ms)
+  Rendered layouts/_flash_messages.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 1823ms (Views: 1606.9ms | ActiveRecord: 193.4ms)
+
+
+  [1m[35m (13.9ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (6.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Started GET "/" for 127.0.0.1 at 2019-09-10 21:04:59 +0900
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (8.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ToppagesController#index as HTML
+  Rendering toppages/index.html.erb within layouts/application
+  [1m[36mUser Load (6.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mRestaurant Load (12.6ms)[0m  [1m[34mSELECT  `restaurants`.* FROM `restaurants` LIMIT 10 OFFSET 0[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered restaurants/_restaurants.html.erb (123.1ms)
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `restaurants`[0m
+  Rendered toppages/index.html.erb within layouts/application (1944.5ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered layouts/_navbar.html.erb (1.5ms)
+  Rendered layouts/_flash_messages.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 2151ms (Views: 2030.4ms | ActiveRecord: 101.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-09-10 21:05:09 +0900
+Processing by ToppagesController#index as HTML
+  Rendering toppages/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mRestaurant Load (0.5ms)[0m  [1m[34mSELECT  `restaurants`.* FROM `restaurants` LIMIT 10 OFFSET 0[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered restaurants/_restaurants.html.erb (11.5ms)
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `restaurants`[0m
+  Rendered toppages/index.html.erb within layouts/application (27.2ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered layouts/_navbar.html.erb (2.0ms)
+  Rendered layouts/_flash_messages.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 58ms (Views: 53.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/" for 172.24.0.1 at 2019-09-12 09:45:44 +0000
+Cannot render console from 172.24.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+Mysql2::Error::ConnectionError (Access denied for user 'root'@'172.24.0.3' (using password: NO)):
+  
+mysql2 (0.5.2) lib/mysql2/client.rb:90:in `connect'
+mysql2 (0.5.2) lib/mysql2/client.rb:90:in `initialize'
+activerecord (5.2.3) lib/active_record/connection_adapters/mysql2_adapter.rb:22:in `new'
+activerecord (5.2.3) lib/active_record/connection_adapters/mysql2_adapter.rb:22:in `mysql2_connection'
+activerecord (5.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:811:in `new_connection'
+activerecord (5.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:855:in `checkout_new_connection'
+activerecord (5.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:834:in `try_to_checkout_new_connection'
+activerecord (5.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:795:in `acquire_connection'
+activerecord (5.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:523:in `checkout'
+activerecord (5.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:382:in `connection'
+activerecord (5.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:1014:in `retrieve_connection'
+activerecord (5.2.3) lib/active_record/connection_handling.rb:118:in `retrieve_connection'
+activerecord (5.2.3) lib/active_record/connection_handling.rb:90:in `connection'
+activerecord (5.2.3) lib/active_record/migration.rb:554:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for 172.24.0.1 at 2019-09-12 09:47:49 +0000
+Cannot render console from 172.24.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (98.0ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (7.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ToppagesController#index as HTML
+  Rendering toppages/index.html.erb within layouts/application
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mRestaurant Load (7.6ms)[0m  [1m[34mSELECT  `restaurants`.* FROM `restaurants` LIMIT 10 OFFSET 0[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered restaurants/_restaurants.html.erb (80.5ms)
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT COUNT(*) FROM `restaurants`[0m
+  Rendered toppages/index.html.erb within layouts/application (2313.1ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered layouts/_navbar.html.erb (5.5ms)
+  Rendered layouts/_flash_messages.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 6962ms (Views: 6784.0ms | ActiveRecord: 35.6ms)
+
+
+Started GET "/" for 172.24.0.1 at 2019-09-12 09:48:04 +0000
+Cannot render console from 172.24.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ToppagesController#index as HTML
+  Rendering toppages/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mRestaurant Load (0.8ms)[0m  [1m[34mSELECT  `restaurants`.* FROM `restaurants` LIMIT 10 OFFSET 0[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered restaurants/_restaurants.html.erb (31.3ms)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `restaurants`[0m
+  Rendered toppages/index.html.erb within layouts/application (244.8ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered layouts/_navbar.html.erb (3.6ms)
+  Rendered layouts/_flash_messages.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 665ms (Views: 618.4ms | ActiveRecord: 2.4ms)
+
+
