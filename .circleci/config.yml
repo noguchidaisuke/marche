@@ -10,9 +10,7 @@ jobs:
     steps:
       - checkout
       - run:
-          command: |
-            docker build .
-
+          command: docker-compose build --no-cache
       - run:
           name: image build
           command: |
