@@ -10,12 +10,11 @@ jobs:
     steps:
       - checkout
       - run:
-          command: docker-compose build --no-cache
-      - run:
           name: image build
           command: |
             docker-compose up -d
-
+      - run:
+          command: docker-compose run web bundle install
       - run:
           name: docker-compose ps
           command: |
