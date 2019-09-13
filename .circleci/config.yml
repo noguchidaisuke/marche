@@ -9,6 +9,9 @@ jobs:
 
     steps:
       - checkout
+      - run:
+          command: |
+            docker build .
 
       - run:
           name: image build
