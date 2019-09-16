@@ -35,7 +35,7 @@ jobs:
 
   deploy:
    machine:
-    image: ciecleci/classic:edge
+    image: circleci/classic:edge
    steps:
     - checkout
     - add_ssh_keys:
