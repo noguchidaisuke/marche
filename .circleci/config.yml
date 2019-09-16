@@ -43,20 +43,17 @@ jobs:
             - "88:ce:f1:88:90:5f:4f:d8:8a:93:7a:6d:a8:6e:2d:32"
     - run:
        name: into ec2
-       command: ssh ${USER_NAME}@${HOST_NAME}
-    - run:
-       name: cd
-       command: cd /var/www/rails/gnavi && pwd
+       command: ssh ${USER_NAME}@${HOST_NAME}　&& cd /var/www/rails/gnavi && pwd
 
   
 workflows:
   version: 2
   build_and_deploy:
     jobs:
-      - build
+      #- build
       - deploy:
-          requires:
-            - build
+          #requires:
+            #- build
           filters:
             branches:
               only: master
