@@ -45,7 +45,7 @@ jobs:
        command: echo ${HOST_NAME} && echo ${USER_NAME}
     - run:
        name: into ec2
-       command: ssh ${USER_NAME}@${HOST_NAME}　&& pwd
+       command: ssh ${USER_NAME}@${HOST_NAME} "pwd"
 
   
 workflows:
