@@ -43,7 +43,7 @@ jobs:
             - "88:ce:f1:88:90:5f:4f:d8:8a:93:7a:6d:a8:6e:2d:32"
     - run:
        name: into ec2
-       command: ssh ${USER_NAME}@${HOST_NAME} "cd /var/www/rails/gnavi && git pull && rails assets:precompile && rails unicorn:stop && rails unicorn:start"
+       command: ssh ${USER_NAME}@${HOST_NAME} "cd /var/www/rails/gnavi && git pull && rails unicorn:stop && rails unicorn:start"
 
   
 workflows:
