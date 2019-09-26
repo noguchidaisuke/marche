@@ -56,4 +56,5 @@ production:
   pool: 5
   username: root
   password: password
-  host: aws-and-infra-web.cvh8iz4psy0l.ap-northeast-1.rds.amazonaws.com
+  host: db
+  #host: aws-and-infra-web.cvh8iz4psy0l.ap-northeast-1.rds.amazonaws.com

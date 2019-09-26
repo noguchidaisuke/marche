@@ -10,20 +10,35 @@ services:
       MYSQL_ROOT_PASSWORD: password
   web:
     build: .
-    command: bundle exec rails s -p 80 -b '0.0.0.0'
+    command: bash -c "rm -f tmp/pids/unicorn.pid && bundle exec unicorn -c config/unicorn.rb -E production"
     volumes:
-      - .:/app
+      - .:/myapp
       - bundle_path:/bundle
+      - public-data:/myapp/public
+      - socket-data:/myapp/tmp/sockets
+      - log-data:/myapp/log
+    ports:
+      - 3000:3000
     environment:
       - BUNDLE_PATH=/bundle
-    ports:
-      - 80:80
     depends_on:
       - db
     tty: true
     stdin_open: true
-  
+
+  server:
+    build: ./nginx
+    volumes:
+      - socket-data:/myapp/tmp/sockets
+      - public-data:/myapp/public
+    ports:
+      - 80:80
+    depends_on:
+      - web
+
 volumes:
   bundle_path:
+  public-data:
+  socket-data:
+  log-data:
   db-volume:
-    driver: local
