@@ -1,5 +1,5 @@
 FROM ruby:2.6.3
-RUN apt-get update -qq && apt-get install -y build-essential nodejs
+RUN apt-get update -qq && apt-get install -y build-essential nodejs default-mysql-client
 RUN mkdir /myapp
 WORKDIR /myapp
 COPY Gemfile /myapp/Gemfile
