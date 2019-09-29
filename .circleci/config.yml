@@ -12,22 +12,17 @@ jobs:
       - run:
           name: image build
           command: |
-            docker-compose up -d
-      - run:
-          command: docker-compose run web bundle install
-      - run:
-          name: docker-compose ps
-          command: |
-            docker-compose ps
+            docker-compose build
       - run:
           name: sleep for DB launch
           command: |
             sleep 10
-
       - run:
           name: migrate db
           command: docker-compose run web rails db:create db:migrate
-
+      - run:
+           name: up
+           command: docker-compose up -d
       - run:
           name: test
           command: |
@@ -57,3 +52,4 @@ workflows:
           filters:
             branches:
               only: master
+              
