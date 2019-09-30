@@ -10,9 +10,12 @@ jobs:
     steps:
       - checkout
       - run:
-          name: image build
+           name: up
+           command: docker-compose up -d
+      - run:
+          name: sleep for DB launch
           command: |
-            docker-compose build
+            sleep 10
       - run:
            name: bundle install
            command: |
@@ -20,13 +23,6 @@ jobs:
       - run:
           name: migrate db
           command: docker-compose run web rails db:create db:migrate
-      - run:
-           name: up
-           command: docker-compose up -d
-      - run:
-          name: sleep for DB launch
-          command: |
-            sleep 10
       - run:
           name: test
           command: |
