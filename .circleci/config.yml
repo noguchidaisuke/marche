@@ -14,15 +14,19 @@ jobs:
           command: |
             docker-compose build
       - run:
-          name: sleep for DB launch
-          command: |
-            sleep 10
+           name: bundle install
+           command: |
+            docker-compose run web bundle install
       - run:
           name: migrate db
           command: docker-compose run web rails db:create db:migrate
       - run:
            name: up
            command: docker-compose up -d
+      - run:
+          name: sleep for DB launch
+          command: |
+            sleep 10
       - run:
           name: test
           command: |
@@ -52,4 +56,3 @@ workflows:
           filters:
             branches:
               only: master
-              
