@@ -4,9 +4,7 @@ jobs:
     docker:
     machine:
       image: circleci/classic:edge
-
     working_directory: ~/rest-web
-
     steps:
       - checkout
       - run:
@@ -38,9 +36,8 @@ jobs:
             - "88:ce:f1:88:90:5f:4f:d8:8a:93:7a:6d:a8:6e:2d:32"
     - run:
        name: into ec2
-       command: ssh ${USER_NAME}@${HOST_NAME} "cd /var/www/rails/gnavi && git pull && docker-compose stop && docker-compose up"
+       command: ssh ${USER_NAME}@${HOST_NAME} "cd /var/www/rails/gnavi && git pull && docker-compose stop && docker-compose up -d"
 
-  
 workflows:
   version: 2
   build_and_deploy:
