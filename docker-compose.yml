@@ -1,28 +1,24 @@
 version: '3'
 services:
   db:
-    image: mysql:5.7
+    build: ./mysql
     volumes:
       - db-volume:/var/lib/mysql
     ports:
-      - '3306:3306'
+      - '3305:3306'
     environment:
       MYSQL_ROOT_PASSWORD: password
   web:
     build: .
-    command: bash -c "rm -f tmp/pids/unicorn.pid && bundle exec unicorn -c config/unicorn.rb -E production"
     volumes:
       - .:/myapp
-      - bundle_path:/bundle
       - public-data:/myapp/public
       - socket-data:/myapp/tmp/sockets
       - log-data:/myapp/log
-    ports:
-      - 3000:3000
-    environment:
-      - BUNDLE_PATH=/bundle
     tty: true
     stdin_open: true
+    depends_on:
+      - db
   server:
     build: ./nginx
     volumes:
@@ -32,8 +28,6 @@ services:
       - 80:80
     depends_on:
       - web
-    
-    
 volumes:
   bundle_path:
   public-data:
