@@ -29,19 +29,15 @@ jobs:
   deploy:
    machine:
     image: circleci/classic:edge
-   environment:
-    AWS_ID: 231421272561.dkr.ecr.ap-northeast-1.amazonaws.com
    steps:
     - checkout
     - add_ssh_keys:
           fingerprints:
             - "88:ce:f1:88:90:5f:4f:d8:8a:93:7a:6d:a8:6e:2d:32"
     - run:
-       name: into ecs
-       command: $(aws ecr get-login --no-include-email)
-    - run:
-       name: ECR build
-       command: docker build -t ${AWS_ID}/gnavi_web .
+       name: into ec2
+       command: ssh ${USER_NAME}@${HOST_NAME} "cd /var/www/rails/gnavi && git pull && docker-compose stop && docker-compose up -d"
+
 workflows:
   version: 2
   build_and_deploy:
