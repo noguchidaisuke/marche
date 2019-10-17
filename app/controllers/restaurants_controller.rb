@@ -1,28 +1,23 @@
 class RestaurantsController < ApplicationController
   def new
-
     @restaurants = []
-   
     @freeword = params[:freeword]
-    
     url = 'https://api.gnavi.co.jp/RestSearchAPI/v3/'
-
     params = {
       keyid: ENV['GURUNAVI_API_KEY'],
       freeword: @freeword
     }
     
     response = Faraday.get(url,params)
-    #response_jsonにjsonの形でparamsのリクエストに応じたレスポンスが帰ってくる
-    response_json = JSON.parse(response.body) 
+    response_json = JSON.parse(response.body)
     if response_json.present?
       begin
-        response_json['rest'].each do |rest| 
+        response_json['rest'].each do |rest|
           restaurant = Restaurant.new(read(rest))
           if Restaurant.find_by(g_id: restaurant[:g_id])
             restaurant = Restaurant.find_by(g_id: restaurant[:g_id])
           else
-            restaurant.save 
+            restaurant.save
           end
           @restaurants << restaurant
         end

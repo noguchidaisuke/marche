@@ -1,0 +1,38 @@
+version: '3'
+services:
+  db:
+    build: ./mysql
+    volumes:
+      - db-volume:/var/lib/mysql
+    ports:
+      - '3305:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+  web:
+    build:
+     context: .
+     dockerfile: dockerfile.dev
+    volumes:
+      - .:/myapp
+      - public-data:/myapp/public
+      - socket-data:/myapp/tmp/sockets
+      - log-data:/myapp/log
+    tty: true
+    stdin_open: true
+    depends_on:
+      - db
+  server:
+    build: ./nginx.dev
+    volumes:
+      - socket-data:/myapp/tmp/sockets
+      - public-data:/myapp/public
+    ports:
+      - 3001:3001
+    depends_on:
+      - web
+volumes:
+  bundle_path:
+  public-data:
+  socket-data:
+  log-data:
+  db-volume:
