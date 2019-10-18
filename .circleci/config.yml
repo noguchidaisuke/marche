@@ -41,9 +41,10 @@ jobs:
     - run:
         name: ECR push
         command: docker push ${AWS_ID}/gnavi_web
+    -
     - run:
        name: deploy
-       command: scripts/ecs-deploy --cluster gnavi --service-name gnavi --image 231421272561.dkr.ecr.ap-northeast-1.amazonaws.com/gnavi_web:latest --timeout 600
+       command: scripts/ecs-deploy --cluster gnavi --service-name gnavi --region ap-northeast-1 --image 231421272561.dkr.ecr.ap-northeast-1.amazonaws.com/gnavi_web:latest --timeout 600
     
 workflows:
   version: 2
