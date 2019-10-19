@@ -1,0 +1,8 @@
+{
+    "containerOverrides": [
+      {
+        "name": "volume_web",
+        "command": ["bundle", "exec", "rails", "db:migrate"]
+      }
+    ]
+  }
