@@ -12,7 +12,7 @@ class RestaurantsController < ApplicationController
     response_json = JSON.parse(response.body)
     if response_json.present?
       begin
-        response_json['rest'].each do |rest|
+          response_json['rest'].each do |rest|
           restaurant = Restaurant.new(read(rest))
           if Restaurant.find_by(g_id: restaurant[:g_id])
             restaurant = Restaurant.find_by(g_id: restaurant[:g_id])
@@ -32,7 +32,5 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     @latlng = Array[@restaurant[:latitude],@restaurant[:longitude]]
     @comment = @restaurant.comments.new
-    @like_users = @restaurant.like_users
   end
-  
 end

@@ -1,0 +1,7 @@
+<%= form_with model: @test do |f| %>
+    <%= f.text_field :name %>
+    <%= f.text_field :number %>
+    <%= f.submit %>
+<% end %>
+
+<%= link_to "kk", new_test_path, class: 'form_control' %>

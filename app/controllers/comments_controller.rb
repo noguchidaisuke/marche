@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+    before_action :require_user_logged_in
     def create
         comment = current_user.comments.new(comment_params)
         if comment.save
@@ -15,7 +16,6 @@ class CommentsController < ApplicationController
         flash[:success] = "コメントを削除しました"
         redirect_back(fallback_location: root_path)
     end
-
 private
     def comment_params
         params.require(:comment).permit(:restaurant_id,:user_id,:comment)
