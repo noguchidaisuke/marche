@@ -1,15 +1,13 @@
 require 'rails_helper'
 
-describe '足し算' do
-    it '1+1=' do
-        a=1+1
-        expect(a).to eq 2
-    end
-end
-
-describe 'ユーザー作成' do
-    it '確かめる' do
-        @user = User.new
-        expect(@user.save).to be_falsy
-    end
+RSpec.describe User, type: :model do
+  it 'factory confirmation' do
+    user = FactoryBot.create(:user)
+    expect(user.name).to include('テストユーザー')
+  end
+  it 'is invalid name with too long trait lesson' do
+    user = FactoryBot.build(:user,:long)
+    user.valid?
+    expect(user.errors[:name]).to include("は10文字以内で入力してください")
+  end
 end

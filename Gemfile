@@ -10,7 +10,7 @@ end
 gem 'rails', '~> 5.2.1'
 # Use mysql as the database for Active Record
 gem 'mysql2'
-# Use Puma as the app server                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+# Use Puma as the app server                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -36,6 +36,7 @@ gem 'omniauth-twitter'
 gem 'kaminari'
 gem 'stripe'
 gem 'unicorn'
+gem 'rails-i18n'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -49,9 +50,11 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 4.11'
   gem 'capybara'
   gem 'faker'
+  gem 'pry-byebug'
 end
 
 group :development do
+  gem 'rack-mini-profiler', require: false
   gem 'bullet'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
@@ -59,7 +62,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'pry-byebug'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
