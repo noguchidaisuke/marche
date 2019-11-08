@@ -3,7 +3,7 @@ FactoryBot.define do
         name {'テストユーザー'}
         sequence(:email){ |n| "test#{n}@gmail.com" }
         password{'test'}
-        
+
         trait :long do
             name{'testtesttesttestaaaaaaaaa'}
         end
