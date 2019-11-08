@@ -14,7 +14,6 @@ class ApplicationController < ActionController::Base
   private
   
   def read(rest)
-    
      g_id = rest['id']
      name = rest['name']
      url = rest['url']
@@ -23,7 +22,6 @@ class ApplicationController < ActionController::Base
      pr_short = rest['pr']['pr_short']
      latitude = rest['latitude']
      longitude = rest['longitude']
-     
      return {
        g_id: g_id,
        name: name,

@@ -5,17 +5,10 @@ class LikesController < ApplicationController
     flash[:success]="お気に入り登録しました"
     redirect_back(fallback_location: root_path)
   end
-    
-  
-
   def destroy
-    
     @restaurant = Restaurant.find(params[:id])
-    
     current_user.unlike(@restaurant)
     flash[:success] = 'お気に入りを外ました。'
-  
     redirect_back(fallback_location: root_path)
   end
-
 end

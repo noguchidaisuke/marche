@@ -9,8 +9,7 @@ class ChargesController < ApplicationController
             :email => params[:stripeEmail], #emailは暗号化されずに受け取れます
             :source  => params[:stripeToken] #めちゃめちゃな文字列です 
         )
-
-
+        
         ###この操作で、決済をします
         charge = Stripe::Charge.create(
             :customer    => customer.id,

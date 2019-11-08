@@ -32,7 +32,5 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     @latlng = Array[@restaurant[:latitude],@restaurant[:longitude]]
     @comment = @restaurant.comments.new
-    @like_users = @restaurant.like_users
   end
-  
 end

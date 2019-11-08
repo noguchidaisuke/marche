@@ -19,9 +19,6 @@
     </div>
   </div>
 <% end %>
-<% @test.each do |test| %>
-  <h1><%= test[:name] %></h1>
-<% end %>
-<%= render 'restaurants/restaurants',restaurants: @restaurants %>
+<%= render @tests %>
+<%= render @restaurants %>
 <%= paginate @restaurants %>
-
