@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
   end
   describe 'validation check' do
     it 'is uniqueness with email' do
-      user = FactoryBot.build(:user,email: "test2@gmail.com")
+      user = FactoryBot.build(:user,email: "test3@gmail.com")
       user.valid?
       expect(user.errors[:email]).to include("はすでに存在します")
     end
