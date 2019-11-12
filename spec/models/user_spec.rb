@@ -16,7 +16,6 @@ RSpec.describe User, type: :model do
       expect(user.errors[:name]).to include('は10文字以内で入力してください')
     end
   end
-  
   it 'can login' do
     expect(@user.authenticate(@user.password)).to be_truthy
   end
