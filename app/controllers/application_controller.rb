@@ -11,8 +11,6 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  private
-  
   def read(rest)
      g_id = rest['id']
      name = rest['name']
