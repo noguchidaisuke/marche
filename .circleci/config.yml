@@ -41,7 +41,7 @@ jobs:
         command: docker push ${AWS_ID}/gnavi_web
     - run:
         name: migration
-        command: aws ecs run-task --region ap-northeast-1 --cluster gnavi2 --task-definition volume --overrides file://run_task_db_migrate.json
+        command: aws ecs run-task --region ap-northeast-1 --cluster gnavi --task-definition volume --overrides file://run_task_db_migrate.json
 
     - run:
        name: deploy
