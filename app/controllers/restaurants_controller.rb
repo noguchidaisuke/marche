@@ -7,7 +7,6 @@ class RestaurantsController < ApplicationController
       keyid: ENV['GURUNAVI_API_KEY'],
       freeword: @freeword
     }
-    
     response = Faraday.get(url,params)
     response_json = JSON.parse(response.body)
     if response_json.present?
