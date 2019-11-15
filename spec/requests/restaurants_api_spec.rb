@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+require 'webmock/rspec'
 describe 'Restaurants API',type: :request do
     it 'loads restaurants' do
         url = 'https://api.gnavi.co.jp/RestSearchAPI/v3/'
@@ -8,7 +8,7 @@ describe 'Restaurants API',type: :request do
             keyid: ENV['GURUNAVI_API_KEY'],
             freeword: @freeword
         }
-        Faraday.get(url,params)
-        response_json = JSON.parse(response.body)
+        res=Faraday.get(url,params)
+        expect(JSON.parse(res.body).length).to eq(5)
     end
 end
