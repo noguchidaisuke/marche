@@ -25,3 +25,5 @@ Pythonでrecommend機能実装
 GoでAPI maicroservice application
 
 React
+
+サーバレスアーキテクチャ
