@@ -19,6 +19,116 @@ footer {
 }
 
 /* cover */
+.sign-body{
+  background:url(mountain.jpg) no-repeat center center fixed;
+  background-size:cover;
+  height: 750px;
+  margin-top: -20px;
+}
+.main-section {
+  margin-top: 130px;
+  padding: 0;
+}
+.model-content {
+  background-color:#3b4652;
+  opacity: .95;
+  padding: 0 18px;
+  box-shadow: 0px 0px 3px #848484;
+}
+
+.user-img{
+  margin-top: -50px;
+  margin-bottom: 35px;
+  i{
+    font-size:100px;
+    color:#27c2a5;
+    margin-top: -50px;
+    background-color: #fff;
+    border-radius:50%;
+    padding:15px;
+  }
+}
+.form-group{
+  margin-bottom: 25px;
+  .form-control{
+    height: 42px;
+    border-radius:5px;
+    font-size:18px;
+    padding-left: 54px;
+  }
+}
+
+.form-group::before{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f007";
+  position:absolute;
+  font-size:22px;
+  color: #555e60;
+  left:28px;
+  margin-top: 6px;
+  padding-left: 4px;
+  padding-right: 14px;
+  border-right:3px solid;
+  margin-bottom: -5px;
+}
+.email::before{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f0e0";
+}
+.password::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f023";
+}
+
+.or{
+  margin:0 auto;
+  font-size:20px;
+  color:white;
+  margin-bottom: 10px;
+}
+
+.btn{
+  width:40%;
+  margin:20px 0 10px;
+  background-color: #27c2a5;
+  color:#fff;
+  font-size:19px;
+  padding: 7px 14px;
+  border-radius:30px;
+  border:none;
+  margin-bottom: 10px;
+  i{
+    margin-right: 10px;
+  }
+}
+.btn-tweet{
+  width:60%;
+  margin:5px 0 10px;
+  color:#fff;
+  font-size:19px;
+  padding: 7px 14px;
+  border-radius:30px;
+  margin-bottom: 20px;
+  background-color: #1da1f3;
+  border:none;
+  i{
+    margin-right: 10px;
+  }
+}
+.btn:hover,.btn:focus{
+  background-color: #25a890!important;
+}
+.btn-tweet:hover,.btn-tweet:focus{
+  background-color: #4689FF!important;
+  color:#005FFF;
+}
+
+
+/*toppage*/
+
 .cover {
   padding-top: 100px;
   margin-top: -20px;
@@ -28,6 +138,7 @@ footer {
   background: url("gnavi_top") center center no-repeat;
   background-size: cover;
 }
+
 .cover .cover-inner {
   height: 100%;
   margin: auto;
@@ -46,7 +157,13 @@ footer {
   letter-spacing: 0.15em;
 }
 
-.search {
+.search .form-control{
+  width:60%;
+}
+.search::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f002";
   margin-bottom: 20px;
 }
 
@@ -145,41 +262,6 @@ p.item-title {
     margin: 0 12px;
   }
 }
-
-/* twitter login button */
-.twitter_btn{
-  text-align:center;
-}
-.btn-social-long-twitter {
-  color: #FFF;/*文字・アイコン色*/
-  border-radius: 7px;/*角丸に*/
-  display: inline-block;
-  height: 50px;/*高さ*/
-  width: 250px;/*幅*/
-  text-align: center;/*中身を中央寄せ*/
-  font-size: 25px;/*文字のサイズ*/
-  line-height: 50px;/*高さと合わせる*/
-  background: #1da1f3;
-  overflow: hidden;/*はみ出た部分を隠す*/
-  text-decoration:none;/*下線は消す*/
-}
-
-.btn-social-long-twitter .fa-twitter {
-  text-shadow: 2px 2px 0px #4287d6;
-  font-size: 20px;
-  margin-right: 20px;
-}
-
-.btn-social-long-twitter span {
-  display:inline-block;
-  transition: .5s;
-}
-
-.btn-social-long-twitter:hover span {
-  -webkit-transform: rotateX(360deg);
-  transform: rotateX(360deg);
-}
-
 /* restaurant show button*/
 .btn-gradient-3d-orange {
   display: inline-block;
