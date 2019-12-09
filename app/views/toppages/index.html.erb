@@ -9,7 +9,7 @@
           <div class="text-center top-img">
             <%= form_tag(new_restaurant_path, method: :get, class: 'form-inline') do %>
               <div class="form-group search">
-                <%= text_field_tag :freeword, @freeword, class: 'form-control', placeholder: "キーワードを入力" %>
+                <%= text_field_tag :freeword, @freeword, class: 'form-control col-12', placeholder: "キーワードを入力" %>
               </div>
               <%= submit_tag 'レストランを検索', class: 'btn btn-success btn-lg' %>
             <% end %>

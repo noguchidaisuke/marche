@@ -90,7 +90,7 @@ footer {
   margin-bottom: 10px;
 }
 
-.btn{
+.btn-login{
   width:40%;
   margin:20px 0 10px;
   background-color: #27c2a5;
@@ -104,7 +104,7 @@ footer {
     margin-right: 10px;
   }
 }
-.btn-tweet{
+.btn-tweet-login{
   width:60%;
   margin:5px 0 10px;
   color:#fff;
@@ -118,19 +118,17 @@ footer {
     margin-right: 10px;
   }
 }
-.btn:hover,.btn:focus{
+.btn-login:hover,.btn-login:focus{
   background-color: #25a890!important;
 }
-.btn-tweet:hover,.btn-tweet:focus{
+.btn-tweet-login:hover,.btn-tweet-login:focus{
   background-color: #4689FF!important;
   color:#005FFF;
 }
 
-
 /*toppage*/
 
 .cover {
-  padding-top: 100px;
   margin-top: -20px;
   margin-bottom: 20px;
   width: 100%;
@@ -157,14 +155,12 @@ footer {
   letter-spacing: 0.15em;
 }
 
-.search .form-control{
-  width:60%;
-}
 .search::before {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   content: "\f002";
   margin-bottom: 20px;
+  margin-left: -20px!important;
 }
 
 /* item */
