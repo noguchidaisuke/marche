@@ -1,6 +1,6 @@
 <div class="p-comment__formBox">
   <p class="p-comment__formTitle">コメント記入</p>
-  <%= form_for comment do |f| %>
+  <%= form_with(model: comment) do |f| %>
     <%= f.hidden_field :restaurant_id %>
     <div class="form-group">
       <%= f.label :comment, 'コメント' %>

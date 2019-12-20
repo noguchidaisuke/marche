@@ -5,9 +5,9 @@ class Like < ApplicationRecord
   
   validates :user_id, presence: true
   validates :restaurant_id, presence: true
-  
-  def self.ranking
-    self.group(:restaurant_id).order('count_restaurant_id DESC').limit(10).count(:restaurant_id)
+  class << self
+    define_method :ranking do
+      group(:restaurant_id).order('count_restaurant_id DESC').limit(10).count(:restaurant_id)
+    end
   end
-  
 end

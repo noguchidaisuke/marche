@@ -13,12 +13,173 @@ footer {
 
 /* navbar */
 
-.navbar-header img {
-  margin-top: 5px;
-  height: 40px;
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+// Navbar
+.navbar {
+  background: linear-gradient(to right, #ff5858, orange);
+  .navbar-brand:hover{
+    font-size:30px!important;
+  }
+	.nav li a,.navbar-brand {
+    font-family:arial black;
+    color:white;
+    height: 60px;
+		width: auto;
+		background: transparent !important;
+    font-size: 20px;
+    padding-left:20px;
+		&:hover{
+			background-color: rgba(255,255,255,0.2);
+      font-size: 20px;
+      transition: 0.2s ease-in-out;
+			.link {
+				width: 100%;
+				padding: 0 5px 0 5px;
+				visibility: visible;
+				font-size: 15px;
+			}
+		}
+  }
+  .fa-tag{
+    &::before{
+    font-size:15px;
+    }
+  }
+	.link {
+		width: 0;
+		font-family: 'Roboto', sans-serif;
+		transition: 0.2s ease-in-out;
+		visibility: hidden;
+		font-size: 0px;
+	}
+	span {
+    color: white;
+    font-size:25px;
+	}
+	.navbar-toggle {
+		padding-right: 0;
+		.icon-bar {
+			background: white;
+		}
+  }
+  
+	.navbar-collapse {
+		display: none;
+  }
+  .nav-user{
+    width:100px;
+  }
+	button {
+		background: transparent;
+	}
+	button[type=submit] {
+		padding-right: 0;
+		span {
+			transition: 0.3s ease-in-out;
+		}
+		&:hover {
+			span {
+				transform: scale(1.3) rotate(90deg);
+			}
+		}
+	}
+	form {
+		padding: 0;
+		.form-control {
+			border: 0;
+			border-radius: 0;
+			color: black;
+			font-weight: bold;
+			background: rgba(255,255,255,0.7);
+			transition: 0.2s ease-in-out;
+			&:hover {
+				background: white;
+			}
+		}
+	}
+	// Dropdown
+	.dropdown {
+		.fa-caret-down {
+			padding-left: 3px;
+			font-size: 18px;
+			transition: 0.4s ease;
+		}
+		&.open {
+			background-color: rgba(255, 255, 255, 0.2);
+			font-size: 14px;
+			.link {
+				width: 100%;
+				visibility: visible;
+				font-size: 14px;
+				padding: 0 5px 0 5px;
+			}
+			.dropdown-toggle {
+				font-size: 14px;
+			}
+			.fa-caret-down {
+				transform: rotate(180deg);
+			}
+		}
+		.dropdown-menu {
+			background: #ff5858;
+			text-align: center;
+			border-radius: 0;
+			li, a {
+				color: white;
+				font-size: 14px;
+				line-height: 30px;
+				&:hover {
+					color: white;
+					letter-spacing: 1px;
+					background: transparent;
+				}
+			}
+		}	
+	}
+}
+
+// Small Devices
+@media(max-width: 769px) {
+	.navbar {
+		.link {
+			padding-left: 10px;
+			visibility: visible;
+			width: 100%;
+			font-size: 14px;
+		}
+		.navbar-brand {
+			.link {
+				visibility: hidden;
+			}
+		}
+	}
+	.dropdown {
+		.dropdown-menu {
+			text-align: left !important;
+		}
+	}
+	button[type=submit] {
+		width: 50%;
+		float: left;
+	}
+	.navbar-form {
+    border: 0;
+    input{
+      width:400px;
+    }
+    
+	}
 }
 
 /* cover */
+.logo{
+  background:url(ranking-logo.jpg) center center no-repeat;
+  height:380px;
+}
+.back{
+  background:url("face.png") center center fixed;
+}
 .sign-body{
   background:url(mountain.jpg) no-repeat center center fixed;
   background-size:cover;
@@ -170,7 +331,6 @@ footer {
 .item .panel-body {
   height: 170px;
   background-color: #FF6600;
-  
 }
 
 .item .buttons form {
@@ -280,4 +440,102 @@ p.item-title {
 .comment_area {
   float:left;
   max-width: 800px;
+}
+
+/*ranking*/
+hr{
+  background-color:#d6ceb4;
+  margin:40px 0px;
+  box-shadow:0px 0px 5px;
+}
+.ranking-inner{
+  width:900px;
+  background-color: white;
+  margin:0 auto;
+}
+.list{
+  width:800px;
+  margin: 0 auto;
+  margin-top:20px;
+  margin-bottom:20px;
+  border: 3px solid #F0E68C;
+  box-shadow:0px 0px 20px;
+  background-color: white;
+  border-radius:15px;
+  padding:0px 20px 20px 20px;
+  img{
+    width: 300px;
+    margin: 5px 30px 5px 5px;
+  }
+}
+.list-title{
+  width:85%;
+  border-bottom:3px solid rgb(233, 229, 229);
+  font-size:20px;
+  font-weight:bold;
+  color:black;
+  padding:20px;
+  border-radius:10px;
+}
+.first span{
+  font-size:30px;
+  color:#F0E68C;
+}
+.secound span{
+  font-size:30px;
+  color:silver;
+}
+.third span{
+  font-size:30px;
+  color:#D2691E;
+}
+.secound{
+  width:800px;
+  border:3px solid silver;
+}
+.third{
+  width:800px;
+  border:3px solid #D2691E;
+}
+
+.fas{
+  color:#FFCC00;
+  font-size:20px;
+  margin-right: 10px;
+}
+.secound .fas {
+  color:silver;
+}
+.third .fas {
+  color:#D2691E;
+}
+.list-title .rank{
+  margin-right:30px;
+}
+.list-box {
+display: table;
+width: 100%;
+margin-bottom:20px;
+}
+.list-img,.list-text {
+display: table-cell;
+vertical-align: middle;
+}
+.list-cat {
+background-color: #FF6600;
+border-radius: 10px;
+color: #fff;
+font-size: 10px;
+padding: 0 5px;
+}
+.list-date {
+color: #aaa;
+font-size: 10px;
+margin-left: 10px;
+}
+.list-text h2 {
+color: #000;
+font-size: 20px;
+line-height: 1.4;
+margin-right: 10px;
 }

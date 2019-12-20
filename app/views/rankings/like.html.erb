@@ -1,3 +1,4 @@
+<!-- 
 <h1>お気に入りランキング</h1>
 <% if @restaurants.present? %>
   <div class="row">
@@ -24,4 +25,65 @@
       </div>
     <% end %>
   </div>
+<% end %>
+-->
+<div class="logo"></div>
+<% if @restaurants.present? %>
+<% restaurant=@restaurants[0] %>
+<% restaurant2=@restaurants[1]%>
+<% restaurant3=@restaurants[2]%>
+    <div class="back">
+      <div class="ranking-inner">
+        <hr width="100%" size="3" align="center">
+        <div class="list first">
+            <div class="list-title"><i class="fas fa-crown"></i><span class="rank">1位</span>:<%= @ranking_counts[restaurant.id] %>Like<%= link_to restaurant.name, restaurant %></div>
+            <div class="list-box">
+                <a href="遷移先のパス">
+                    <div class="list-img"><img src="<%= restaurant.shop_image1  %>"></div>
+                    <div class="list-text">
+                      <h3><%= restaurant.pr_short%></h3>
+                      <span class="list-cat">カテゴリ名</span>
+                      <% if logged_in? %>
+                          <%= render 'likes/like_button', restaurant: restaurant,class: 'btn btn-primary' %>
+                      <%end%>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <hr width="100%" size="3" align="center">
+        <div class="list secound">
+            <div class="list-title"><i class="fas fa-crown"></i><span class="rank">2位: <%= @ranking_counts[restaurant2.id] %>つ</span><%= link_to restaurant2.name, restaurant2 %></div>
+            <div class="list-box">
+                <a href="遷移先のパス">
+                    <div class="list-img"><img src="<%= restaurant2.shop_image1  %>"></div>
+                    <div class="list-text">
+                      <h3><%= restaurant2.pr_short%></h3>
+                      <span class="list-cat">カテゴリ名</span>
+                      <% if logged_in? %>
+                          <%= render 'likes/like_button', restaurant: restaurant2 %>
+                      <%end%>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <hr width="100%" size="3" align="center">
+        <div class="list third">
+            <div class="list-title"><i class="fas fa-crown"></i><span class="rank">3位</span>: <%= @ranking_counts[restaurant3.id] %>つ<%= link_to restaurant3.name, restaurant3 %></div>
+            <div class="list-box">
+                <a href="遷移先のパス">
+                    <div class="list-img"><img src="<%= restaurant3.shop_image1  %>"></div>
+                    <div class="list-text">
+                      <h3><%= restaurant.pr_short%></h3>
+                      <span class="list-cat">カテゴリ名</span>
+                      <% if logged_in? %>
+                          <%= render 'likes/like_button', restaurant: restaurant3 %>
+                      <%end%>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <img src="face.png" alt="">
+        <hr width="100%" size="3" align="center">
+      </div>
+    </div>
 <% end %>
