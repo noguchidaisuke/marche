@@ -10,7 +10,7 @@ end
 gem 'rails', '~> 5.2.1'
 # Use mysql as the database for Active Record
 gem 'mysql2'
-# Use Puma as the app server                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+# Use Puma as the app server                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -51,6 +51,8 @@ group :development, :test do
   gem 'capybara'
   gem 'faker'
   gem 'pry-byebug'
+  gem 'pry-rails'
+  gem 'pry-doc'
   gem 'vcr'
   gem 'webmock'
 end

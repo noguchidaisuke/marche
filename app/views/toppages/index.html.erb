@@ -6,12 +6,12 @@
         <% unless logged_in? %>
           <%= link_to '食べログを始める', signup_path, class: 'btn btn-success btn-lg' %>
         <% else %>
-          <div class="text-center">
-            <%= form_tag(new_restaurant_path, method: :get, class: 'form-inline') do %>
-              <div class="form-group">
-                <%= text_field_tag :freeword, @freeword, class: 'form-control input-lg', placeholder: "キーワードを入力", size: 40 %>
+          <div class="text-center top-img">
+            <%= form_with url: new_restaurant_path,method: :get do |f| %>
+              <div class="form-group search">
+                <%= f.text_field :freeword, class: 'form-control col-12', placeholder: "キーワードを入力" %>
               </div>
-              <%= submit_tag 'レストランを検索', class: 'btn btn-success btn-lg' %>
+              <%= f.submit 'レストランを検索', class: 'btn btn-success btn-lg' %>
             <% end %>
           </div>
         <% end %>
@@ -19,6 +19,5 @@
     </div>
   </div>
 <% end %>
-<%= render @tests %>
 <%= render @restaurants %>
 <%= paginate @restaurants %>

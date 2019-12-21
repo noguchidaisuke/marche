@@ -13,14 +13,285 @@ footer {
 
 /* navbar */
 
-.navbar-header img {
-  margin-top: 5px;
-  height: 40px;
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+// Navbar
+.navbar {
+  background: linear-gradient(to right, #ff5858, orange);
+  .navbar-brand:hover{
+    font-size:30px!important;
+  }
+  .navbar-nav{
+    padding-top:5px;
+  }
+	.nav li a,.navbar-brand {
+    font-family:arial black;
+    color:white;
+    height: 60px;
+		width: auto;
+		background: transparent !important;
+    font-size: 20px;
+    padding-left:20px;
+		&:hover{
+			background-color: rgba(255,255,255,0.2);
+      font-size: 20px;
+      transition: 0.2s ease-in-out;
+			.link {
+				width: 100%;
+				padding: 0 5px 0 5px;
+				visibility: visible;
+				font-size: 15px;
+			}
+		}
+  }
+  .fa-tag{
+    &::before{
+    font-size:15px;
+    }
+  }
+	.link {
+		width: 0;
+		font-family: 'Roboto', sans-serif;
+		transition: 0.2s ease-in-out;
+		visibility: hidden;
+		font-size: 0px;
+	}
+	span {
+    color: white;
+    font-size:25px;
+	}
+	.navbar-toggle {
+		padding-right: 0;
+		.icon-bar {
+			background: white;
+		}
+  }
+  
+	.navbar-collapse {
+		display: none;
+  }
+  .nav-user{
+    width:100px;
+  }
+	button {
+		background: transparent;
+	}
+	button[type=submit] {
+		padding-right: 0;
+		span {
+			transition: 0.3s ease-in-out;
+		}
+		&:hover {
+			span {
+				transform: scale(1.3) rotate(90deg);
+			}
+		}
+	}
+	form {
+    padding: 0;
+    padding-top:5px;
+		.form-control {
+			border: 0;
+			border-radius: 0;
+			color: black;
+			font-weight: bold;
+			background: rgba(255,255,255,0.7);
+			transition: 0.2s ease-in-out;
+			&:hover {
+				background: white;
+			}
+		}
+	}
+	// Dropdown
+	.dropdown {
+		.fa-caret-down {
+			padding-left: 3px;
+			font-size: 18px;
+			transition: 0.4s ease;
+		}
+		&.open {
+			background-color: rgba(255, 255, 255, 0.2);
+			font-size: 14px;
+			.link {
+				width: 100%;
+				visibility: visible;
+				font-size: 14px;
+				padding: 0 5px 0 5px;
+			}
+			.dropdown-toggle {
+				font-size: 14px;
+			}
+			.fa-caret-down {
+				transform: rotate(180deg);
+			}
+		}
+		.dropdown-menu {
+			background: #ff5858;
+			text-align: center;
+			border-radius: 0;
+			li, a {
+				color: white;
+				font-size: 14px;
+				line-height: 30px;
+				&:hover {
+					color: white;
+					letter-spacing: 1px;
+					background: transparent;
+				}
+			}
+		}	
+	}
+}
+
+/* Small navbar */
+@media(max-width: 769px) {
+	.navbar {
+		.link {
+			padding-left: 10px;
+			visibility: visible;
+			width: 100%;
+			font-size: 14px;
+		}
+		.navbar-brand {
+			.link {
+				visibility: hidden;
+			}
+		}
+	}
+	.dropdown {
+		.dropdown-menu {
+			text-align: left !important;
+		}
+	}
+	button[type=submit] {
+		width: 50%;
+		float: left;
+	}
+	.navbar-form {
+    border: 0;
+    input{
+      width:400px;
+    }
+	}
 }
 
 /* cover */
+.logo{
+  background:url(ranking-logo.jpg) center center no-repeat;
+  height:380px;
+}
+.back{
+  background:url("face.png") center center fixed;
+}
+.sign-body{
+  background:url(mountain.jpg) no-repeat center center fixed;
+  background-size:cover;
+  height: 750px;
+  margin-top: -20px;
+}
+.main-section {
+  margin-top: 130px;
+  padding: 0;
+}
+.model-content {
+  background-color:#3b4652;
+  opacity: .95;
+  padding: 0 18px;
+  box-shadow: 0px 0px 3px #848484;
+}
+
+.user-img{
+  margin-top: -50px;
+  margin-bottom: 35px;
+  i{
+    font-size:100px;
+    color:#27c2a5;
+    margin-top: -50px;
+    background-color: #fff;
+    border-radius:50%;
+    padding:15px;
+  }
+}
+.form-group{
+  margin-bottom: 25px;
+  .form-control{
+    height: 42px;
+    border-radius:5px;
+    font-size:18px;
+    padding-left: 62px;
+  }
+}
+.form-group::before{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f007";
+  position:absolute;
+  font-size:22px;
+  color: #555e60;
+  left:28px;
+  margin-top: 6px;
+  padding-left: 4px;
+  padding-right: 14px;
+  border-right:3px solid;
+  margin-bottom: -5px;
+}
+.email::before{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f0e0";
+}
+.password::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f023";
+}
+
+.or{
+  margin:0 auto;
+  font-size:20px;
+  color:white;
+  margin-bottom: 10px;
+}
+
+.btn-login,.btn-signin{
+  width:40%;
+  margin:20px 0 10px;
+  background-color: #27c2a5;
+  color:#fff;
+  font-size:19px;
+  padding: 7px 14px;
+  border-radius:30px;
+  border:none;
+  margin-bottom: 10px;
+  i{
+    margin-right: 10px;
+  }
+}
+.btn-tweet-login,.btn-tweet-signin{
+  width:60%;
+  margin:5px 0 10px;
+  color:#fff;
+  font-size:19px;
+  padding: 7px 14px;
+  border-radius:30px;
+  margin-bottom: 20px;
+  background-color: #1da1f3;
+  border:none;
+  i{
+    margin-right: 10px;
+  }
+}
+.btn-login:hover,.btn-login:focus{
+  background-color: #25a890!important;
+}
+.btn-tweet-login:hover,.btn-tweet-login:focus{
+  background-color: #4689FF!important;
+  color:#005FFF;
+}
+
+/*toppage*/
+
 .cover {
-  padding-top: 100px;
   margin-top: -20px;
   margin-bottom: 20px;
   width: 100%;
@@ -28,6 +299,7 @@ footer {
   background: url("gnavi_top") center center no-repeat;
   background-size: cover;
 }
+
 .cover .cover-inner {
   height: 100%;
   margin: auto;
@@ -46,8 +318,12 @@ footer {
   letter-spacing: 0.15em;
 }
 
-.search {
+.search::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f002";
   margin-bottom: 20px;
+  margin-left: -20px!important;
 }
 
 /* item */
@@ -57,7 +333,6 @@ footer {
 .item .panel-body {
   height: 170px;
   background-color: #FF6600;
-  
 }
 
 .item .buttons form {
@@ -109,11 +384,18 @@ p.item-title {
 }
 
 /*comment*/
+.comment_area{
+  width:70%;
+  border:2px solid #dfdfdf;
+  box-shadow:0 0 5px;
+  margin:20px 20px 0 0;
+}
+.comment_form{
+  margin-bottom:10px;
+}
 .p-comment__formBox {
   margin: 30px auto;
-  border: 5px solid #e8e8e8;
-  padding: 25px;
-  border-radius: 14px;
+  padding: 25px 25px 10px 25px;
 }
 
 .p-comment__formTitle {
@@ -128,7 +410,7 @@ p.item-title {
 
 .p-comment__list {
   margin: 38px 0;
-  padding: 20px;
+  padding: 5px 20px 20px 20px;
 }
 
 .p-comment__item {
@@ -145,41 +427,6 @@ p.item-title {
     margin: 0 12px;
   }
 }
-
-/* twitter login button */
-.twitter_btn{
-  text-align:center;
-}
-.btn-social-long-twitter {
-  color: #FFF;/*文字・アイコン色*/
-  border-radius: 7px;/*角丸に*/
-  display: inline-block;
-  height: 50px;/*高さ*/
-  width: 250px;/*幅*/
-  text-align: center;/*中身を中央寄せ*/
-  font-size: 25px;/*文字のサイズ*/
-  line-height: 50px;/*高さと合わせる*/
-  background: #1da1f3;
-  overflow: hidden;/*はみ出た部分を隠す*/
-  text-decoration:none;/*下線は消す*/
-}
-
-.btn-social-long-twitter .fa-twitter {
-  text-shadow: 2px 2px 0px #4287d6;
-  font-size: 20px;
-  margin-right: 20px;
-}
-
-.btn-social-long-twitter span {
-  display:inline-block;
-  transition: .5s;
-}
-
-.btn-social-long-twitter:hover span {
-  -webkit-transform: rotateX(360deg);
-  transform: rotateX(360deg);
-}
-
 /* restaurant show button*/
 .btn-gradient-3d-orange {
   display: inline-block;
@@ -202,4 +449,102 @@ p.item-title {
 .comment_area {
   float:left;
   max-width: 800px;
+}
+
+/*ranking*/
+hr{
+  background-color:#d6ceb4;
+  margin:40px 0px;
+  box-shadow:0px 0px 5px;
+}
+.ranking-inner{
+  width:900px;
+  background-color: white;
+  margin:0 auto;
+}
+.list{
+  width:800px;
+  margin: 0 auto;
+  margin-top:20px;
+  margin-bottom:20px;
+  border: 3px solid #F0E68C;
+  box-shadow:0px 0px 20px;
+  background-color: white;
+  border-radius:15px;
+  padding:0px 20px 20px 20px;
+  img{
+    width: 300px;
+    margin: 5px 30px 5px 5px;
+  }
+}
+.list-title{
+  width:85%;
+  border-bottom:3px solid rgb(233, 229, 229);
+  font-size:20px;
+  font-weight:bold;
+  color:black;
+  padding:20px;
+  border-radius:10px;
+}
+.first span{
+  font-size:30px;
+  color:#F0E68C;
+}
+.secound span{
+  font-size:30px;
+  color:silver;
+}
+.third span{
+  font-size:30px;
+  color:#D2691E;
+}
+.secound{
+  width:800px;
+  border:3px solid silver;
+}
+.third{
+  width:800px;
+  border:3px solid #D2691E;
+}
+
+.first .fas{
+  color:#FFCC00;
+  font-size:20px;
+  margin-right: 10px;
+}
+.secound .fas {
+  color:silver;
+}
+.third .fas {
+  color:#D2691E;
+}
+.list-title .rank{
+  margin-right:30px;
+}
+.list-box {
+display: table;
+width: 100%;
+margin-bottom:20px;
+}
+.list-img,.list-text {
+display: table-cell;
+vertical-align: middle;
+}
+.list-cat {
+background-color: #FF6600;
+border-radius: 10px;
+color: #fff;
+font-size: 10px;
+padding: 0 5px;
+}
+.list-date {
+color: #aaa;
+font-size: 10px;
+margin-left: 10px;
+}
+.list-text h2 {
+color: #000;
+font-size: 20px;
+line-height: 1.4;
+margin-right: 10px;
 }
