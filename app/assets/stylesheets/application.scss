@@ -21,6 +21,9 @@ footer {
   .navbar-brand:hover{
     font-size:30px!important;
   }
+  .navbar-nav{
+    padding-top:5px;
+  }
 	.nav li a,.navbar-brand {
     font-family:arial black;
     color:white;
@@ -85,7 +88,8 @@ footer {
 		}
 	}
 	form {
-		padding: 0;
+    padding: 0;
+    padding-top:5px;
 		.form-control {
 			border: 0;
 			border-radius: 0;
@@ -139,7 +143,7 @@ footer {
 	}
 }
 
-// Small Devices
+/* Small navbar */
 @media(max-width: 769px) {
 	.navbar {
 		.link {
@@ -168,7 +172,6 @@ footer {
     input{
       width:400px;
     }
-    
 	}
 }
 
@@ -215,10 +218,9 @@ footer {
     height: 42px;
     border-radius:5px;
     font-size:18px;
-    padding-left: 54px;
+    padding-left: 62px;
   }
 }
-
 .form-group::before{
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
@@ -251,7 +253,7 @@ footer {
   margin-bottom: 10px;
 }
 
-.btn-login{
+.btn-login,.btn-signin{
   width:40%;
   margin:20px 0 10px;
   background-color: #27c2a5;
@@ -265,7 +267,7 @@ footer {
     margin-right: 10px;
   }
 }
-.btn-tweet-login{
+.btn-tweet-login,.btn-tweet-signin{
   width:60%;
   margin:5px 0 10px;
   color:#fff;
@@ -382,11 +384,18 @@ p.item-title {
 }
 
 /*comment*/
+.comment_area{
+  width:70%;
+  border:2px solid #dfdfdf;
+  box-shadow:0 0 5px;
+  margin:20px 20px 0 0;
+}
+.comment_form{
+  margin-bottom:10px;
+}
 .p-comment__formBox {
   margin: 30px auto;
-  border: 5px solid #e8e8e8;
-  padding: 25px;
-  border-radius: 14px;
+  padding: 25px 25px 10px 25px;
 }
 
 .p-comment__formTitle {
@@ -401,7 +410,7 @@ p.item-title {
 
 .p-comment__list {
   margin: 38px 0;
-  padding: 20px;
+  padding: 5px 20px 20px 20px;
 }
 
 .p-comment__item {
@@ -498,7 +507,7 @@ hr{
   border:3px solid #D2691E;
 }
 
-.fas{
+.first .fas{
   color:#FFCC00;
   font-size:20px;
   margin-right: 10px;

@@ -8,13 +8,6 @@ services:
       - '3306:3306'
     environment:
       MYSQL_ROOT_PASSWORD: password
-  schemaspy:
-    image: "schemaspy/schemaspy"
-    volumes:
-      - ./schemaspy:/output
-      - ./schemaspy/schemaspy.properties:/schemaspy.properties
-    depends_on:
-      - db
   web:
     build:
      context: .

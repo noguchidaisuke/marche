@@ -6,7 +6,7 @@
       </div>
     <% end %>
     <label class="amount">
-      <span>金額: $5.00</span>
+      <span>予約する</span>
     </label>
   </article>
 
@@ -14,5 +14,6 @@
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="A month's subscription"
           data-amount="500"
-          data-locale="auto"></script>
+          data-locale="auto">
+  </script>
 <% end %>

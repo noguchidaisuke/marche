@@ -46,7 +46,7 @@ end
         <div class="col-12 user-img">
           <i class="fab fa-gofore"></i>
         </div>
-        <%= form_for(@user) do |f| %>
+        <%= form_with(model: @user) do |f| %>
           <form class="col-12">
             <div class="form-group">
               <%= f.text_field :name, class: 'form-control',placeholder: "Username" %>
@@ -60,9 +60,9 @@ end
             <div class="form-group password">
               <%= f.text_field :password_confirmation, class: 'form-control',placeholder: "Password(確認)" %>
             </div>
-            <button type="submit" class="btn"><i class="fas fa-sign-in-alt"></i>登録する</button>
+            <button type="submit" class="btn-signin"><i class="fas fa-sign-in-alt"></i>登録する</button>
             <p class="or">or</p>
-            <button type="submit" class="btn-tweet"><i class="fab fa-twitter"></i>Twitterでログイン</button>
+            <button type="submit" class="btn-tweet-signin"><i class="fab fa-twitter"></i>Twitterでログイン</button>
           </form>
         <% end %>
       </div> <!-- end of cotent -->
