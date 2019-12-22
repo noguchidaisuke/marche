@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   before_save { self.email.downcase! }
+  has_one_attached :avatar
   validates :name, presence: true, length: { maximum: 10 }
   validates :email, presence: true, length: { maximum: 255 },uniqueness: true,
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
@@ -9,7 +10,7 @@ class User < ApplicationRecord
   has_many :restaurants, through: :likes
   has_many :like_restaurants, through: :likes, source: :restaurant
   has_many :comments
-  
+
   def like(restaurant) #user.like(restaurant)でお気に入り
     self.likes.find_or_create_by(restaurant_id: restaurant.id)
   end

@@ -1,7 +1,11 @@
 @charset "utf-8";
 
 /* user image設定 */
-
+.user-icon img {
+  border-radius:50%;
+  width:300px;
+  height:300px;
+}
 
 /* body */
 body {

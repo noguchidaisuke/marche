@@ -60,6 +60,9 @@ end
             <div class="form-group password">
               <%= f.text_field :password_confirmation, class: 'form-control',placeholder: "Password(確認)" %>
             </div>
+            <div class="form-group">
+              <%= f.file_field :avatar%>
+            </div>
             <button type="submit" class="btn-signin"><i class="fas fa-sign-in-alt"></i>登録する</button>
             <p class="or">or</p>
             <button type="submit" class="btn-tweet-signin"><i class="fab fa-twitter"></i>Twitterでログイン</button>

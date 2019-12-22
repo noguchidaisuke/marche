@@ -1,9 +1,9 @@
 <div class="user-profile">
-  <div class="icon text-center">
-  <% if current_user.image %>
-    <img src="<%= current_user.image %>" alt="">
+  <div class="user-icon text-center">
+  <% if @user.avatar.attached? %>
+    <%= image_tag(@user.avatar) %>
   <% else %>
-    <img src="<%= gravatar_url(@user,size: 100) %>" alt="" class0"img-circle">
+    <img src="<%= gravatar_url(@user,size: 100) %>">
   <% end %>
   </div>
   <div class="name text-center">
