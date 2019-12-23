@@ -1,11 +1,12 @@
 @charset "utf-8";
 
 /* user image設定 */
-.user-icon img {
+.user-icon-profile img {
   border-radius:50%;
   width:300px;
   height:300px;
 }
+
 
 /* body */
 body {
@@ -21,7 +22,7 @@ footer {
 
 // Navbar
 .navbar {
-  background: linear-gradient(to right, #ff5858, orange);
+  background: linear-gradient(to right, #ff5858,orange);
   .navbar-brand:hover{
     font-size:30px!important;
   }
@@ -347,13 +348,11 @@ footer {
 
 .item .panel-heading {
   height: 400px;
+  padding:0 !important;
 }
 .item .panel-heading img {
-  margin-top: 20px;
-  height: 100%;
-  max-width: 100%;
-  max-height:250px;
-  width:auto;
+  width: 400px;
+  height:320px;
 }
 p.item-title {
   /* 文の行数を2行に保ち、最後に ... を追加するスタイル */
@@ -362,21 +361,16 @@ p.item-title {
   -webkit-line-clamp: 2;
   overflow: hidden;
 }
-
-
 .panel-title {
   border-left: 4px solid #FF6600;
-  padding-bottom: 20px;
-  padding: 20px;
+  padding: 10px;
   font-weight: bold;
-  font-size:1.5em;
+  font-size:1.3em;
   background-color: white;
 }
-
 .item {
   margin:0 auto;
 }
-
 .item-pr {
   background-color: white;
   color:black;
@@ -388,14 +382,81 @@ p.item-title {
 }
 
 /*comment*/
-.comment_area{
-  width:70%;
-  border:2px solid #dfdfdf;
-  box-shadow:0 0 5px;
-  margin:20px 20px 0 0;
+.comment-area{
+  //border:1px solid #dfdfdf;
+  //box-shadow:0 0 5px;
+  margin-top:30px;
+  float:left;
+  max-width: 800px;
 }
+.comment-icons{
+  text-align:center;
+  margin:0 auto;
+  padding-top:10px;
+}
+
+.balloon {
+  position: relative; /* 三角の位置を固定するために設定 */
+  display: inline-block;
+  max-width: 400px;
+  margin: 15px 0 0 5px;
+  padding: 8px 15px; /* ふきだし内の余白 */
+  background: #f0f0f0; /* 背景色 */
+  text-align: left; /* テキストの揃え */
+  border-radius: 15px;
+  font-weight:bold;
+}
+.balloon::after {
+  content: '';
+  border: 14px solid transparent;
+  border-top-color: #f0f0f0;
+  position: absolute;
+  top: 0;
+  left: -10px;
+}
+.user-icon{
+  img{
+    border-radius:50%;
+    width:60px;
+    height:60px;
+  }
+}
+.credit-form{
+  float:right;
+  border:1px solid #eaeaeb;
+  box-shadow:0 0 5px;
+  margin-top:30px;
+  padding:10px;
+  background-color:#eaeaeb;
+  .telnumber{
+    font-size:1.5em;
+    padding-left: 20px;
+    font-weight:bold;
+    border:1px solid;
+    background-color: #fff;
+    i{
+      margin-right: 20px;
+    }
+  }
+}
+.like-btn form input,.stripe-button-el {
+  width:100%;
+  text-align: center;
+  font-size:20px;
+  height:40px;
+  margin-top:10px;
+  font-weight: bold;
+  border-radius:5px;
+}
+
 .comment_form{
   margin-bottom:10px;
+}
+.comment-name{
+  color:#6c6c75;
+  font-size:1.2em;
+  margin-top:10px;
+  margin-bottom:60px;
 }
 .p-comment__formBox {
   margin: 30px auto;
@@ -407,28 +468,33 @@ p.item-title {
   padding-bottom: 5px;
 }
 
-.p-comment__listTitle {
+.p-comment_listTitle {
   border-bottom: 2px solid #dfdfdf;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
+  font-size:20px;
+  font-weight:bold;
 }
 
-.p-comment__list {
+.p-comment_list {
   margin: 38px 0;
   padding: 5px 20px 20px 20px;
 }
-
 .p-comment__item {
   padding: 18px;
   border-bottom: 2px dotted #dfdfdf;
 }
-
 .p-comment__bottomLine {
   font-size: 15px;
-  text-align: right;
-
-  > span {
-    font-size: 14px;
-    margin: 0 12px;
+  text-align: left;
+  position:relative;
+  i{
+    padding-right:20px;
+    padding-left:20px;
+  }
+  .btn{
+    position:absolute;
+    right:3px;
+    top:-7px;
   }
 }
 /* restaurant show button*/
@@ -448,11 +514,6 @@ p.item-title {
   transform: translateY(4px);
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
   border-bottom: none;
-}
-
-.comment_area {
-  float:left;
-  max-width: 800px;
 }
 
 /*ranking*/
@@ -552,3 +613,5 @@ font-size: 20px;
 line-height: 1.4;
 margin-right: 10px;
 }
+
+// stripe 決済ページ

@@ -1,18 +1,22 @@
 <p class="item-title"><%= @restaurant.name %></p>
-  <% if logged_in? %>
-    <%= render 'likes/like_button', restaurant: @restaurant %>
-  <% end %>
+  
 <p class="text-center"><%= link_to 'ぐるなびページ', @restaurant.url, target: '_blank',class: 'btn-gradient-3d-orange' %></p>
 <div id="map">
 </div>
-<div class="comment_area">
-  <div class="p-comment__list">
-    <div class="p-comment__listTitle">コメント一覧</div>
+<div class="comment-area col-sm-7">
+  <div class="p-comment_list">
+    <div class="p-comment_listTitle">コメント一覧</div>
       <%= render @restaurant.comments %>
   </div>
   <%= render 'comments/comment_form',comment: @comment %>
 </div>
-<%= render 'charges/charge'%>
+<div class="col-sm-4 credit-form">
+  <div class="telnumber text-center"><i class="fas fa-phone"></i><span>123-456-111</span></div>
+  <%= render 'charges/charge',class: 'stripe' %>
+  <% if logged_in? %>
+    <div class="like-btn"><%= render 'likes/like_button', restaurant: @restaurant %></div>
+  <% end %>
+</div>
 
 <style>
 #map{

@@ -24,11 +24,10 @@
 
   <body>
     <%= render 'layouts/navbar' %>
-
+    <%= render 'layouts/flash_messages' %>
     <%= yield :cover %>
 
     <div class="container">
-      <%= render 'layouts/flash_messages' %>
 
       <%= yield %>
     </div>

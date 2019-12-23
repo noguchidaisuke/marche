@@ -5,11 +5,9 @@
         <p><%= flash[:error] %></p>
       </div>
     <% end %>
-    <label class="amount">
-      <span>予約する</span>
+    <label class="amount stripe-btn">
     </label>
   </article>
-
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="A month's subscription"
