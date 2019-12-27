@@ -31,6 +31,7 @@ class RestaurantsController < ApplicationController
   
   def show
     @restaurant = Restaurant.find(params[:id])
+    @comments =@restaurant.comments
     @latlng = [@restaurant[:latitude],@restaurant[:longitude]]
     @comment = @restaurant.comments.new
   end

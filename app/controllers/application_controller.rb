@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
      pr_short = rest['pr']['pr_short']
      latitude = rest['latitude']
      longitude = rest['longitude']
+     tel = rest['tel']
      return {
        g_id: g_id,
        name: name,
@@ -28,7 +29,8 @@ class ApplicationController < ActionController::Base
        pc: pc,
        pr_short: pr_short,
        latitude: latitude,
-       longitude: longitude
+       longitude: longitude,
+       tel: tel
      }
   end
 end

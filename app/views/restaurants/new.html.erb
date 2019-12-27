@@ -5,10 +5,11 @@
         <div class="col-sm-6 scroll">
           <% @restaurants.each do |restaurant| %>
             <div class="new-restaurant">
+              <%= link_to '',restaurant,class: 'restaurant-link'%>
               <img src="<%= restaurant.shop_image1 %>">
               <div class="new-item-desc">
-                <h3 class="item-title"><%= restaurant.name %></h3>
-                <p class="item-pr"><%= restaurant.pr_short %></p>
+                <h3 class="item-title m-t20 half"><%= restaurant.name %></h3>
+                <p class="item-pr m-t40"><%= restaurant.pr_short %></p>
               </div>
             </div>
           <%end%>
@@ -27,7 +28,7 @@
 <script>
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 16,
+      zoom: 15,
       center: {lat: <%= @centerlat %>, lng: <%=@centerlong %>}
   });
   <% @restaurants.each do |restaurant| %>
@@ -37,7 +38,7 @@ function initMap() {
       });
       var marker = new google.maps.Marker({
         position: {lat: <%= restaurant.latitude %>, lng: <%= restaurant.longitude %>},
-        map: map
+        map: map,
       });
       infowindow.open(map, marker);
     })();

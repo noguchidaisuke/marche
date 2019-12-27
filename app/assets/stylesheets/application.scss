@@ -15,6 +15,12 @@ body {
 footer {
   margin-top: 40px;
 }
+.m-t40{
+  margin-top:40px;
+}
+.m-t20{
+  margin-top:20px;
+}
 
 /* navbar */
 
@@ -350,6 +356,7 @@ footer {
 .item{
   width:30%;
   margin-bottom:60px;
+  position:relative;
   .buttons{
     margin:10px 0 5px 0;
   }
@@ -378,17 +385,20 @@ footer {
   overflow: hidden;
   font-weight: bold;
   font-size:20px;
-  color:#555e60;
+  color:black;
   margin-bottom:15px;
 }
 
 .item-pr {
-  color:black;
   max-height: 130px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
+  a{
+    text-decoration: none;
+    color:#555e60;
+  }
 }
 
 /*new-restaurant*/
@@ -397,9 +407,10 @@ footer {
   height:680px;
 }
 .new-restaurant-container{
-  margin-top: 40px;
+  margin-top: 30px;
 }
 .new-restaurant{
+  position:relative;
   display:flex;
   background-color: #fff;
   border-top:1px solid #dfdfdf;
@@ -422,7 +433,13 @@ footer {
   width:50px;
   height:20px;
 }
-
+.restaurant-link{
+  height:100%;
+  width:100%;
+  position:absolute;
+  top:0px;
+  left:10px;
+}
 /*comment*/
 .comment-area{
   //border:1px solid #dfdfdf;

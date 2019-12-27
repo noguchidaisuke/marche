@@ -1,5 +1,6 @@
 <% if restaurant %>
   <div class="item">
+    <%= link_to '',restaurant,class: 'restaurant-link'%>
     <img src="<%= restaurant.shop_image1 %>">
     <div class="item-desc">
       <% if logged_in? %>
