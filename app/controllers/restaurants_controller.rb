@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
   def new
-    @restaurants = []
+    @restaurants,@latitude,@longitude = [],[],[]
     @freeword = params[:freeword]
     url = 'https://api.gnavi.co.jp/RestSearchAPI/v3/'
     params = {
@@ -19,6 +19,8 @@ class RestaurantsController < ApplicationController
             restaurant.save
           end
           @restaurants << restaurant
+          @centerlat = @restaurants.first.latitude
+          @centerlong = @restaurants.first.longitude
         end
       rescue
         flash[:danger]='該当のお店が見つかりませんでした。他のキーワードでお願いします'
@@ -29,7 +31,7 @@ class RestaurantsController < ApplicationController
   
   def show
     @restaurant = Restaurant.find(params[:id])
-    @latlng = Array[@restaurant[:latitude],@restaurant[:longitude]]
+    @latlng = [@restaurant[:latitude],@restaurant[:longitude]]
     @comment = @restaurant.comments.new
   end
 end

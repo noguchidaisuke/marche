@@ -1,8 +1,8 @@
 <p class="item-title"><%= @restaurant.name %></p>
   
 <p class="text-center"><%= link_to 'ぐるなびページ', @restaurant.url, target: '_blank',class: 'btn-gradient-3d-orange' %></p>
-<div id="map">
-</div>
+<div id="map"></div>
+
 <div class="comment-area col-sm-7">
   <div class="p-comment_list">
     <div class="p-comment_listTitle">コメント一覧</div>
@@ -37,6 +37,5 @@ function initMap() {
     map: map
   });
 }
-  
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbs-NqOhNQ_4ZB_gdsVID5h0LWSEX2GIE&callback=initMap" async defer></script>

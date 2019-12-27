@@ -1,20 +1,12 @@
 <% if restaurant %>
   <div class="item">
-    <div class="col-md-5 col-md-offset-1 col-sm-4 col-xs-12">
-      <div class="panel panel-default">
-        <div class="panel-heading text-center">
-          <div class="panel-title"><%= link_to restaurant.name, restaurant %></p></div>
-          <img src="<%= restaurant.shop_image1 %>">
-        </div>
-        <div class="panel-body">
-            <p class="item-pr"><%= restaurant.pr_short %></p>
-          <div class="buttons text-center">
-            <% if logged_in? %>
-              <%= render 'likes/like_button', restaurant:restaurant %>
-            <% end %>
-          </div>
-        </div>
-      </div>
+    <img src="<%= restaurant.shop_image1 %>">
+    <div class="item-desc">
+      <% if logged_in? %>
+        <div class="buttons"><%= render 'likes/like_button', restaurant:restaurant %></div>
+      <% end %>
+      <h3 class="item-title"><%= restaurant.name %></h3>
+      <p class="item-pr"><%= link_to restaurant.pr_short, restaurant %></p>
     </div>
   </div>
 <% end %>

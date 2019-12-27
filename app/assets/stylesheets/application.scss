@@ -298,7 +298,7 @@ footer {
 
 .cover {
   margin-top: -20px;
-  margin-bottom: 20px;
+  margin-bottom: 70px;
   width: 100%;
   height: 500px;
   background: url("gnavi_top") center center no-repeat;
@@ -331,54 +331,96 @@ footer {
   margin-left: -20px!important;
 }
 
+.h1-top{
+  margin:0 20px 50px;
+  padding-bottom:30px;
+  border-bottom:5px solid orange;
+}
 /* item */
-.panel {
+
+.con {
   background-color: white;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: space-around;
+  height:500px;
+  overflow:scroll;
+  padding-top:20px;
 }
-.item .panel-body {
-  height: 170px;
-  background-color: #FF6600;
+.item{
+  width:30%;
+  margin-bottom:60px;
+  .buttons{
+    margin:10px 0 5px 0;
+  }
+  img {
+    width: 100%;
+    height: 230px;
+    box-shadow:0 0 10px;
+    .buttons form {
+      display: inline-block;
+      margin: 0 5px;
+      margin-top: 15px;
+    }
+  }
+}
+.item-desc{
+  padding:10px;
+  box-shadow:0 0 10px;
 }
 
-.item .buttons form {
-  display: inline-block;
-  margin: 0 5px;
-  margin-top: 15px;
-}
 
-.item .panel-heading {
-  height: 400px;
-  padding:0 !important;
-}
-.item .panel-heading img {
-  width: 400px;
-  height:320px;
-}
-p.item-title {
+.item-title {
   /* 文の行数を2行に保ち、最後に ... を追加するスタイル */
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
-}
-.panel-title {
-  border-left: 4px solid #FF6600;
-  padding: 10px;
   font-weight: bold;
-  font-size:1.3em;
-  background-color: white;
+  font-size:20px;
+  color:#555e60;
+  margin-bottom:15px;
 }
-.item {
-  margin:0 auto;
-}
+
 .item-pr {
-  background-color: white;
   color:black;
-  width:75%;
-  margin:0 auto;
-  padding:10px 10px 10px 10px;
-  border-radius: 8px;
   max-height: 130px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+/*new-restaurant*/
+.scroll{
+  overflow:scroll;
+  height:680px;
+}
+.new-restaurant-container{
+  margin-top: 40px;
+}
+.new-restaurant{
+  display:flex;
+  background-color: #fff;
+  border-top:1px solid #dfdfdf;
+  border-bottom:1px solid #dfdfdf;
+  padding:10px 10px 10px 0;
+}
+.new-restaurant img{
+  width:40%;
+  height:200px;
+  margin-right:10px;
+}
+.new-item-desc{
+  width:60%;
+}
+.background{
+  margin:0 30px;
+  overflow:hidden;
+}
+.google-message{
+  width:50px;
+  height:20px;
 }
 
 /*comment*/
@@ -394,22 +436,23 @@ p.item-title {
   margin:0 auto;
   padding-top:10px;
 }
-
 .balloon {
   position: relative; /* 三角の位置を固定するために設定 */
   display: inline-block;
   max-width: 400px;
   margin: 15px 0 0 5px;
   padding: 8px 15px; /* ふきだし内の余白 */
-  background: #f0f0f0; /* 背景色 */
+  background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+  //background: #eeea0c; /* 背景色 */
   text-align: left; /* テキストの揃え */
   border-radius: 15px;
   font-weight:bold;
+  box-shadow:2px 2px 0 gray; 
 }
 .balloon::after {
   content: '';
   border: 14px solid transparent;
-  border-top-color: #f0f0f0;
+  border-top-color: #FFC107;
   position: absolute;
   top: 0;
   left: -10px;
@@ -456,7 +499,7 @@ p.item-title {
   color:#6c6c75;
   font-size:1.2em;
   margin-top:10px;
-  margin-bottom:60px;
+  margin-bottom:80px;
 }
 .p-comment__formBox {
   margin: 30px auto;

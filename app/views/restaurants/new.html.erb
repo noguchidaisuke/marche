@@ -1,13 +1,47 @@
-<div class="search">
-  <div class="row">
-    <div class="text-center">
-      <%= form_tag(new_restaurant_path, method: :get, class: 'form-inline') do %>
-        <div class="form-group">
-          <%= text_field_tag :freeword, @freeword, class: 'form-control input-lg', placeholder: "キーワードを入力", size: 40 %>
+<% content_for :cover do %>
+  <div class="background">
+    <div class="row">
+      <div class="new-restaurant-container">
+        <div class="col-sm-6 scroll">
+          <% @restaurants.each do |restaurant| %>
+            <div class="new-restaurant">
+              <img src="<%= restaurant.shop_image1 %>">
+              <div class="new-item-desc">
+                <h3 class="item-title"><%= restaurant.name %></h3>
+                <p class="item-pr"><%= restaurant.pr_short %></p>
+              </div>
+            </div>
+          <%end%>
         </div>
-        <%= submit_tag 'レストランを検索', class: 'btn btn-success btn-lg' %>
-      <% end %>
+        <div id="map" class="col-sm-6 fixed"></div>
     </div>
   </div>
-</div>
-<%= render @restaurants %>
+<% end %>
+
+<style>
+#map{
+  height: 680px;
+}
+</style>
+
+<script>
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 16,
+      center: {lat: <%= @centerlat %>, lng: <%=@centerlong %>}
+  });
+  <% @restaurants.each do |restaurant| %>
+    (function(){
+    var infowindow = new google.maps.InfoWindow({
+        content: '<div class="google-message"><%=link_to restaurant.name,restaurant%></div>'
+      });
+      var marker = new google.maps.Marker({
+        position: {lat: <%= restaurant.latitude %>, lng: <%= restaurant.longitude %>},
+        map: map
+      });
+      infowindow.open(map, marker);
+    })();
+  <% end %>
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbs-NqOhNQ_4ZB_gdsVID5h0LWSEX2GIE&callback=initMap" async defer></script>

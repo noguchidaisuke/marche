@@ -19,5 +19,11 @@
     </div>
   </div>
 <% end %>
-<%= render @restaurants %>
-<%= paginate @restaurants %>
+<h1 class="h1-top">検索されたお店一覧</h1>
+<div class="con">
+  <%= render @restaurants %>
+</div>
+<%if logged_in?%>
+  <%= paginate @restaurants %>
+<%end%>
+
