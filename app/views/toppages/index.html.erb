@@ -2,17 +2,27 @@
   <div class="cover">
     <div class="cover-inner">
       <div class="cover-contents">
-        <h1>お得なお店を見つける</h1>
+        <h1 style="font-family:Genkaimincho;font-size:70px;">Gnavi</h1>
         <% unless logged_in? %>
-          <%= link_to '食べログを始める', signup_path, class: 'btn btn-success btn-lg' %>
+          <%= link_to '新規登録', signup_path, class: 'btn btn-success btn-lg' %>
         <% else %>
           <div class="text-center top-img">
             <%= form_with url: new_restaurant_path,method: :get do |f| %>
-              <div class="form-group search">
-                <%= f.text_field :freeword, class: 'form-control col-12', placeholder: "キーワードを入力" %>
+              <div class="search">
+                <div class="freeword"><%= f.text_field :freeword, class: 'form-control', autocomplete: 'off',placeholder: "キーワードを入力 (例: カレー)" %></div>
+                <div class="area">
+                  <%= f.text_field :area,class: 'form-control', autocomplete: 'off',list:'current',id:'inputarea', placeholder: "エリアを指定 (例: 渋谷）" %>
+                </div>
+                <%= hidden_field_tag :latlng %>
+                <%= f.submit '検索', class: 'btn btn-warning btn-lg'%>
               </div>
-              <%= f.submit 'レストランを検索', class: 'btn btn-success btn-lg' %>
             <% end %>
+            <div class="under-search">
+              <div class="empty"></div>
+              <div id="pop_up" style="display:none;">
+                  <i class="fas fa-street-view"></i><div id="current_point">現在地</div>
+              </div>
+            </div>
           </div>
         <% end %>
       </div>
@@ -27,3 +37,43 @@
   <%= paginate @restaurants %>
 <%end%>
 
+
+
+
+
+<script>
+
+function getMyPlace() {
+  function success(position) {
+    var latitude  = position.coords.latitude;//緯度
+    var longitude = position.coords.longitude;//経度
+    // 位置情報
+    var latlng = new google.maps.LatLng( latitude , longitude ) ;
+    document.getElementById('latlng').value = latlng;
+  };
+  function error() {
+    output.innerHTML = "座標位置を取得できません";
+  };
+  navigator.geolocation.getCurrentPosition(success, error);//成功と失敗を判断
+}
+$(document).ready(function(){
+  getMyPlace()
+})
+$(document).on('click', function(e) {
+	// ２．クリックされた場所の判定
+	if(!$(e.target).closest('#pop_up').length && !$(e.target).closest('#inputarea').length){
+		$('#pop_up').fadeOut();
+	}else if($(e.target).closest('#inputarea').length){
+    // ３．ポップアップの表示状態の判定
+    $('#pop_up').toggle();
+	}
+});
+$('#current_point').click(function() {
+    $('#pop_up').hide();
+    getMyPlace();
+    document.getElementById('inputarea').value="現在地";
+})
+</script>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbs-NqOhNQ_4ZB_gdsVID5h0LWSEX2GIE&callback=initMap" async defer></script>

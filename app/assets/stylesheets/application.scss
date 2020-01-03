@@ -1,12 +1,18 @@
 @charset "utf-8";
 
+/*options*/
+.m-l-{
+  margin-left:-3px !important;
+}
+border-radius-none{
+  border-radius: 0px!important;
+}
 /* user image設定 */
 .user-icon-profile img {
   border-radius:50%;
   width:300px;
   height:300px;
 }
-
 
 /* body */
 body {
@@ -21,7 +27,12 @@ footer {
 .m-t20{
   margin-top:20px;
 }
-
+/* alert */
+.alert {
+  margin-top:-20px;
+  border-radius:0px!important;
+  margin:-20px 0 20px 0;
+}
 /* navbar */
 
 @import url('https://fonts.googleapis.com/css?family=Roboto');
@@ -29,6 +40,7 @@ footer {
 // Navbar
 .navbar {
   background: linear-gradient(to right, #ff5858,orange);
+  border-radius:0px!important;
   .navbar-brand:hover{
     font-size:30px!important;
   }
@@ -77,7 +89,9 @@ footer {
 			background: white;
 		}
   }
-  
+  .btn-nav{
+   background-color: darkslategray;
+  }
 	.navbar-collapse {
 		display: none;
   }
@@ -178,12 +192,9 @@ footer {
 		width: 50%;
 		float: left;
 	}
-	.navbar-form {
-    border: 0;
-    input{
+	.navbar-form input{
       width:400px;
-    }
-	}
+  }
 }
 
 /* cover */
@@ -306,35 +317,103 @@ footer {
   margin-top: -20px;
   margin-bottom: 70px;
   width: 100%;
-  height: 500px;
-  background: url("gnavi_top") center center no-repeat;
+  height: 600px;
+  background: url("vege.jpg") center center no-repeat;
   background-size: cover;
 }
 
 .cover .cover-inner {
   height: 100%;
-  margin: auto;
-  display: table;
+  margin:0 auto;
+  width:60%;
 }
 .cover .cover-inner .cover-contents {
-  display: table-cell;
-  vertical-align: middle;
   text-align: center;
   position: relative;
+  padding-top:175px;
 }
 .cover .cover-inner .cover-contents h1 {
-  margin: 0 0 20px 0;
+  margin: 0 0 50px 0;
   color: #fff;
   font-weight: bold;
   letter-spacing: 0.15em;
 }
 
-.search::before {
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  content: "\f002";
-  margin-bottom: 20px;
-  margin-left: -20px!important;
+.search{
+  display:flex;
+  .form-control{
+    padding-left:40px;
+    border-radius:0px!important;
+    height:60px;
+    font-size:15px;
+  }
+  .freeword{
+    width:50%;
+    position:relative;
+    &::before {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      content: "\f002";
+      font-size:20px;
+      left:13px;
+      top:17px;
+      position:absolute;
+      color:orange;
+    }
+  }
+  .area{
+    width:30%;
+    position:relative;
+    &::before {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      content: "\f3c5";
+      font-size:20px;
+      left:13px;
+      top:17px;
+      position:absolute;
+      color:orange;
+    }
+  }
+  .btn{
+    width:20%;
+    border-radius: 0px!important;
+  }
+}
+
+.under-search{
+  display:flex;
+  .empty{
+    width:50%;
+  }
+  #pop_up {
+    width:20%;
+    height:50px;
+    background-color: #fff;
+    box-shadow: 2px 2px 5px 1px #999;
+    position:relative;
+    color:orange;
+    &:hover{
+      background-color:orange;
+      color:white;
+    }
+    #current_point{
+      width:100%;
+      padding-top:15px;
+      cursor:pointer;
+      height:100%;
+      font-size:15px;
+      text-align: initial;
+      padding-left: 40px;
+    }
+    .fa-street-view{
+      position:absolute;
+      left:10px;
+      top:15px;
+      font-size:20px;
+    }
+  }
+  
 }
 
 .h1-top{
