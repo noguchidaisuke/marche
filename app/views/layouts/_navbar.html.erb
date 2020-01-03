@@ -74,10 +74,12 @@
         <div class="navbar-form navbar-right">
           <%= form_with url: new_restaurant_path, method: :get do |f| %>
             <%= f.text_field :freeword, class: 'form-control',placeholder: 'キーワード'%>
-            <%= f.submit '検索', class: 'btn btn-warning' %>
+            <%= f.text_field :area, class:'form-control m-l-',placeholder: 'エリア指定' %>
+            <%= f.submit '検索', class: 'btn btn-warning btn-nav' %>
           <% end %>
         </div>
       </div>
     </div>
   </nav>
 </header>
+

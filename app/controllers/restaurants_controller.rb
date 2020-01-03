@@ -1,13 +1,29 @@
 class RestaurantsController < ApplicationController
   def new
     @restaurants,@latitude,@longitude = [],[],[]
-    @freeword = params[:freeword]
     url = 'https://api.gnavi.co.jp/RestSearchAPI/v3/'
-    params = {
-      keyid: ENV['GURUNAVI_API_KEY'],
-      freeword: @freeword
+    freeword = params[:freeword]
+    query = {
+      keyid: ENV['GURUNAVI_API_KEY']
     }
-    response = Faraday.get(url,params)
+
+    if self.params[:area] ==""
+      freeword = nil
+    elsif params[:area] == "現在地"
+      latlng=params[:latlng]
+      latitude,longitude=latlng.scan(/[0-9]+.[0-9]+/)
+      current_point={latitude: latitude,
+        longitude: longitude,
+        range: 3
+      }
+      query.merge!(current_point)
+    else
+      freeword+= ',' + params[:area]
+      query[:freeword]=freeword
+    end
+    query.merge!({freeword: freeword})
+    binding.pry
+    response = Faraday.get(url,query)
     response_json = JSON.parse(response.body)
     if response_json.present?
       begin

@@ -40,7 +40,6 @@ end
 -->
 <% content_for(:cover) do %>
 <div class="sign-body">
-  <h1 class="text-center">Gnaviへようこそ</h1>
   <div class="model-dialog text-center">
     <div class="main-section col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
       <div class="model-content">
@@ -61,8 +60,8 @@ end
             <div class="form-group password">
               <%= f.text_field :password_confirmation, class: 'form-control',placeholder: "Password(確認)" %>
             </div>
-            <div class="form-group">
-              <%= f.file_field :avatar%>
+            <div class="form-avatar">
+              <i class="fas fa-image avatar-icon"></i><%= f.file_field :avatar%>
             </div>
             <button type="submit" class="btn-signin"><i class="fas fa-sign-in-alt"></i>登録する</button>
             <p class="or">or</p>
@@ -74,3 +73,22 @@ end
   </div>
 </div>
 <%end%>
+
+<style>
+.form-avatar{
+    display: flex;
+    background-color: #fff;
+    border-radius: 5px;
+    height: 30px;
+    width: 70%;
+    padding-top: 5px;
+    margin:0 auto;
+}
+.avatar-icon{
+    width: 10%;
+    font-size: 18px;
+    color: #555e60;
+    padding: 1px;
+    margin: 0 13px;
+}
+</style>
