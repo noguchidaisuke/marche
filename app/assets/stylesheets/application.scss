@@ -32,6 +32,7 @@ footer {
   margin-top:-20px;
   border-radius:0px!important;
   margin:-20px 0 20px 0;
+  text-align:center;
 }
 /* navbar */
 
@@ -428,7 +429,7 @@ footer {
   display:flex;
   flex-wrap:wrap;
   justify-content: space-around;
-  height:500px;
+  height:700px;
   overflow:scroll;
   padding-top:20px;
 }
@@ -457,7 +458,6 @@ footer {
 
 
 .item-title {
-  /* 文の行数を2行に保ち、最後に ... を追加するスタイル */
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -478,6 +478,24 @@ footer {
     text-decoration: none;
     color:#555e60;
   }
+}
+
+/* 新規登録　ログイン */
+.form-avatar{
+  display: flex;
+  background-color: #fff;
+  border-radius: 5px;
+  height: 30px;
+  width: 70%;
+  padding-top: 5px;
+  margin:0 auto;
+}
+.avatar-icon{
+  width: 10%;
+  font-size: 18px;
+  color: #555e60;
+  padding: 1px;
+  margin: 0 13px;
 }
 
 /*new-restaurant*/
@@ -710,17 +728,20 @@ hr{
   width:800px;
   border:3px solid #D2691E;
 }
-
 .first .fas{
   color:#FFCC00;
-  font-size:20px;
+  font-size:30px;
   margin-right: 10px;
 }
-.secound .fas {
+.secound .fas{
   color:silver;
+  font-size:25px;
+  margin-right: 10px;
 }
-.third .fas {
+.third .fas{
   color:#D2691E;
+  font-size:20px;
+  margin-right: 10px;
 }
 .list-title .rank{
   margin-right:30px;
@@ -729,10 +750,25 @@ hr{
 display: table;
 width: 100%;
 margin-bottom:20px;
+position:relative;
+}
+.ranking-link{
+  position:absolute;
+  height:100%;
+  width:100%;
 }
 .list-img,.list-text {
 display: table-cell;
 vertical-align: middle;
+text-decoration:none;
+}
+.like_count{
+  size:30px;
+  font-size:30px;
+  color:orange;
+  i{
+    margin-right:20px;
+  }
 }
 .list-cat {
 background-color: #FF6600;
@@ -746,8 +782,8 @@ color: #aaa;
 font-size: 10px;
 margin-left: 10px;
 }
-.list-text h2 {
-color: #000;
+.list-text h3 {
+color: #555e60;
 font-size: 20px;
 line-height: 1.4;
 margin-right: 10px;

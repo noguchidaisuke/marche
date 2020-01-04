@@ -1,46 +1,4 @@
 <header>
-  <!--<nav class="navbar navbar-default navbar-static-top">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-left" href="/"><img src="https://www.gfo-sc.jp/files/20180827/30897166f9969635d862e2e5362e65820cc089f2.png"></a>
-      </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          <% if logged_in? %>
-            <li class="dropdown">
-                <li><%= link_to 'Likeランキング', rankings_like_path %></li>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                <span class="gravatar">
-                  <img src="<%= gravatar_url(current_user, size: 20) %>" alt="" class="img-circle">
-                </span>
-                <%= current_user.name %>
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <%= link_to 'マイページ', user_path(current_user) %>
-                </li>
-                <li role="separator" class="divider"></li>
-                <li>
-                  <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
-                </li>
-              </ul>
-            </li>
-          <% else %>
-            <li><%= link_to '新規登録', signup_path %></li>
-            <li><%= link_to 'ログイン', login_path %></li>
-          <% end %>
-        </ul>
-      </div>
-  </nav>
-  -->
   <nav class="navbar">
     <div class="container-fluid">
       <!-- Nav Header -->
@@ -52,7 +10,6 @@
         </button>
         <a class="navbar-brand" href="/"><span class="fab fa-gofore" style="font-size:30px;"></span>navi</a>
       </div>
-      <!-- Nav Collapse <%= link_to 'Ranking',rankings_like_path %>-->
       <div class="navbar-collapse collapse" id="collapse-1">
         <!-- Nav Left -->
         <ul class="nav navbar-nav">
@@ -74,7 +31,8 @@
         <div class="navbar-form navbar-right">
           <%= form_with url: new_restaurant_path, method: :get do |f| %>
             <%= f.text_field :freeword, class: 'form-control',placeholder: 'キーワード'%>
-            <%= f.text_field :area, class:'form-control m-l-',placeholder: 'エリア指定' %>
+            <%= f.text_field :area,id:'area',class:'form-control m-l-',placeholder: 'エリア指定' %>
+            <%= hidden_field_tag :fake,"fake"%>
             <%= f.submit '検索', class: 'btn btn-warning btn-nav' %>
           <% end %>
         </div>
@@ -82,4 +40,3 @@
     </div>
   </nav>
 </header>
-
