@@ -39,7 +39,7 @@ class RestaurantsController < ApplicationController
         restaurants=restaurants.to_ary
         @centerlat = restaurants.first.latitude
         @centerlong = restaurants.first.longitude
-        @restaurants = Kaminari.paginate_array(restaurants,total_count: restaurants.count).page(1).per(10)
+        @restaurants = Kaminari.paginate_array(restaurants,total_count: restaurants.count).page(params[:page]).per(10)
       rescue => e
         flash[:danger]='該当のお店が見つかりませんでした。他のキーワードでお願いします'
         redirect_to root_path
