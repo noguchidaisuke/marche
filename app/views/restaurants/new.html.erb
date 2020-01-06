@@ -3,6 +3,7 @@
     <div class="row">
       <div class="new-restaurant-container">
         <div class="col-sm-6 scroll">
+        <div class="serch-result"><span class="serch-word">検索ワード:</span><%= params[:freeword] %><span class="p-l"><%=params[:area]%></span></div>
           <% @restaurants.each do |restaurant| %>
             <div class="new-restaurant">
               <%= link_to '',restaurant,class: 'restaurant-link'%>
@@ -20,10 +21,22 @@
   <%= paginate @restaurants %>
 <% end %>
 
-
 <style>
 #map{
   height: 680px;
+}
+.serch-result{
+  font-size:17px;
+  margin-bottom:7px;
+  color:#333333;
+}
+.serch-word{
+  font-size:13px;
+  color:black;
+  margin-right:5px;
+}
+.serch-result span{
+  padding-left:15px;
 }
 </style>
 

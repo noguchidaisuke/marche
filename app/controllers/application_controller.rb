@@ -10,27 +10,4 @@ class ApplicationController < ActionController::Base
       redirect_to login_url
     end
   end
-  
-  def read(rest)
-     g_id = rest['id']
-     name = rest['name']
-     url = rest['url']
-     shop_image1 = rest['image_url']['shop_image1']
-     pc = rest['coupon_url']['pc']
-     pr_short = rest['pr']['pr_short']
-     latitude = rest['latitude']
-     longitude = rest['longitude']
-     tel = rest['tel']
-     return {
-       g_id: g_id,
-       name: name,
-       url: url,
-       shop_image1: shop_image1,
-       pc: pc,
-       pr_short: pr_short,
-       latitude: latitude,
-       longitude: longitude,
-       tel: tel
-     }
-  end
 end

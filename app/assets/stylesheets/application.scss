@@ -4,6 +4,9 @@
 .m-l-{
   margin-left:-3px !important;
 }
+.p_l{
+  padding-left:15px;
+}
 border-radius-none{
   border-radius: 0px!important;
 }
@@ -418,9 +421,13 @@ footer {
 }
 
 .h1-top{
-  margin:0 20px 50px;
+  margin:0 auto;
+  margin-bottom:30px;
   padding-bottom:30px;
-  border-bottom:5px solid orange;
+  border-bottom:1px solid orange;
+  width:30%;
+  text-align:center;
+  font-family:Genkaimincho;
 }
 /* item */
 
