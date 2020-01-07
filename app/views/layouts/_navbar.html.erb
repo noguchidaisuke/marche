@@ -28,14 +28,6 @@
             <li><%= link_to 'ログイン',login_path %></li>
           <% end %>
         </ul>
-        <div class="navbar-form navbar-right">
-          <%= form_with url: new_restaurant_path, method: :get do |f| %>
-            <%= f.text_field :freeword, class: 'form-control',placeholder: 'キーワード'%>
-            <%= f.text_field :area,id:'area',class:'form-control m-l-',placeholder: 'エリア指定',autocomplete:'off' %>
-            <%= hidden_field_tag :fake,"fake"%>
-            <%= f.submit '検索', class: 'btn btn-warning btn-nav' %>
-          <% end %>
-        </div>
       </div>
     </div>
   </nav>

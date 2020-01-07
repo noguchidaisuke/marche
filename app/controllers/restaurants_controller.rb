@@ -21,6 +21,7 @@ class RestaurantsController < ApplicationController
     else
       freeword+= ',' + params[:area]
     end
+    
     query.merge!({freeword: freeword})
     response = Faraday.get(url,query)
     response_json = JSON.parse(response.body)
@@ -48,17 +49,6 @@ class RestaurantsController < ApplicationController
     @comments =@restaurant.comments
     @latlng = [@restaurant[:latitude],@restaurant[:longitude]]
     @comment = @restaurant.comments.new
-  end
-  def import(rest)
-    self.g_id = rest['id']
-    self.name = rest['name']
-    self.url = rest['url']
-    self.shop_image1 = rest['image_url']['shop_image1']
-    self.pc = rest['coupon_url']['pc']
-    self.pr_short = rest['pr']['pr_short']
-    self.latitude = rest['latitude']
-    self.longitude = rest['longitude']
-    self.tel = rest['tel']
   end
   private
   def make_hash(rest)

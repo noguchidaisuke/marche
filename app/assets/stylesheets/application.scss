@@ -1,5 +1,4 @@
 @charset "utf-8";
-
 /*options*/
 .m-l-{
   margin-left:-3px !important;
@@ -42,11 +41,49 @@ footer {
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 // Navbar
+.navbar-right {
+  position:absolute;
+  top:8px;
+  right:30px;
+  .nav-popup {
+    margin-top:1px;
+    border-radius:5px;
+    height:30px;
+    background-color: #fff;
+    box-shadow: 2px 2px 5px 1px #999;
+    position:relative;
+    color:orange;
+    width:150px;
+    left:173px;
+    &:hover{
+      background-color:orange;
+      color:white;
+    }
+    #current_point{
+      width:100%;
+      padding-top:5px;
+      cursor:pointer;
+      height:100%;
+      font-size:15px;
+      text-align: initial;
+      padding-left: 40px;
+    }
+    .fa-street-view{
+      position:absolute;
+      left:10px;
+      top:7px;
+      font-size:15px;
+    }
+  }
+}
 .navbar {
   background: linear-gradient(to right, #ff5858,orange);
   border-radius:0px!important;
-  .navbar-brand:hover{
-    font-size:30px!important;
+  .navbar-brand{
+    margin-left:70px!important;
+    &:hover{
+      font-size:30px!important;
+    }
   }
   .navbar-nav{
     padding-top:5px;
@@ -58,7 +95,7 @@ footer {
 		width: auto;
 		background: transparent !important;
     font-size: 20px;
-    padding-left:20px;
+    padding-left:30px!important;
 		&:hover{
 			background-color: rgba(255,255,255,0.2);
       font-size: 20px;
@@ -390,13 +427,15 @@ footer {
   .empty{
     width:50%;
   }
-  #pop_up {
+  .toppage-popup {
     width:20%;
     height:50px;
     background-color: #fff;
     box-shadow: 2px 2px 5px 1px #999;
     position:relative;
     color:orange;
+    border-radius:2px;
+    margin-top:1px;
     &:hover{
       background-color:orange;
       color:white;
@@ -461,6 +500,7 @@ footer {
 .item-desc{
   padding:10px;
   box-shadow:0 0 10px;
+  height:149px;
 }
 
 

@@ -1,69 +1,38 @@
-<!-- 
-<h1>お気に入りランキング</h1>
-<% if @restaurants.present? %>
-  <div class="row">
-    <% @restaurants.each_with_index do |restaurant, index| %>
-      <div class="item">
-        <div class="col-md-3 col-sm-4 col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading text-center">
-              <img src="<%= restaurant.shop_image1 %>" alt="" >
-            </div>
-            <div class="panel-body">
-              <p class="item-title"><%= link_to restaurant.name, restaurant %></p>
-              <div class="buttons text-center">
-                <% if logged_in? %>
-                  <%= render 'likes/like_button', restaurant: restaurant %>
-                <% end %>
-              </div>
-            </div>
-            <div class="panel-footer">
-              <p class="text-center"><%= index+1 %>位: <%= @ranking_counts[restaurant.id] %> Likes</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-<% end %>
--->
+
 <div class="logo"></div>
-<% if @restaurants.present? %>
-<% restaurant=@restaurants[0] %>
-<% restaurant2=@restaurants[1]%>
-<% restaurant3=@restaurants[2]%>
+<% if @restaurant.present? %>
     <div class="back">
       <div class="ranking-inner">
         <hr width="100%" size="3" align="center">
         <div class="list first">
-            <div class="list-title"><i class="fas fa-crown"></i><span class="rank">1位</span><%= link_to restaurant.name, restaurant %></div>
+            <div class="list-title"><i class="fas fa-crown"></i><span class="rank">1位</span><%= link_to @restaurant.name, @restaurant %></div>
             <div class="list-box">
-              <%= link_to '',restaurant,class:'ranking-link'%>
-                <div class="list-img"><img src="<%= restaurant.shop_image1  %>"></div>
+              <%= link_to '',@restaurant,class:'ranking-link'%>
+                <div class="list-img"><img src="<%= @restaurant.shop_image1  %>"></div>
                 <div class="list-text">
                   <div class="like_count">
-                    <i class="far fa-thumbs-up"></i><span><%= @ranking_counts[restaurant.id] %></span>
+                    <i class="far fa-thumbs-up"></i><span><%= @ranking_counts[@restaurant.id] %></span>
                   </div>
-                  <h3><%= restaurant.pr_short%></h3>
+                  <h3><%= @restaurant.pr_short%></h3>
                   <% if logged_in? %>
-                      <%= render 'likes/like_button', restaurant: restaurant,class: 'btn btn-primary' %>
+                      <%= render 'likes/like_button', restaurant: @restaurant,class: 'btn btn-primary' %>
                   <%end%>
                 </div>
             </div>
         </div>
         <hr width="100%" size="3" align="center">
         <div class="list secound">
-            <div class="list-title"><i class="fas fa-crown"></i><span class="rank">2位</span><%= link_to restaurant2.name, restaurant2 %></div>
+            <div class="list-title"><i class="fas fa-crown"></i><span class="rank">2位</span><%= link_to @restaurant2.name, @restaurant2 %></div>
             <div class="list-box">
-                <%= link_to '',restaurant2,class:'ranking-link'%>
-                    <div class="list-img"><img src="<%= restaurant2.shop_image1  %>"></div>
+                <%= link_to '',@restaurant2,class:'ranking-link'%>
+                    <div class="list-img"><img src="<%= @restaurant2.shop_image1  %>"></div>
                     <div class="list-text">
                     <div class="like_count">
-                      <i class="far fa-thumbs-up"></i><span><%= @ranking_counts[restaurant2.id] %></span>
+                      <i class="far fa-thumbs-up"></i><span><%= @ranking_counts[@restaurant2.id] %></span>
                     </div>
-                      <h3><%= restaurant2.pr_short%></h3>
+                      <h3><%= @restaurant2.pr_short%></h3>
                       <% if logged_in? %>
-                          <%= render 'likes/like_button', restaurant: restaurant2 %>
+                          <%= render 'likes/like_button', restaurant: @restaurant2 %>
                       <%end%>
                     </div>
                 </a>
@@ -71,17 +40,17 @@
         </div>
         <hr width="100%" size="3" align="center">
         <div class="list third">
-            <div class="list-title"><i class="fas fa-crown"></i><span class="rank">3位</span><%= link_to restaurant3.name, restaurant3 %></div>
+            <div class="list-title"><i class="fas fa-crown"></i><span class="rank">3位</span><%= link_to @restaurant3.name, @restaurant3 %></div>
             <div class="list-box">
-                <%= link_to '',restaurant3,class:'ranking-link'%>
-                    <div class="list-img"><img src="<%= restaurant3.shop_image1  %>"></div>
+                <%= link_to '',@restaurant3,class:'ranking-link'%>
+                    <div class="list-img"><img src="<%= @restaurant3.shop_image1  %>"></div>
                     <div class="list-text">
                     <div class="like_count">
-                      <i class="far fa-thumbs-up"></i><span><%= @ranking_counts[restaurant3.id] %></span>
+                      <i class="far fa-thumbs-up"></i><span><%= @ranking_counts[@restaurant3.id] %></span>
                     </div>
-                      <h3><%= restaurant.pr_short%></h3>
+                      <h3><%= @restaurant3.pr_short%></h3>
                       <% if logged_in? %>
-                          <%= render 'likes/like_button', restaurant: restaurant3 %>
+                          <%= render 'likes/like_button', restaurant: @restaurant3 %>
                       <%end%>
                     </div>
                 </a>

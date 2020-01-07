@@ -1,3 +1,4 @@
+<%= render 'restaurant_nav'%>
 <% content_for :cover do %>
   <div class="background">
     <div class="row">
@@ -38,6 +39,7 @@
 .serch-result span{
   padding-left:15px;
 }
+
 </style>
 
 <script>
@@ -60,4 +62,5 @@ function initMap() {
   <% end %>
 }
 </script>
+<%= javascript_include_tag 'googlemap.js' %>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbs-NqOhNQ_4ZB_gdsVID5h0LWSEX2GIE&callback=initMap" async defer></script>

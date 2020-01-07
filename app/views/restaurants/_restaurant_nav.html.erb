@@ -1,0 +1,11 @@
+<div class="navbar-form navbar-right">
+  <%= form_with url: new_restaurant_path, method: :get do |f| %>
+    <%= f.text_field :freeword, class: 'form-control',placeholder: 'キーワード'%>
+    <%= f.text_field :area,id:'inputarea',class:'form-control m-l-',placeholder: 'エリア指定',autocomplete:'off' %>
+    <input type="hidden" name="latlng" id="latlng">
+    <%= f.submit '検索', class: 'btn btn-warning btn-nav' %>
+  <% end %>
+  <div id="pop_up" class="nav-popup" style="display:none;">
+    <i class="fas fa-street-view"></i><div id="current_point">現在地</div>
+  </div>
+</div>
