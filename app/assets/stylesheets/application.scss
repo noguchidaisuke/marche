@@ -597,7 +597,7 @@ footer {
   margin:0 auto;
   padding-top:10px;
 }
-.balloon {
+.chat-box {
   position: relative; /* 三角の位置を固定するために設定 */
   display: inline-block;
   max-width: 400px;
@@ -610,7 +610,7 @@ footer {
   font-weight:bold;
   box-shadow:2px 2px 0 gray; 
 }
-.balloon::after {
+.chat-box::after {
   content: '';
   border: 14px solid transparent;
   border-top-color: #FFC107;

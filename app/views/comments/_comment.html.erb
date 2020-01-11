@@ -9,15 +9,28 @@
         <%end%>
         <div class="comment-name"><%= comment.user.name %></div>
       </div>
-      <div class="balloon col-xs-9">
-        <span><%= simple_format(comment.comment) %></span>
+      <div class="col-xs-9">
+        <div class="chat-box">
+          <span><%= simple_format(comment.comment) %></span>
+        </div>
+        <div class="star-rating" data-score= <%= comment.rating %>></div>
       </div>
     </div>
     <div class="p-comment__bottomLine">
       <i class="far fa-calendar-alt"></i><span><%= comment.created_at %></span>
       <% if comment.user == current_user %>
-        <span><%= link_to '削除', comment, method: :delete, data: { confirm: '削除してよろしいですか？' },class: 'btn btn-danger' %></span>
+        <span><%= link_to '削除', restaurant_comment_path(comment), method: :delete, data: { confirm: '削除してよろしいですか？' },class: 'btn btn-danger' %></span>
       <% end %>
     </div>
   </div>
 <% end %>
+
+<script>
+  $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>

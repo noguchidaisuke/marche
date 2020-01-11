@@ -9,7 +9,8 @@
     <div class="p-comment_listTitle">コメント一覧</div>
       <%= render @comments %>
   </div>
-  <%= render 'comments/comment_form',comment: @comment %>
+   <%= link_to '新規口コミ',new_restaurant_comment_path(@restaurant) %>
+  
 </div>
 <div class="col-sm-4 credit-form">
   <div class="telnumber text-center"><i class="fas fa-phone"></i><span><%= @restaurant.tel || "電話番号なし" %></span></div>
