@@ -10,16 +10,27 @@ class User < ApplicationRecord
   has_many :restaurants, through: :likes
   has_many :like_restaurants, through: :likes, source: :restaurant
   has_many :comments
+  has_many :relationships
+  has_many :followings,through: :relationships,source: :follow
+  has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
+  has_many :followers, through: :reverse_of_relationships, source: :user
 
+  def follow(other_user)
+    self.relationships.find_or_create_by(follow_id:other_user[:id]) unless self == other_user
+  end
+  def unfollower(other_user)
+    self.relationships.destroy(other_user[:id]) unless self == other_user
+  end
+  def following?(other_user)
+    self.following.include?(other_user) unless self == other_user
+  end
   def like(restaurant) #user.like(restaurant)でお気に入り
     self.likes.find_or_create_by(restaurant_id: restaurant.id)
   end
-  
   def unlike(restaurant)
     like = self.likes.find_by(restaurant_id: restaurant.id)
     like.destroy
   end
-  
   def like?(restaurant)
     self.like_restaurants.include?(restaurant)
   end

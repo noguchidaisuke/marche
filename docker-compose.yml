@@ -9,9 +9,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: password
   web:
-    build:
-      context: .
-      dockerfile: dockerfile.dev
+    build: .
     volumes:
       - .:/myapp
       - public-data:/myapp/public
@@ -22,7 +20,7 @@ services:
     depends_on:
       - db
   server:
-    build: ./nginx.dev
+    build: ./nginx
     volumes:
       - socket-data:/myapp/tmp/sockets
       - public-data:/myapp/public
