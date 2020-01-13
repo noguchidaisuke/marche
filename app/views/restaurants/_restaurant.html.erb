@@ -1,13 +1,23 @@
 <% if restaurant %>
   <div class="item">
     <%= link_to '',restaurant,class: 'restaurant-link'%>
-    <img src="<%= restaurant.shop_image1 %>">
+    <div class="restaurant-img"><img src="<%= restaurant.shop_image1 %>"></div>
     <div class="item-desc">
       <% if logged_in? %>
         <div class="buttons"><%= render 'likes/like_button', restaurant:restaurant %></div>
       <% end %>
-      <h3 class="item-title"><%= restaurant.name %></h3>
-      <p class="item-pr"><%= link_to restaurant.pr_short, restaurant %></p>
+      <p class="star-rating item-pr" data-score= <%= restaurant.comments.average(:rating)? restaurant.comments.average(:rating) : 0 %>></p>
+      <div class="item-title"><%= restaurant.name %></div>
     </div>
   </div>
 <% end %>
+
+<script>
+  $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>

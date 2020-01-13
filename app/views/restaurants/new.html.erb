@@ -1,10 +1,10 @@
 <%= render 'restaurant_nav'%>
 <% content_for :cover do %>
   <div class="background">
+    <div class="serch-result"><span class="serch-word">検索ワード:</span><%= params[:freeword] %><span class="p-l"><%=params[:area]%></span></div>
     <div class="row">
       <div class="new-restaurant-container">
         <div class="col-sm-5 scroll">
-        <div class="serch-result"><span class="serch-word">検索ワード:</span><%= params[:freeword] %><span class="p-l"><%=params[:area]%></span></div>
           <% @restaurants.each do |restaurant| %>
             <div class="new-restaurant">
               <%= link_to '',restaurant,class: 'restaurant-link'%>
@@ -26,9 +26,11 @@
 #map{
   height: 680px;
 }
+.new-restaurant:hover {
+  background-color:#FFFFEE;
+}
 .serch-result{
   font-size:17px;
-  margin-bottom:7px;
   color:#333333;
 }
 .serch-word{
@@ -45,7 +47,7 @@
 <script>
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 17,
+      zoom: <%= @zoom %>,
       center: {lat: <%= @centerlat %>, lng: <%=@centerlong %>}
   });
   <% @restaurants.each do |restaurant| %>
