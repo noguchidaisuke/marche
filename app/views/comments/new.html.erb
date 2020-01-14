@@ -1,0 +1,88 @@
+<div class="new-restaurant_container row">
+  <div class="new-restaurant_top col-sm-5">
+    <%= form_with(model:@restaurant.comments.new,url: restaurant_comments_path) do |f|%>
+        <h2><%= @restaurant.name %></h2>
+        <div class="new-restaurant_form">
+          <div id="star-rating" class="new-rating"></div>
+          <%= f.text_area :comment,class:'new-restaurant_comment' %>
+        </div>
+        <div class="form-new_restaurant_img">
+          <%= f.label :images %>
+          <%= f.file_field :images, multiple: true,id:"images" %>
+        </div>
+        <div id="preview" style="display:none"></div>
+        <%= f.submit'submit' %>
+    <%end%>
+  </div>
+  <div class="recent-comments scroll col-sm-3">
+    <h3>最近のレビュー</h3>
+    <%= render @comments %>
+  </div>
+</div>
+<style>
+.new-restaurant_top{
+  padding:10px;
+}
+.new-rating{
+
+}
+.new-rating img{
+  height:30px;
+  width:30px;
+}
+.new-restaurant_comment{
+  font-size:20px;
+}
+.new_restaurant_img{
+
+}
+.recent-comments{
+  border-left:1px solid #ccc;
+  padding-left:10px;
+  height:750px;
+  position:absolute;
+  top:70px;
+  right:0px;
+}
+#preview{
+  display:flex;
+  justify-content:space-around;
+}
+#preview img{
+  width:21%;
+  height:21%;
+}
+
+</style>
+<script>
+$('#star-rating').raty({
+  path: '/assets/',
+  scoreName: 'comment[rating]'
+});
+
+$(function(){
+  $('#images').change(function(){
+    if ( !this.files.length ) {
+      return;
+    }
+    $('#preview').text('');
+ 
+    var $files = $(this).prop('files');
+    var len = $files.length;
+    for ( var i = 0; i < len; i++ ) {
+      var file = $files[i];
+      var fr = new FileReader();
+ 
+      fr.onload = function(e) {
+        var src = e.target.result;
+        var img = '<img src="'+ src +'">';
+        $('#preview').append(img);
+      }
+ 
+      fr.readAsDataURL(file);
+    }
+ 
+    $('#preview').css('display','block');
+  });
+});
+</script>

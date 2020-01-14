@@ -6,8 +6,15 @@
 .p_l{
   padding-left:15px;
 }
-border-radius-none{
-  border-radius: 0px!important;
+.flex{
+  display:flex;
+}
+.alert{
+  position: absolute;
+  left: 35%;
+  right: 0;
+  margin: auto;
+  width:30%;
 }
 /* user image設定 */
 .user-icon-profile img {
@@ -484,23 +491,18 @@ footer {
   margin-bottom:60px;
   position:relative;
   .buttons{
-    margin:10px 0 5px 0;
+    margin:5px 0 5px 0;
   }
-  img {
+  .restaurant-img img {
     width: 100%;
     height: 230px;
     box-shadow:0 0 10px;
-    .buttons form {
-      display: inline-block;
-      margin: 0 5px;
-      margin-top: 15px;
-    }
   }
 }
 .item-desc{
   padding:10px;
   box-shadow:0 0 10px;
-  height:149px;
+  height:135px;
 }
 
 
@@ -516,6 +518,7 @@ footer {
 }
 
 .item-pr {
+  margin-top:5px;
   max-height: 130px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -551,7 +554,7 @@ footer {
   height:680px;
 }
 .new-restaurant-container{
-  margin-top: 30px;
+  margin-top: 10px;
 }
 .new-restaurant{
   position:relative;
@@ -559,7 +562,7 @@ footer {
   background-color: #fff;
   border-top:1px solid #dfdfdf;
   border-bottom:1px solid #dfdfdf;
-  padding:10px 10px 10px 0;
+  padding:10px 10px 10px 5px;
 }
 .new-restaurant img{
   width:40%;
@@ -570,7 +573,6 @@ footer {
   width:60%;
 }
 .background{
-  margin:0 30px;
   overflow:hidden;
 }
 .google-message{
@@ -592,32 +594,38 @@ footer {
   float:left;
   max-width: 800px;
 }
+.comment-container{
+  border-bottom: 2px dotted #dfdfdf;
+  margin-bottom:-10px;
+}
+.p-comment__item {
+  padding: 15px 0;
+  display:flex;
+}
+.comemnt-top{
+  width:60%;
+}
+.comment-images{
+  width:40%;
+}
 .comment-icons{
-  text-align:center;
-  margin:0 auto;
-  padding-top:10px;
+  position:relative;
+  .user-icon{
+    position:absolute;
+    top:-8px;
+    left:5px;
+  }
+  .comment-name{
+    padding-left:70px;
+    margin-left:10px;
+    margin-bottom:30px;
+  }
 }
-.balloon {
-  position: relative; /* 三角の位置を固定するために設定 */
-  display: inline-block;
-  max-width: 400px;
-  margin: 15px 0 0 5px;
-  padding: 8px 15px; /* ふきだし内の余白 */
-  background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
-  //background: #eeea0c; /* 背景色 */
-  text-align: left; /* テキストの揃え */
-  border-radius: 15px;
-  font-weight:bold;
-  box-shadow:2px 2px 0 gray; 
+.chat-box{
+  margin-top:10px;
+  margin-left:10px;
 }
-.balloon::after {
-  content: '';
-  border: 14px solid transparent;
-  border-top-color: #FFC107;
-  position: absolute;
-  top: 0;
-  left: -10px;
-}
+
 .user-icon{
   img{
     border-radius:50%;
@@ -625,6 +633,7 @@ footer {
     height:60px;
   }
 }
+
 .credit-form{
   float:right;
   border:1px solid #eaeaeb;
@@ -660,7 +669,7 @@ footer {
   color:#6c6c75;
   font-size:1.2em;
   margin-top:10px;
-  margin-bottom:80px;
+  margin-bottom:20px;
 }
 .p-comment__formBox {
   margin: 30px auto;
@@ -681,24 +690,27 @@ footer {
 
 .p-comment_list {
   margin: 38px 0;
-  padding: 5px 20px 20px 20px;
+  padding-right: 10px;
 }
-.p-comment__item {
-  padding: 18px;
-  border-bottom: 2px dotted #dfdfdf;
+
+.comment-link:hover{
+  text-decoration:none;
 }
-.p-comment__bottomLine {
+
+.comment_bottom{
   font-size: 15px;
   text-align: left;
   position:relative;
   i{
-    padding-right:20px;
-    padding-left:20px;
+    padding-right:10px;
+    padding-left:7px;
+    margin-bottom:5px;
   }
   .btn{
     position:absolute;
-    right:3px;
+    right:10px;
     top:-7px;
+    
   }
 }
 /* restaurant show button*/

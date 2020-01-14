@@ -1,15 +1,16 @@
 <%= render 'restaurant_nav'%>
-<% content_for :cover do%>
-<p class="item-title"><%= @restaurant.name %></p>
 <p class="text-center"><%= link_to 'ぐるなびページ', @restaurant.url, target: '_blank',class: 'btn-gradient-3d-orange' %></p>
 <div id="map"></div>
-<%end%>
-<div class="comment-area col-sm-7">
+<div class="comment-area col-sm-8">
+  <p class="item-title"><%= @restaurant.name %></p>
+  <p class="avg-rating"><span><%= @avg_comment_rating %></span><span class="star-rating" data-score=<%= @avg_comment_rating %>></span></p>
+  <span class="write-review">
+      <i class="fas fa-edit"></i><%= link_to '新規口コミ',new_restaurant_comment_path(@restaurant) %>
+    </span>
   <div class="p-comment_list">
-    <div class="p-comment_listTitle">コメント一覧</div>
-      <%= render @comments %>
+    <div class="p-comment_listTitle">口コミ一覧</div>
+    <%= render @comments %>
   </div>
-  <%= render 'comments/comment_form',comment: @comment %>
 </div>
 <div class="col-sm-4 credit-form">
   <div class="telnumber text-center"><i class="fas fa-phone"></i><span><%= @restaurant.tel || "電話番号なし" %></span></div>
@@ -23,6 +24,25 @@
   height: 500px;
   width:100%;
   margin: 0 auto;
+}
+.avg-rating{
+  margin-bottom:20px;
+}
+.write-review{
+  margin-top:10px;
+  border: 1px solid #ccc;
+  border-radius:5px;
+  box-shadow:3px shadow;
+  padding:6px;
+}
+.write-review i {
+  color:orange;
+  padding-right:5px;
+}
+.write-review a{
+  text-decoration:none;
+  color:orange;
+  font-weight:bold;
 }
 </style>
 <script>
