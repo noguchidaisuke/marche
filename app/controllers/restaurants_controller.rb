@@ -8,7 +8,7 @@ class RestaurantsController < ApplicationController
       keyid: ENV['GURUNAVI_API_KEY'],
       hit_per_page: 30
     }
-
+    
     if params[:area] == "現在地"
       latitude,longitude=params[:latlng].scan(/[0-9]+.[0-9]+/)
       if latitude.nil?
@@ -51,7 +51,7 @@ class RestaurantsController < ApplicationController
     @comments =@restaurant.comments.order('rating DESC')
     @comments.average(:rating)? @avg_comment_rating = @comments.average(:rating).round(1) : @avg_comment_rating = 0
   end
-
+  
   private
 
   def make_hash(rest)

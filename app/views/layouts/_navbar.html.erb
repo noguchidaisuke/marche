@@ -14,7 +14,6 @@
         <!-- Nav Left -->
         <ul class="nav navbar-nav">
           <% if logged_in? %>
-            
             <li><%= link_to (user_path(current_user)) do %><span class="fas fa-user-cog"></span><span class="link">マイページ</span><%end%></li>
             <li><%= link_to logout_path, :method => :delete do %><span class="fas fa-user-cog"></span><span class="link">ログアウト</span><%end%></li>
             <li><a href="/rankings/like"><span class="fas fa-crown"></span><span class="link">Ranking</span></a></li>

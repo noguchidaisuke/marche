@@ -1,8 +1,9 @@
 class CommentsController < ApplicationController
     before_action :require_user_logged_in
-    before_action :set_restaurant,only:[:new,:create]
+    before_action :set_restaurant, only: %w(new create)
     def new
         @restaurant = Restaurant.find(params[:restaurant_id])
+        @comments = Comment.all.order('created_at DESC').limit(5)
     end
     def create
         comment = @restaurant.comments.new(comment_params)
@@ -16,7 +17,7 @@ class CommentsController < ApplicationController
         end
     end
     def destroy
-        comment = Comment.find(params[:restaurant_id])
+        comment = Comment.find(params[:id])
         comment.destroy
         flash[:success] = "コメントを削除しました"
         redirect_back(fallback_location: root_path)

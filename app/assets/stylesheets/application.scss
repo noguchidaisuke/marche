@@ -6,8 +6,8 @@
 .p_l{
   padding-left:15px;
 }
-border-radius-none{
-  border-radius: 0px!important;
+.flex{
+  display:flex;
 }
 .alert{
   position: absolute;
@@ -587,10 +587,6 @@ footer {
   left:10px;
 }
 /*comment*/
-.comment-container{
-  display:flex;
-  border-bottom: 2px dotted #dfdfdf;
-}
 .comment-area{
   //border:1px solid #dfdfdf;
   //box-shadow:0 0 5px;
@@ -598,15 +594,31 @@ footer {
   float:left;
   max-width: 800px;
 }
-.comment-icons{
+.comment-container{
+  border-bottom: 2px dotted #dfdfdf;
+  margin-bottom:-10px;
+}
+.p-comment__item {
+  padding: 15px 0;
   display:flex;
+}
+.comemnt-top{
+  width:60%;
+}
+.comment-images{
+  width:40%;
+}
+.comment-icons{
+  position:relative;
   .user-icon{
-    width:20%;
+    position:absolute;
+    top:-8px;
+    left:5px;
   }
   .comment-name{
-    width:70%;
+    padding-left:70px;
     margin-left:10px;
-
+    margin-bottom:30px;
   }
 }
 .chat-box{
@@ -621,6 +633,7 @@ footer {
     height:60px;
   }
 }
+
 .credit-form{
   float:right;
   border:1px solid #eaeaeb;
@@ -679,27 +692,25 @@ footer {
   margin: 38px 0;
   padding-right: 10px;
 }
-.p-comment__item {
-  padding: 18px 0;
-  width:60%;
-}
+
 .comment-link:hover{
   text-decoration:none;
 }
 
-.p-comment__bottomLine {
+.comment_bottom{
   font-size: 15px;
   text-align: left;
   position:relative;
   i{
-    margin-top:10px;
-    padding-right:20px;
+    padding-right:10px;
     padding-left:7px;
+    margin-bottom:5px;
   }
   .btn{
     position:absolute;
-    right:3px;
+    right:10px;
     top:-7px;
+    
   }
 }
 /* restaurant show button*/
