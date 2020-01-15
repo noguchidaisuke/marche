@@ -1,4 +1,47 @@
 @charset "utf-8";
+/* mypage */
+.mypage_cover{
+  background-color:#faf8f5;
+  margin-top:-20px!important;
+  padding:50px 0;
+  
+}
+.mypage{
+  background-color: #fff;
+  border-radius:10px;
+  border:1px solid #ccc;
+  padding:25px 10px;
+}
+.menu ul{
+  list-style:none;
+  margin:0;
+  li{
+    font-size:1.2em;
+    padding:15px;
+    position:relative;
+    background-color:#34495E;
+    border-top:1px solid #ccc;
+    border-right:5px solid #f1c40f;
+    transition:  all 0.3s;
+    &:hover{
+      background-color: orange;
+    }
+  }
+  a{
+    color:#fff;
+    text-decoration:none;
+  }
+  span{
+    margin-right:15px;
+  }
+}
+.logout{
+  margin-top:125px;
+  border-right:5px solid tomato!important;
+  &:hover{
+    background-color: #FF3333!important;
+  }
+}
 /*options*/
 .m-l-{
   margin-left:-3px !important;
@@ -505,7 +548,6 @@ footer {
   height:135px;
 }
 
-
 .item-title {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -530,6 +572,9 @@ footer {
   }
 }
 
+.show-restaurant_cover{
+  margin-top:-20px!important;
+}
 /* 新規登録　ログイン */
 .form-avatar{
   display: flex;
@@ -564,7 +609,7 @@ footer {
   border-bottom:1px solid #dfdfdf;
   padding:10px 10px 10px 5px;
 }
-.new-restaurant img{
+.new-restaurant_img{
   width:40%;
   height:200px;
   margin-right:10px;
@@ -588,25 +633,30 @@ footer {
 }
 /*comment*/
 .comment-area{
-  //border:1px solid #dfdfdf;
-  //box-shadow:0 0 5px;
   margin-top:30px;
   float:left;
   max-width: 800px;
 }
 .comment-container{
-  border-bottom: 2px dotted #dfdfdf;
+  border-bottom: 1px solid black;
   margin-bottom:-10px;
 }
 .p-comment__item {
   padding: 15px 0;
   display:flex;
 }
-.comemnt-top{
+.comment-top{
   width:60%;
 }
 .comment-images{
   width:40%;
+  overflow-x:auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  height:200px;
+  image{
+    display: inline-block;
+  }
 }
 .comment-icons{
   position:relative;
@@ -701,10 +751,10 @@ footer {
   font-size: 15px;
   text-align: left;
   position:relative;
+  margin-bottom:10px;
   i{
     padding-right:10px;
     padding-left:7px;
-    margin-bottom:5px;
   }
   .btn{
     position:absolute;

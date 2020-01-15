@@ -8,10 +8,11 @@
           <% @restaurants.each do |restaurant| %>
             <div class="new-restaurant">
               <%= link_to '',restaurant,class: 'restaurant-link'%>
-              <img src="<%= restaurant.shop_image1 %>">
+              <img src="<%= restaurant.shop_image1 %>" class="new-restaurant_img">
               <div class="new-item-desc">
                 <h3 class="item-title m-t20 half"><%= restaurant.name %></h3>
                 <p class="item-pr m-t40"><%= restaurant.pr_short %></p>
+                <div class="star-rating" data-score=<%= @avg_comment_rating %>></div>
               </div>
             </div>
           <%end%>
@@ -63,6 +64,13 @@ function initMap() {
     })();
   <% end %>
 }
+$('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function() {
+          return $(this).attr('data-score');
+  }
+});
 </script>
 <%= javascript_include_tag 'googlemap.js' %>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbs-NqOhNQ_4ZB_gdsVID5h0LWSEX2GIE&callback=initMap" async defer></script>

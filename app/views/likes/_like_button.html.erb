@@ -3,8 +3,8 @@
     <%= f.submit 'お気に入りを外す', class: 'btn btn-danger btn-xs' %>
   <% end %>
 <% else %>
-  <%= form_with(url: likes_path(restaurant.g_id)) do |f|%>
-    <%= hidden_field_tag :restaurant_g_id, restaurant.g_id %>
-    <%= f.submit 'お気に入りに追加', class: 'btn btn-warning btn-xs' %>
+  <%= form_with(url: likes_path(restaurant.id)) do |f|%>
+    <%= hidden_field_tag :restaurant_g_id, restaurant.id %>
+    <%= f.submit 'お気に入り', class: 'btn btn-warning btn-xs' %>
   <% end %>
 <% end %>

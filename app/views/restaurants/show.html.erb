@@ -1,24 +1,29 @@
 <%= render 'restaurant_nav'%>
-<p class="text-center"><%= link_to 'ぐるなびページ', @restaurant.url, target: '_blank',class: 'btn-gradient-3d-orange' %></p>
-<div id="map"></div>
+<% content_for :cover do %>
+<div class="show-restaurant_cover">
+  <div id="map"></div>
+</div>
+<%end%>
 <div class="comment-area col-sm-8">
   <p class="item-title"><%= @restaurant.name %></p>
   <p class="avg-rating"><span><%= @avg_comment_rating %></span><span class="star-rating" data-score=<%= @avg_comment_rating %>></span></p>
   <span class="write-review">
-      <i class="fas fa-edit"></i><%= link_to '新規口コミ',new_restaurant_comment_path(@restaurant) %>
-    </span>
+    <i class="fas fa-edit"></i><%= link_to '新規口コミ',new_restaurant_comment_path(@restaurant) %>
+  </span>
+  <span class="show-restaurant_like">
+    <%= render 'likes/like_button', restaurant: @restaurant%>
+  </span>
   <div class="p-comment_list">
     <div class="p-comment_listTitle">口コミ一覧</div>
     <%= render @comments %>
   </div>
 </div>
-<div class="col-sm-4 credit-form">
+<div class="col-sm-3 col-sm-offset-1 credit-form">
   <div class="telnumber text-center"><i class="fas fa-phone"></i><span><%= @restaurant.tel || "電話番号なし" %></span></div>
   <%= render 'charges/charge',class: 'stripe' %>
-  <% if logged_in? %>
-    <div class="like-btn"><%= render 'likes/like_button', restaurant: @restaurant %></div>
-  <% end %>
+  <p class="text-center"><%= link_to 'ぐるなびページ', @restaurant.url, target: '_blank',class: 'btn-gradient-3d-orange' %></p>
 </div>
+
 <style>
 #map{
   height: 500px;
@@ -28,12 +33,12 @@
 .avg-rating{
   margin-bottom:20px;
 }
-.write-review{
-  margin-top:10px;
+.write-review,.show-restaurant_like form input{
   border: 1px solid #ccc;
   border-radius:5px;
   box-shadow:3px shadow;
   padding:6px;
+  margin-right:15px;
 }
 .write-review i {
   color:orange;
@@ -44,6 +49,13 @@
   color:orange;
   font-weight:bold;
 }
+.show-restaurant{
+  position:relative;
+}
+.show-restaurant_like form{
+  display:inline!important;
+}
+
 </style>
 <script>
 function initMap() {
@@ -56,6 +68,14 @@ function initMap() {
     map: map
   });
 }
+
+$('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function() {
+          return $(this).attr('data-score');
+  }
+});
 </script>
 <%= javascript_include_tag 'googlemap.js' %>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbs-NqOhNQ_4ZB_gdsVID5h0LWSEX2GIE&callback=initMap" async defer></script>

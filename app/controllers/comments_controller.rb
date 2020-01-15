@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
     before_action :set_restaurant, only: %w(new create)
     def new
         @restaurant = Restaurant.find(params[:restaurant_id])
-        @comments = Comment.all.order('created_at DESC').limit(5)
+        @comments = Comment.all.order('created_at DESC').limit(5).with_attached_images
     end
     def create
         comment = @restaurant.comments.new(comment_params)

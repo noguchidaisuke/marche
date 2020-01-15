@@ -48,7 +48,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     @latlng = [@restaurant[:latitude],@restaurant[:longitude]]
     @comment = @restaurant.comments.new
-    @comments =@restaurant.comments.order('rating DESC')
+    @comments =@restaurant.comments.with_attached_images.includes(:user).order('rating DESC')
     @comments.average(:rating)? @avg_comment_rating = @comments.average(:rating).round(1) : @avg_comment_rating = 0
   end
   

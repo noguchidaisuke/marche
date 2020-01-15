@@ -4,4 +4,5 @@ class Comment < ApplicationRecord
   validates :comment, presence: true,length: {maximum: 300}
   validates :rating, presence: true,length: {minimum: 1}
   has_many_attached :images
+
 end
