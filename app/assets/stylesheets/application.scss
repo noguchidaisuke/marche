@@ -4,13 +4,12 @@
   background-color:#faf8f5;
   margin-top:-20px!important;
   padding:50px 0;
-  
 }
 .mypage{
   background-color: #fff;
   border-radius:10px;
   border:1px solid #ccc;
-  padding:25px 10px;
+  padding:20px;
 }
 .menu ul{
   list-style:none;
@@ -42,6 +41,84 @@
     background-color: #FF3333!important;
   }
 }
+
+
+/* follow follower */
+.follow_and_follower_title{
+  border-bottom:1px solid #dcdcdc;
+  padding-bottom:20px;
+  margin-right:40px;
+  width:90%;
+}
+.follow_and_follower{
+  box-shadow:0 0 5px;
+  height:90px;
+  padding:5px;
+  border-radius:3px;
+  margin:10px 15px 10px 10px ;
+  background-color: #fff;
+  color:darkslategrey;
+  text-decoration:none;
+  &:hover{
+    background-color: #FFFFDD;
+  }
+  .follow_image img{
+    width:75px;
+    height:100%;
+  }
+  .follow_name{
+    font-weight:bold;
+    font-size:1.1em;
+    padding-left:5px;
+  }
+  .follow_image{
+    width:30%;
+    margin-right:10px;
+  }
+  .follow_desc{
+    padding:15px 0;
+    width:70%;
+  }
+  .follow_comment,.follow_count {
+    font-size:1.1em;
+    padding:0 5px;
+    font-weight:bold;
+  }
+}
+.show-user_name{
+
+}
+.show-user_relation{
+
+  color:darkslategrey;
+  margin-top:20px;
+  span{
+    color:black;
+    padding-right:5px;
+  }
+}
+.show-user_follow{
+  border-bottom:1px solid #ccc;
+  border-right:1px solid #ccc;
+  padding-right:20px;
+  padding-bottom:10px;
+}
+.show-user_follower{
+  border-bottom:1px solid #ccc;
+  padding-left:20px;
+  padding-bottom:10px;
+}
+.show-user_follow_button{
+  padding-left:40px;
+}
+.profile{
+  margin-top:30px;
+  font-weight:bold;
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:4px;
+}
+
 /*options*/
 .m-l-{
   margin-left:-3px !important;
@@ -325,7 +402,7 @@ footer {
     padding:15px;
   }
 }
-.form-group{
+.form-login{
   margin-bottom: 25px;
   .form-control{
     height: 42px;
@@ -334,7 +411,7 @@ footer {
     padding-left: 62px;
   }
 }
-.form-group::before{
+.form-login::before{
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   content: "\f007";

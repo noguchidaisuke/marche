@@ -1,23 +1,31 @@
 <%content_for :cover do%>
   <div class="mypage_cover">
     <div class="container">
-      <%= render 'sidebar',user: @user %>
-      <div class="col-sm-8">
-        <div class="mypage">
-          <div class="user-profile">
-            <div class="user-icon-profile text-center">
-              <% if @user.avatar.attached? %>
-                <%= image_tag(@user.avatar) %>
-              <% else %>
-                <img src="<%= gravatar_url(@user,size: 100) %>">
-              <% end %>
-            </div>
-            <div class="name text-center">
-              <h1><%= @user.name %></h1>
+      <div class="row">
+        <%= render 'sidebar',user: @user %>
+        <div class="col-sm-8">
+          <div class="mypage">
+            <div class="user-profile row">
+              <div class="show-user_image col-xs-5">
+                <% if @user.avatar.attached? %>
+                  <%= image_tag(@user.avatar.variant(resize: '200x200!')) %>
+                <% else %>
+                  <img src="<%= gravatar_url(@user,size: 200) %>">
+                <% end %>
+              </div>
+              <div class="show-name_desc col-xs-6">
+                <h2 class="show-user_name"><%= @user.name %></h2>
+                <div class="show-user_relation flex">
+                  <p class="show-user_follow"><span><%= @user.followings.count %></span>follow</p><p class="show-user_follower"><span><%= @user.followers.count%></span>follower</p><p class="show-user_follow_button"><%= render 'relationships/follow_button',user: @user %></p>
+                </div>
+                <div class="profile">
+                  <p><%= @user.profile %></p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+       </div>
     </div>
   </div>
 <%end%>

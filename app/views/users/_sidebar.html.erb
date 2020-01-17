@@ -2,10 +2,15 @@
     <div class="menu">
         <ul>
         <%= link_to user_path(user) do %><li><span class="fa fa-home"></span>home</li><%end%>
+        <% if current_user == user %>
+            <%= link_to edit_user_path(user) do %><li><span class="fas fa-edit"></span>プロフィール編集</li><%end%>
+        <% end %>
         <%= link_to user_follows_path(user) do %><li><span class="fas fa-users"></span>フォロー</li><%end%>
         <%= link_to user_followers_path(user) do %><li><span class="fas fa-users"></span>フォロワー</li><%end%>
-        <%= link_to user_userlikes_path(user) do %><li><span class="far fa-thumbs-up"></span>お気に入り一覧</li><%end%>
-        <%= link_to logout_path, method: :delete do %><li class="logout"><span class="fas fa-sign-out-alt"></span>ログアウト</li><%end%>
+        <%= link_to user_likes_path(user) do %><li><span class="far fa-thumbs-up"></span>お気に入り一覧</li><%end%>
+        <% if current_user == user %>
+            <%= link_to logout_path, method: :delete do %><li class="logout"><span class="fas fa-sign-out-alt"></span>ログアウト</li><%end%>
+        <%end%>
         </ul>
     </div>
 </div>

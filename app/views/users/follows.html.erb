@@ -1,20 +1,28 @@
 <%content_for :cover do%>
   <div class="mypage_cover">
     <div class="container">
-      <%= render 'sidebar',user: @user %>
-      <div class="col-sm-8">
-        <div class="mypage">
-          <div class="user-profile">
-            <div class="user-icon-profile text-center">
-              <% if @user.avatar.attached? %>
-                <%= image_tag(@user.avatar) %>
-              <% else %>
-                <img src="<%= gravatar_url(@user,size: 100) %>">
-              <% end %>
-            </div>
-            <div class="name text-center">
-              <h1><%= @user.name %></h1>
-            </div>
+      <div class="row">
+        <%= render 'sidebar',user: @user %>
+        <div class="col-sm-8 col-sm-offset-1">
+          <h2 class="text-center follow_and_follower_title" style="font-family:HiraKakuStdN-W8;">Follow</h2>
+          <div class="row follow_and_follower_container">
+            <% @follows.each do |follow|%>
+              <%= link_to user_path(follow) do %>
+                <div class="flex col-sm-5 follow_and_follower">
+                  <div class="follow_image">
+                    <% if follow.avatar.attached? %>
+                      <%= image_tag(user.avatar.variant(resize: '75x75!')) %>
+                    <% else %>
+                      <img src="<%= gravatar_url(follow,size: 75) %>">
+                    <% end %>
+                  </div>
+                  <div class="follow_desc">
+                    <p class="follow_name"><%= follow.name %></p>
+                    <span class="follow_comment"><%= follow.comments.count %></span><span>comments</span><span class="follow_count"><%= @user.followers.count %></span><span>followers</span>
+                  </div>
+                </div>
+              <%end%>
+            <% end %>
           </div>
         </div>
       </div>

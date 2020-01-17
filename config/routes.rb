@@ -8,16 +8,17 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
   get 'signup', to: 'users#new'
 
-  resources :tests, only: [:new,:create]
-  resources :users, only: [:show, :new, :create] do
+  resources :users, only: %w[show new create edit update] do
     get 'follows', to: 'users#follows'
     get 'followers', to: 'users#followers'
-    get 'userlikes', to: 'users#userlikes'
+    get 'userlikes', to: 'users#userlikes', as: 'likes'
   end
-  resources :restaurants, only: [:show, :new] do
-    resources :comments, only:[:new,:create,:destroy]
+
+  resources :restaurants, only: %w[show new] do
+    resources :comments, only: %w[new create destroy]
   end
-  resources :likes, only: [:create, :destroy]
-  resources :charges, only: [:new,:create]
-  resources :relationships, only: [:create,:destroy]
+
+  resources :likes, only: %w[create destroy]
+  resources :charges, only: %w[new create]
+  resources :relationships, only: %w[create destroy]
 end

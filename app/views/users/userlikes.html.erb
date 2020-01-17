@@ -1,20 +1,23 @@
 <%content_for :cover do%>
   <div class="mypage_cover">
     <div class="container">
-      <%= render 'sidebar',user: @user %>
-      <div class="col-sm-8">
-        <div class="mypage">
-          <div class="user-profile">
-            <div class="user-icon-profile text-center">
-              <% if @user.avatar.attached? %>
-                <%= image_tag(@user.avatar) %>
-              <% else %>
-                <img src="<%= gravatar_url(@user,size: 100) %>">
+      <div class="row">
+        <%= render 'sidebar',user: @user %>
+        <div class="col-sm-8 col-sm-offset-1">
+          <h2 class="text-center follow_and_follower_title" style="font-family:HiraKakuStdN-W8; color:orange;">お気に入り一覧</h2>
+          <div class="row follow_and_follower_container">
+            <% @restaurants.each do |restaurant|%>
+              <%= link_to restaurant_path(restaurant) do %>
+                <div class="flex col-sm-5 follow_and_follower">
+                  <div class="follow_image">
+                    <%= image_tag(restaurant.shop_image1) %>
+                  </div>
+                  <div class="follow_desc">
+                    <p class="follow_name"><%= restaurant.name %></p>
+                  </div>
+                </div>
               <% end %>
-            </div>
-            <div class="name text-center">
-              <h1><%= @user.name %></h1>
-            </div>
+            <% end %>
           </div>
         </div>
       </div>

@@ -8,10 +8,10 @@
           </div>
           <%= form_with scope: :session,url: login_path do |f| %>
             <form class="col-12">
-              <div class="form-group email">
+              <div class="form-login email">
                 <%= f.text_field :email, class: 'form-control',placeholder: "Email" %>
               </div>
-              <div class="form-group password">
+              <div class="form-login password">
                 <%= f.text_field :password, class: 'form-control',placeholder: "Password" %>
               </div>
               <button type="submit" class="btn-login"><i class="fas fa-sign-in-alt"></i>ログイン</button>
