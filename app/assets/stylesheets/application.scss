@@ -1,4 +1,64 @@
 @charset "utf-8";
+.following{
+  border:none;
+  background-color: #fff;
+}
+.show-user_relation{
+  border-bottom:3px solid #ccc;
+  color:darkslategrey;
+  margin:20px 0;
+  justify-content: space-between;
+  span{
+    color:black;
+    padding-right:5px;
+  }
+}
+.relation_count{
+  margin-top:30px;
+}
+.show-user_follow{
+  border-right:1px solid #ccc;
+  padding-right:40px;
+}
+.show-user_follower{
+  padding-left:10px;
+
+}
+.show-user_follow_button{
+  padding-left:40px;
+}
+.profile{
+  font-weight:bold;
+  padding:10px;
+  border-radius:4px;
+  margin-left:30px;
+}
+
+
+.following_button{
+  position:relative;
+  color: #fff;
+  i{
+    position:absolute;
+    left:60px;
+    top:2px;
+  }
+  .following{
+    width:200px;
+    background-color: #4c5b66;
+    padding:15px 0 15px 30px;
+    border-radius:5px;
+  }
+  .follow{
+    width:200px;
+    background-color: #fff;
+    padding:15px 0 15px 30px;
+    border-radius:5px;
+    color:#4c5b66;
+    border:1px solid #4c5b66;
+  }
+}
+
 /* mypage */
 .mypage_cover{
   background-color:#faf8f5;
@@ -85,41 +145,11 @@
     font-weight:bold;
   }
 }
-.show-user_name{
-
-}
-.show-user_relation{
-
-  color:darkslategrey;
-  margin-top:20px;
-  span{
-    color:black;
-    padding-right:5px;
-  }
-}
-.show-user_follow{
-  border-bottom:1px solid #ccc;
-  border-right:1px solid #ccc;
-  padding-right:20px;
-  padding-bottom:10px;
-}
-.show-user_follower{
-  border-bottom:1px solid #ccc;
-  padding-left:20px;
-  padding-bottom:10px;
-}
-.show-user_follow_button{
-  padding-left:40px;
-}
-.profile{
-  margin-top:30px;
-  font-weight:bold;
-  padding:10px;
-  border:1px solid #ccc;
-  border-radius:4px;
-}
 
 /*options*/
+.wrap{
+  flex-wrap: wrap;
+}
 .m-l-{
   margin-left:-3px !important;
 }
@@ -480,10 +510,12 @@ footer {
 }
 
 /*toppage*/
-
+.toppage_contents{
+  background-color: #fafafa;
+}
 .cover {
   margin-top: -20px;
-  margin-bottom: 70px;
+  margin-bottom: 30px;
   width: 100%;
   height: 600px;
   background: url("vege.jpg") center center no-repeat;
@@ -583,46 +615,42 @@ footer {
       font-size:20px;
     }
   }
-  
 }
 
-.h1-top{
-  margin:0 auto;
-  margin-bottom:30px;
-  padding-bottom:30px;
-  border-bottom:1px solid orange;
-  width:30%;
-  text-align:center;
+.h2-top{
+  padding-bottom:20px;
+  margin:60px 15px 20px 15px;
+  border-bottom:2px solid #d5d5d8;
   font-family:Genkaimincho;
+
 }
 /* item */
 
 .con {
   background-color: white;
   display:flex;
-  flex-wrap:wrap;
-  justify-content: space-around;
-  height:700px;
-  overflow:scroll;
-  padding-top:20px;
+  height:350px;
+  overflow-x:auto;
+  padding-top:10px;
 }
 .item{
-  width:30%;
   margin-bottom:60px;
   position:relative;
+  width:250px;
+  margin:0 15px;
   .buttons{
     margin:5px 0 5px 0;
   }
   .restaurant-img img {
-    width: 100%;
-    height: 230px;
-    box-shadow:0 0 10px;
+    width: 250px;
+    height: 200px;
+    box-shadow:0 0 5px;
   }
 }
 .item-desc{
   padding:10px;
-  box-shadow:0 0 10px;
-  height:135px;
+  box-shadow:0 0 5px;
+  height:100px;
 }
 
 .item-title {
@@ -631,7 +659,7 @@ footer {
   -webkit-line-clamp: 2;
   overflow: hidden;
   font-weight: bold;
-  font-size:20px;
+  font-size:15px;
   color:black;
   margin-bottom:15px;
 }
@@ -715,22 +743,15 @@ footer {
   max-width: 800px;
 }
 .comment-container{
-  border-bottom: 1px solid black;
-  margin-bottom:-10px;
-}
-.p-comment__item {
+  border-bottom: 2px solid #dfdfdf;
   padding: 15px 0;
-  display:flex;
-}
-.comment-top{
-  width:60%;
+  margin-bottom:1px;
 }
 .comment-images{
-  width:40%;
   overflow-x:auto;
   white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
-  height:200px;
+  width:80%;
+  margin-bottom:10px;
   image{
     display: inline-block;
   }
@@ -745,7 +766,11 @@ footer {
   .comment-name{
     padding-left:70px;
     margin-left:10px;
-    margin-bottom:30px;
+    margin-bottom:20px;
+    color:#6c6c75;
+    font-size:1.2em;
+    margin-top:10px;
+    margin-bottom:20px;
   }
 }
 .chat-box{
@@ -756,8 +781,7 @@ footer {
 .user-icon{
   img{
     border-radius:50%;
-    width:60px;
-    height:60px;
+    margin-left:3px;
   }
 }
 
@@ -792,12 +816,7 @@ footer {
 .comment_form{
   margin-bottom:10px;
 }
-.comment-name{
-  color:#6c6c75;
-  font-size:1.2em;
-  margin-top:10px;
-  margin-bottom:20px;
-}
+
 .p-comment__formBox {
   margin: 30px auto;
   padding: 25px 25px 10px 25px;
@@ -808,27 +827,21 @@ footer {
   padding-bottom: 5px;
 }
 
-.p-comment_listTitle {
+.comment_listTitle {
+  margin-top: 38px;
   border-bottom: 2px solid #dfdfdf;
   padding-bottom: 10px;
   font-size:20px;
   font-weight:bold;
 }
-
-.p-comment_list {
-  margin: 38px 0;
-  padding-right: 10px;
-}
-
 .comment-link:hover{
   text-decoration:none;
 }
 
 .comment_bottom{
-  font-size: 15px;
+  font-size: 13px;
   text-align: left;
   position:relative;
-  margin-bottom:10px;
   i{
     padding-right:10px;
     padding-left:7px;

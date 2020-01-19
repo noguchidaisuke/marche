@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, exept: %w[new create]
+  before_action :require_user_logged_in, except: %w[new create]
   before_action :set_user, only: %w[show edit update]
   before_action :set_nest_user, only: %w[follows followers userlikes]
 
@@ -23,7 +23,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    binding.pry
     if @user.update(user_params)
       flash[:success] = 'ユーザの登録をしました。'
       redirect_to @user
@@ -38,7 +37,7 @@ class UsersController < ApplicationController
   end
 
   def followers
-    @followers = @user.followers
+    @followers = @user.followers.with_attached_avatar
   end
 
   def userlikes

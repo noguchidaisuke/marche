@@ -1,13 +1,12 @@
 <% if comment.comment %>
-<div class="comment-container">
-  <div class="p-comment__item">
+  <div class="comment-container">
     <div class='comment-top'>
       <%= link_to(comment.user,class:'comment-link') do %>
         <div class="comment-icons">
           <% if comment.user.avatar.attached? %>
-            <div class="user-icon"><%= image_tag(comment.user.avatar)%></div>
+            <div class="user-icon"><%= image_tag(comment.user.avatar.variant(resize: '55x55!'))%></div>
           <%else%>
-            <div class="user-icon"><img src="<%= gravatar_url(comment.user,size: 100) %>"></div>
+            <div class="user-icon"><img src="<%= gravatar_url(comment.user,size: 55) %>"></div>
           <%end%>
           <div class="comment-name">
             <div><%= comment.user.name %></div>
@@ -26,21 +25,17 @@
         <%end%>
       <% end %>
     </div>
+    <div class="comment_bottom">
+        <i class="far fa-calendar-alt"></i><span><%= comment.created_at.to_s(:datetime_jp) %></span>
+        <% if comment.user == current_user %>
+          <span><%= link_to '削除', restaurant_comment_path(comment.restaurant_id,comment), method: :delete, data: { confirm: '削除してよろしいですか？' },class: 'btn btn-danger btn-sm' %></span>
+        <% end %>
+    </div>
   </div>
-  <div class="comment_bottom">
-      <i class="far fa-calendar-alt"></i><span><%= comment.created_at.to_s(:datetime_jp) %></span>
-      <% if comment.user == current_user %>
-        <span><%= link_to '削除', restaurant_comment_path(comment.restaurant_id,comment), method: :delete, data: { confirm: '削除してよろしいですか？' },class: 'btn btn-danger btn-sm' %></span>
-      <% end %>
-  </div>
-</div>　
+<% else %>
+
 <% end %>
-<style>
-.chat-box{
-  border-left:3px solid orange;
-  padding-left:5px;
-}
-</style>
+
 <script>
   $('.star-rating').raty({
       path: '/assets/',

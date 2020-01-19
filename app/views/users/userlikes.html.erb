@@ -4,7 +4,7 @@
       <div class="row">
         <%= render 'sidebar',user: @user %>
         <div class="col-sm-8 col-sm-offset-1">
-          <h2 class="text-center follow_and_follower_title" style="font-family:HiraKakuStdN-W8; color:orange;">お気に入り一覧</h2>
+          <h2 class="text-center follow_and_follower_title" style="font-family:HiraKakuStdN-W8; color:darkorange;">お気に入り一覧</h2>
           <div class="row follow_and_follower_container">
             <% @restaurants.each do |restaurant|%>
               <%= link_to restaurant_path(restaurant) do %>

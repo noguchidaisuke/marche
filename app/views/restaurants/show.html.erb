@@ -8,15 +8,15 @@
   <p class="item-title"><%= @restaurant.name %></p>
   <p class="avg-rating"><span><%= @avg_comment_rating %></span><span class="star-rating" data-score=<%= @avg_comment_rating %>></span></p>
   <span class="write-review">
-    <i class="fas fa-edit"></i><%= link_to '新規口コミ',new_restaurant_comment_path(@restaurant) %>
+    <i class="fas fa-edit"></i><%= link_to 'レビューを書く',new_restaurant_comment_path(@restaurant) %>
   </span>
-  <span class="show-restaurant_like">
-    <%= render 'likes/like_button', restaurant: @restaurant%>
-  </span>
-  <div class="p-comment_list">
-    <div class="p-comment_listTitle">口コミ一覧</div>
-    <%= render @comments %>
-  </div>
+  <%if logged_in?%>
+    <span class="show-restaurant_like">
+      <%= render 'likes/like_button', restaurant: @restaurant%>
+    </span>
+  <%end%>
+  <div class="comment_listTitle">レビュー　一覧</div>
+  <%= render @comments %>
 </div>
 <div class="col-sm-3 col-sm-offset-1 credit-form">
   <div class="telnumber text-center"><i class="fas fa-phone"></i><span><%= @restaurant.tel || "電話番号なし" %></span></div>

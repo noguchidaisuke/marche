@@ -25,7 +25,7 @@ class RestaurantsController < ApplicationController
     query.merge!({freeword: freeword})
     response = Faraday.get(url,query)
     response_json = JSON.parse(response.body)
-    #response_json['rest'][0]['image_url']['shop_image1'].empty?
+    
     if response_json.present?
       begin
         response_json['rest'].each do |rest|
@@ -48,32 +48,23 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     @latlng = [@restaurant[:latitude],@restaurant[:longitude]]
     @comment = @restaurant.comments.new
-    @comments =@restaurant.comments.with_attached_images.includes(:user).order('rating DESC')
+    @comments = @restaurant.comments.with_attached_images.includes(:user).order('rating DESC')
     @comments.average(:rating)? @avg_comment_rating = @comments.average(:rating).round(1) : @avg_comment_rating = 0
   end
   
   private
 
   def make_hash(rest)
-    g_id = rest['id']
-    name = rest['name']
-    url = rest['url']
-    shop_image1 = rest['image_url']['shop_image1']
-    pc = rest['coupon_url']['pc']
-    pr_short = rest['pr']['pr_short']
-    latitude = rest['latitude']
-    longitude = rest['longitude']
-    tel = rest['tel']
-    return {
-      g_id: g_id,
-      name: name,
-      url: url,
-      shop_image1: shop_image1,
-      pc: pc,
-      pr_short: pr_short,
-      latitude: latitude,
-      longitude: longitude,
-      tel: tel
+    {
+      g_id: rest['id'],
+      name: rest['name'],
+      url: rest['url'],
+      shop_image1: rest['image_url']['shop_image1'],
+      pc: rest['coupon_url']['pc'],
+      pr_short: rest['pr']['pr_short'],
+      latitude: rest['latitude'],
+      longitude: rest['longitude'],
+      tel: rest['tel']
     }
  end
 end
