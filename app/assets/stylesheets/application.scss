@@ -1,204 +1,4 @@
 @charset "utf-8";
-
-
-.restaurant-info-table{
-display: flex;
-box-sizing: border-box;
-flex-wrap: wrap;
-align-items: stretch;
-padding: 0 16px;
-border: 1px solid #eaeaeb;
-background-color: #fafafa;
-margin-top:20px;
-}
-.restaurant-info-table_body:not(:last-of-type) {
-  border-bottom: 1px solid #eaeaeb;
-}
-.restaurant-info-table_title {
-  display: flex;
-  box-sizing: border-box;
-  flex: 130px;
-  align-items: center;
-  padding: 16px 8px;
-  color: #2e2e3b;
-  font-weight: 700;
-  i{
-    margin-right:10px;
-    color:darkorange;
-  }
-}
-.restaurant-info-table_body {
-  display: flex;
-  min-height: 80px;
-  box-sizing: border-box;
-  flex-basis: calc(100% - 212px);
-  flex-grow: 1;
-  flex-shrink: 0;
-  align-items: center;
-  padding: 16px 8px;
-  color: #4a4a4b;
-}
-/*show restaurant detail*/
-.restaurant_detail{
-  border: 1px solid;
-  border-radius:3px;
-  background-color:#ebeaea;
-  .detail_container{
-    padding:5px 10px;
-    border-bottom:1px solid;
-    .detail_icons, .detail_desc{
-      font-size:10px;
-    }
-  }
-}
-
-.following{
-  border:none;
-  background-color: #fff;
-}
-.show-user_relation{
-  border-bottom:3px solid #ccc;
-  color:darkslategrey;
-  margin:20px 0;
-  justify-content: space-between;
-  span{
-    color:black;
-    padding-right:5px;
-  }
-}
-.relation_count{
-  margin-top:30px;
-}
-.show-user_follow{
-  border-right:1px solid #ccc;
-  padding-right:40px;
-}
-.show-user_follower{
-  padding-left:10px;
-
-}
-.show-user_follow_button{
-  padding-left:40px;
-}
-.profile{
-  font-weight:bold;
-  padding:10px;
-  border-radius:4px;
-  margin-left:30px;
-}
-
-
-.following_button{
-  position:relative;
-  color: #fff;
-  i{
-    position:absolute;
-    left:60px;
-    top:2px;
-  }
-  .following{
-    width:200px;
-    background-color: #4c5b66;
-    padding:15px 0 15px 30px;
-    border-radius:5px;
-  }
-  .follow{
-    width:200px;
-    background-color: #fff;
-    padding:15px 0 15px 30px;
-    border-radius:5px;
-    color:#4c5b66;
-    border:1px solid #4c5b66;
-  }
-}
-
-/* mypage */
-.mypage_cover{
-  background-color:#faf8f5;
-  margin-top:-20px!important;
-  padding:50px 0;
-}
-.mypage{
-  background-color: #fff;
-  border-radius:10px;
-  border:1px solid #ccc;
-  padding:20px;
-}
-.menu ul{
-  list-style:none;
-  margin:0;
-  li{
-    font-size:1.2em;
-    padding:15px;
-    position:relative;
-    background-color:#34495E;
-    border-top:1px solid #ccc;
-    border-right:5px solid #f1c40f;
-    transition:  all 0.3s;
-    &:hover{
-      background-color: orange;
-    }
-  }
-  a{
-    color:#fff;
-    text-decoration:none;
-  }
-  span{
-    margin-right:15px;
-  }
-}
-.logout{
-  margin-top:125px;
-  border-right:5px solid tomato!important;
-  &:hover{
-    background-color: #FF3333!important;
-  }
-}
-
-
-/* follow follower */
-.follow_and_follower_title{
-  border-bottom:1px solid #dcdcdc;
-  padding-bottom:20px;
-  margin-right:40px;
-  width:90%;
-}
-.follow_and_follower{
-  box-shadow:0 0 5px;
-  height:90px;
-  padding:5px;
-  border-radius:3px;
-  margin:10px 15px 10px 10px ;
-  background-color: #fff;
-  color:darkslategrey;
-  text-decoration:none;
-  &:hover{
-    background-color: #FFFFDD;
-  }
-  .follow_image img{
-    width:75px;
-    height:100%;
-  }
-  .follow_name{
-    font-weight:bold;
-    font-size:1.1em;
-    padding-left:5px;
-  }
-  .follow_image{
-    width:30%;
-    margin-right:10px;
-  }
-  .follow_desc{
-    padding:15px 0;
-    width:70%;
-  }
-  .follow_comment,.follow_count {
-    font-size:1.1em;
-    padding:0 5px;
-    font-weight:bold;
-  }
-}
-
 /*options*/
 .wrap{
   flex-wrap: wrap;
@@ -668,15 +468,48 @@ footer {
     }
   }
 }
-
 .h2-top{
   padding-bottom:20px;
   margin:120px 15px 30px 15px;
   border-bottom:2px solid #d5d5d8;
   font-family:Genkaimincho;
-
 }
-/* item */
+.toppage-restaurant_title{
+  font-size:15px;
+  margin-left:5px;
+  color:#fff;
+  background-color: darkorange;
+  padding:5px;
+  border-radius:5px;
+  margin-top:5px;
+  display:inline-block;
+}
+.toppage-comment_container{
+  box-shadow:0 0 3px;
+  border:1px solid #ccc;
+  border-radius:1px;
+  width:45%;
+  margin:0 10px 20px 30px;
+  padding:0;
+}
+.toppage-comment_image{
+  width:175px;
+  height:200px;
+  img {
+    width:175px;
+    height:200px;
+  }
+}
+.toppage-comment_name{
+  padding-left:70px;
+  margin-left:10px;
+  margin-bottom:50px;
+  margin-top:10px;
+  color:#6c6c75;
+  font-size:1.2em;
+  margin-top:20px;
+}
+/* items */
 
 .con {
   background-color: white;
@@ -755,6 +588,52 @@ footer {
     color:#555e60;
   }
 }
+
+/* restaurant showpage*/
+.show_title_size{
+  font-size:30px!important;
+  margin-bottom:10px;
+}
+.show_rating_size img{
+  height:25px!important;
+  width:25px!important;
+}
+.show_star-rating_count{
+  position:absolute;
+  left:150px;
+  top:-5px;
+  color:darkorange;
+  font-weight:bold;
+  font-size:27px;
+}
+#map{
+  height: 350px;
+  width:100%;
+  margin: 0 auto;
+}
+.write-review,.show-restaurant_like form input{
+  border: 1px solid #ccc;
+  border-radius:5px;
+  box-shadow:3px shadow;
+  padding:6px;
+  margin-right:15px;
+}
+.write-review i {
+  color:orange;
+  padding-right:5px;
+}
+.write-review a{
+  text-decoration:none;
+  color:orange;
+  font-weight:bold;
+}
+.show-restaurant{
+  position:relative;
+}
+.show-restaurant_like form{
+  display:inline!important;
+}
+
 .show-restaurant_right_images{
   display:flex;
   flex-wrap:wrap;
@@ -767,6 +646,43 @@ footer {
 .show-restaurant_cover{
   margin-top:-20px!important;
 }
+.restaurant-info-table{
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  align-items: stretch;
+  padding: 0 16px;
+  border: 1px solid #eaeaeb;
+  background-color: #fafafa;
+  margin-top:20px;
+  }
+  .restaurant-info-table_body:not(:last-of-type) {
+    border-bottom: 1px solid #eaeaeb;
+  }
+  .restaurant-info-table_title {
+    display: flex;
+    box-sizing: border-box;
+    flex: 130px;
+    align-items: center;
+    padding: 16px 8px;
+    color: #2e2e3b;
+    font-weight: 700;
+    i{
+      margin-right:10px;
+      color:darkorange;
+    }
+  }
+  .restaurant-info-table_body {
+    display: flex;
+    min-height: 80px;
+    box-sizing: border-box;
+    flex-basis: calc(100% - 212px);
+    flex-grow: 1;
+    flex-shrink: 0;
+    align-items: center;
+    padding: 16px 8px;
+    color: #4a4a4b;
+  }
 /* 新規登録　ログイン */
 .form-avatar{
   display: flex;
@@ -957,6 +873,155 @@ footer {
   border-bottom: none;
 }
 
+/* mypage */
+.mypage_cover{
+  background-color:#faf8f5;
+  margin-top:-20px!important;
+  padding:50px 0;
+}
+.mypage{
+  background-color: #fff;
+  border-radius:10px;
+  border:1px solid #ccc;
+  padding:20px;
+}
+.menu ul{
+  list-style:none;
+  margin:0;
+  li{
+    font-size:1.2em;
+    padding:15px;
+    position:relative;
+    background-color:#34495E;
+    border-top:1px solid #ccc;
+    border-right:5px solid #f1c40f;
+    transition:  all 0.3s;
+    &:hover{
+      background-color: orange;
+    }
+  }
+  a{
+    color:#fff;
+    text-decoration:none;
+  }
+  span{
+    margin-right:15px;
+  }
+}
+.logout{
+  margin-top:125px;
+  border-right:5px solid tomato!important;
+  &:hover{
+    background-color: #FF3333!important;
+  }
+}
+
+/* follow follower */
+.following{
+  border:none;
+  background-color: #fff;
+}
+.show-user_relation{
+  border-bottom:3px solid #ccc;
+  color:darkslategrey;
+  margin:20px 0;
+  justify-content: space-between;
+  span{
+    color:black;
+    padding-right:5px;
+  }
+}
+.relation_count{
+  margin-top:30px;
+}
+.show-user_follow{
+  border-right:1px solid #ccc;
+  padding-right:40px;
+}
+.show-user_follower{
+  padding-left:10px;
+
+}
+.show-user_follow_button{
+  padding-left:40px;
+}
+.profile{
+  font-weight:bold;
+  p{
+    background-color: #fafafa;
+    border:1px solid #ccc;
+    border-radius: 3px;
+    padding:10px;
+  }
+}
+
+
+.following_button{
+  position:relative;
+  color: #fff;
+  i{
+    position:absolute;
+    left:60px;
+    top:2px;
+  }
+  .following{
+    width:200px;
+    background-color: #4c5b66;
+    padding:15px 0 15px 30px;
+    border-radius:5px;
+  }
+  .follow{
+    width:200px;
+    background-color: #fff;
+    padding:15px 0 15px 30px;
+    border-radius:5px;
+    color:#4c5b66;
+    border:1px solid #4c5b66;
+  }
+}
+
+.follow_and_follower_title{
+  border-bottom:1px solid #dcdcdc;
+  padding-bottom:20px;
+  margin-right:40px;
+  width:90%;
+}
+.follow_and_follower{
+  box-shadow:0 0 5px;
+  height:90px;
+  padding:5px;
+  border-radius:3px;
+  margin:10px 15px 10px 10px ;
+  background-color: #fff;
+  color:darkslategrey;
+  text-decoration:none;
+  &:hover{
+    background-color: #FFFFDD;
+  }
+  .follow_image img{
+    width:75px;
+    height:100%;
+  }
+  .follow_name{
+    font-weight:bold;
+    font-size:1.1em;
+    padding-left:5px;
+  }
+  .follow_image{
+    width:30%;
+    margin-right:10px;
+  }
+  .follow_desc{
+    padding:15px 0;
+    width:70%;
+  }
+  .follow_comment,.follow_count {
+    font-size:1.1em;
+    padding:0 5px;
+    font-weight:bold;
+  }
+}
+
 /*ranking*/
 hr{
   background-color:#d6ceb4;
@@ -1072,5 +1137,3 @@ font-size: 20px;
 line-height: 1.4;
 margin-right: 10px;
 }
-
-// stripe 決済ページ

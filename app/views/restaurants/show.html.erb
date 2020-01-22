@@ -1,7 +1,7 @@
 <%= render 'restaurant_nav'%>
-<div class="show-restaurant_cover">
+
     <div id="map"></div>
-</div>
+
 <div class="comment-area col-sm-7">
   <div class="item-desc">
     <p class="item-title show_title_size"><%= @restaurant.name %></p>
@@ -60,55 +60,6 @@
   </dl>
 </div>
 
-<style>
-.show_title_size{
-  font-size:30px!important;
-}
-.show_rating_size img{
-  height:25px!important;
-  width:25px!important;
-}
-.show_star-rating_count{
-  position:absolute;
-  left:150px;
-  top:-5px;
-  color:darkorange;
-  font-weight:bold;
-  font-size:27px;
-}
-#map{
-  height: 350px;
-  width:100%;
-  margin: 0 auto;
-  margin-top:20px;
-}
-.avg-rating{
-  margin-bottom:20px;
-}
-.write-review,.show-restaurant_like form input{
-  border: 1px solid #ccc;
-  border-radius:5px;
-  box-shadow:3px shadow;
-  padding:6px;
-  margin-right:15px;
-}
-.write-review i {
-  color:orange;
-  padding-right:5px;
-}
-.write-review a{
-  text-decoration:none;
-  color:orange;
-  font-weight:bold;
-}
-.show-restaurant{
-  position:relative;
-}
-.show-restaurant_like form{
-  display:inline!important;
-}
-
-</style>
 <script>
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
