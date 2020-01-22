@@ -1,34 +1,86 @@
 <%= render 'restaurant_nav'%>
-<% content_for :cover do %>
 <div class="show-restaurant_cover">
-  <div id="map"></div>
+    <div id="map"></div>
 </div>
-<%end%>
-<div class="comment-area col-sm-8">
-  <p class="item-title"><%= @restaurant.name %></p>
-  <p class="avg-rating"><span><%= @avg_comment_rating %></span><span class="star-rating" data-score=<%= @avg_comment_rating %>></span></p>
-  <span class="write-review">
-    <i class="fas fa-edit"></i><%= link_to 'レビューを書く',new_restaurant_comment_path(@restaurant) %>
-  </span>
-  <%if logged_in?%>
-    <span class="show-restaurant_like">
-      <%= render 'likes/like_button', restaurant: @restaurant%>
-    </span>
-  <%end%>
+<div class="comment-area col-sm-7">
+  <div class="item-desc">
+    <p class="item-title show_title_size"><%= @restaurant.name %></p>
+    <div class="rating_container">
+      <div class="star-rating show_rating_size" data-score= <%=  @avg_comment_rating %>></div>
+      <div class="show_star-rating_count"><%= @avg_comment_rating %></div>
+    </div>
+    <div>
+      <span class="write-review">
+        <i class="fas fa-edit"></i><%= link_to 'レビューを書く',new_restaurant_comment_path(@restaurant) %>
+      </span>
+      <%if logged_in?%>
+        <span class="show-restaurant_like">
+          <%= render 'likes/like_button', restaurant: @restaurant%>
+        </span>
+      <%end%>
+    </div>
+    <%if @comment_images %>
+      <div class="show-restaurant_right_images">
+        <% @comment_images.each do |comment_image| %>
+          <% comment_image.images.each do |image| %>
+            <%= image_tag image.variant(resize: '200x200!') %>
+          <% end %>
+        <% end %>
+      </div>
+    <%end%>
+  </div>
+
   <div class="comment_listTitle">レビュー　一覧</div>
   <%= render @comments %>
 </div>
-<div class="col-sm-3 col-sm-offset-1 credit-form">
-  <div class="telnumber text-center"><i class="fas fa-phone"></i><span><%= @restaurant.tel || "電話番号なし" %></span></div>
-  <%= render 'charges/charge',class: 'stripe' %>
-  <p class="text-center"><%= link_to 'ぐるなびページ', @restaurant.url, target: '_blank',class: 'btn-gradient-3d-orange' %></p>
+<div class="col-sm-5">
+  <div class="item_pr_long">
+    <button>お店情報</button>
+    <p><%= @restaurant.pr_long %></p>
+  </div>
+  <dl class="restaurant-info-table">
+    <dt class="restaurant-info-table_title"><i class="fas fa-utensils"></i>ジャンル</dt>
+    <dd class="restaurant-info-table_body">
+      <%= @restaurant.category %>
+    </dd>
+    <dt class="restaurant-info-table_title"><i class="fas fa-phone"></i>お問い合わせ</dt>
+    <dd class="restaurant-info-table_body">
+      <%= @restaurant.tel || "電話番号なし" %>
+    </dd>
+    <dt class="restaurant-info-table_title"><i class="fas fa-subway"></i>駅</dt>
+    <dd class="restaurant-info-table_body">
+      <%= @restaurant.station %>
+    </dd>
+    <dt class="restaurant-info-table_title">ぐるなびページ</dt>
+    <dd class="restaurant-info-table_body">
+      <%= link_to(@restaurant.url) do %>
+        <i class="fas fa-external-link-alt"></i>
+      <%end%>
+    </dd>
+  </dl>
 </div>
 
 <style>
+.show_title_size{
+  font-size:30px!important;
+}
+.show_rating_size img{
+  height:25px!important;
+  width:25px!important;
+}
+.show_star-rating_count{
+  position:absolute;
+  left:150px;
+  top:-5px;
+  color:darkorange;
+  font-weight:bold;
+  font-size:27px;
+}
 #map{
-  height: 500px;
+  height: 350px;
   width:100%;
   margin: 0 auto;
+  margin-top:20px;
 }
 .avg-rating{
   margin-bottom:20px;

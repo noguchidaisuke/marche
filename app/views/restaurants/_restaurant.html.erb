@@ -3,8 +3,12 @@
     <%= link_to '',restaurant,class: 'restaurant-link'%>
     <div class="restaurant-img"><img src="<%= restaurant.shop_image1 %>"></div>
     <div class="item-desc">
-      <p class="star-rating item-pr" data-score= <%= restaurant.comments.average(:rating)? restaurant.comments.average(:rating) : 0 %>></p>
       <div class="item-title"><%= restaurant.name %></div>
+      <div class="rating_container">
+        <div class="star-rating" data-score= <%= restaurant.avg_rating ? restaurant.avg_rating : 0 %>></div>
+        <div class="star-rating_count"><%= restaurant.avg_rating %></div>
+      </div>
+      <p class="item-pr"><%= restaurant.pr_short %></p>
     </div>
   </div>
 <% end %>

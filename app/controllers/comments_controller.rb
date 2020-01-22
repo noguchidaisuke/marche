@@ -9,10 +9,10 @@ class CommentsController < ApplicationController
         comment = @restaurant.comments.new(comment_params)
         comment.user_id = current_user.id
         if comment.save
-            flash[:success]='コメントを投稿しました！'
+            flash[:success] = 'コメントを投稿しました！'
             redirect_to @restaurant
         else
-            flash[:danger]="投稿に失敗しました"
+            flash[:danger] = "投稿に失敗しました"
             redirect_back(fallback_location: root_path)
         end
     end
@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
     end
 private
     def comment_params
-        params.require(:comment).permit(:restaurant_id,:user_id,:comment,:rating,images:[])
+        params.require(:comment).permit(:restaurant_id, :user_id, :comment, :rating, images:[])
     end
     def set_restaurant
       @restaurant = Restaurant.find(params[:restaurant_id])

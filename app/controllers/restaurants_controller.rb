@@ -1,57 +1,59 @@
 class RestaurantsController < ApplicationController
   def new
     restaurants,@latitude,@longitude = [],[],[]
-    @zoom = 13
+    @zoom = 15
     url = 'https://api.gnavi.co.jp/RestSearchAPI/v3/'
     freeword = params[:freeword] unless params[:freeword] == ""
     query = {
       keyid: ENV['GURUNAVI_API_KEY'],
       hit_per_page: 30
     }
-    
+
     if params[:area] == "現在地"
-      latitude,longitude=params[:latlng].scan(/[0-9]+.[0-9]+/)
+      latitude, longitude = params[:latlng].scan(/[0-9]+.[0-9]+/)
       if latitude.nil?
-        flash[:danger]="現在地を取得してください"
+        flash[:danger] = "現在地を取得してください"
         redirect_back(fallback_location: root_path)
       end
-      current_point={latitude: latitude,longitude: longitude}
+      current_point = { latitude: latitude, longitude: longitude }
       query.merge!(current_point)
-      @zoom = 17
+      @zoom = 18
     elsif params[:area].present?
-      freeword+= ',' + params[:area]
+      freeword += ',' + params[:area]
     end
-    
+
     query.merge!({freeword: freeword})
-    response = Faraday.get(url,query)
+    response = Faraday.get(url, query)
     response_json = JSON.parse(response.body)
-    
+
     if response_json.present?
       begin
         response_json['rest'].each do |rest|
           restaurant=Restaurant.find_or_create_by(make_hash(rest))
-          restaurant.shop_image1 = 'https://upload.wikimedia.org/wikipedia/ja/b/b5/Noimage_image.png' if restaurant.shop_image1.empty?
+          restaurant.shop_image1 = 'https://ximg.retty.me/crop/s172x172/-/retty_main/images/noimg_200_150.png' if restaurant.shop_image1.empty?
           restaurants << restaurant
         end
-        restaurants=restaurants.to_ary
+        restaurants = restaurants.to_ary
         @restaurants = Kaminari.paginate_array(restaurants,total_count: restaurants.count).page(params[:page]).per(10)
         @centerlat = @restaurants.last.latitude
         @centerlong = @restaurants.last.longitude
-      rescue
-        flash[:danger]='該当のお店が見つかりませんでした。他のキーワードでお願いします'
+      rescue => e
+        puts e
+        flash[:danger] = '該当のお店が見つかりませんでした。他のキーワードでお願いします'
         redirect_to root_path
       end
     end
   end
-  
+
   def show
     @restaurant = Restaurant.find(params[:id])
-    @latlng = [@restaurant[:latitude],@restaurant[:longitude]]
+    @latlng = [@restaurant[:latitude], @restaurant[:longitude]]
     @comment = @restaurant.comments.new
-    @comments = @restaurant.comments.with_attached_images.includes(:user).order('rating DESC')
-    @comments.average(:rating)? @avg_comment_rating = @comments.average(:rating).round(1) : @avg_comment_rating = 0
+    @comments = @restaurant.comments.with_attached_images.includes(:user).order(created_at: :DESC)
+    @comment_images = @comments.select{ |comment| comment.images.attached? }
+    @avg_comment_rating = @comments.average(:rating) ? @comments.average(:rating).round(1) : 0
   end
-  
+
   private
 
   def make_hash(rest)
@@ -64,7 +66,10 @@ class RestaurantsController < ApplicationController
       pr_short: rest['pr']['pr_short'],
       latitude: rest['latitude'],
       longitude: rest['longitude'],
-      tel: rest['tel']
+      tel: rest['tel'],
+      pr_long: rest['pr']['pr_long'],
+      category: rest['category'] ,
+      station: rest['access']['station']
     }
  end
 end
