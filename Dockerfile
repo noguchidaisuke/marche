@@ -11,5 +11,5 @@ RUN mkdir -p tmp/pids
 VOLUME /myapp/log
 VOLUME /myapp/tmp/sockets
 VOLUME /myapp/tmp/pids
-VOLUME /myapp/public
+VOLUME a:/myapp/public
 CMD bash -c "rm -f tmp/pids/unicorn.pid && unicorn -c config/unicorn.rb -E production"

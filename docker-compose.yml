@@ -12,9 +12,8 @@ services:
     build: .
     volumes:
       - .:/myapp
-      - public-data:/myapp/public
+      - public_data:/myapp/public
       - socket-data:/myapp/tmp/sockets
-      - log-data:/myapp/log
     tty: true
     stdin_open: true
     depends_on:
@@ -23,14 +22,12 @@ services:
     build: ./nginx
     volumes:
       - socket-data:/myapp/tmp/sockets
-      - public-data:/myapp/public
+      - public_data:/myapp/public
     ports:
-      - 3001:3001
+      - 80:80
     depends_on:
       - web
 volumes:
-  bundle_path:
-  public-data:
+  public_data:
   socket-data:
-  log-data:
   db-volume:
