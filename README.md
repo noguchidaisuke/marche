@@ -1,6 +1,8 @@
 # gnavi
+
 # 概要
 ぐるなびlikeなアプリケーション
+
 # 使ってる外部API
 google map api
 twitter api
@@ -24,6 +26,6 @@ CircleCI
 Pythonでrecommend機能実装
 GoでAPI maicroservice application
 
-React
+React Vue Angular 等モダンjavascriptcompornentの実装
 
 サーバレスアーキテクチャ
