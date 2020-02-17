@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, except: %w[new create]
   before_action :set_user, only: %w[show edit update]
-  before_action :set_nest_user, only: %w[follows followers userlikes]
+  before_action :set_nest_user, only: %w[follows followers userlikes userposts]
 
   def new
     @user = User.new
@@ -44,6 +44,9 @@ class UsersController < ApplicationController
     @restaurants = @user.restaurants
   end
 
+  def userposts
+    @restaurants = @user.comments
+  end
   private
 
   def user_params

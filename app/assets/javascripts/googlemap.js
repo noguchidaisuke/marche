@@ -13,7 +13,7 @@ function getMyPlace() {
   navigator.geolocation.getCurrentPosition(success, error);//成功と失敗を判断
 }
 $(document).ready(function(){
-  getMyPlace()
+  getMyPlace();
 })
 $(document).on('click', function(e) {
 	// ２．クリックされた場所の判定

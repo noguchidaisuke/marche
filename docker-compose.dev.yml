@@ -3,7 +3,7 @@ services:
   db:
     build: ./mysql
     volumes:
-      - db-volume:/var/lib/mysql
+      - db-volume-dev:/var/lib/mysql
     ports:
       - '3306:3306'
     environment:
@@ -14,7 +14,6 @@ services:
      dockerfile: dockerfile.dev
     volumes:
       - .:/myapp
-      - public-data:/myapp/public
       - socket-data:/myapp/tmp/sockets
       - log-data:/myapp/log
     tty: true
@@ -25,14 +24,12 @@ services:
     build: ./nginx.dev
     volumes:
       - socket-data:/myapp/tmp/sockets
-      - public-data:/myapp/public
     ports:
       - 3001:3001
     depends_on:
       - web
 volumes:
   bundle_path:
-  public-data:
   socket-data:
   log-data:
-  db-volume:
+  db-volume-dev:

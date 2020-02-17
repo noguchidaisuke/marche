@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get 'follows', to: 'users#follows'
     get 'followers', to: 'users#followers'
     get 'userlikes', to: 'users#userlikes', as: 'likes'
+    get 'userposts', to: 'users#posts', as: 'posts'
   end
 
   resources :restaurants, only: %w[show new] do

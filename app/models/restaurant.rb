@@ -12,6 +12,6 @@ class Restaurant < ApplicationRecord
   has_many :comments
 
   def avg_rating
-    self.comments.average(:rating)
+    self.comments.average(:rating)&.round(1)
   end
 end

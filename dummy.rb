@@ -1,22 +1,24 @@
 class RestaurantsController < ApplicationController
   include CommonActions
   def new
-    restaurants = []
+    restaurants,@latitude,@longitude = [],[],[]
     @zoom = 16
     url = 'https://api.gnavi.co.jp/RestSearchAPI/v3/'
     freeword = params[:freeword].presence
-    @latitude, @longitude = params[:latlng].scan(/[0-9]+.[0-9]+/)
     query = {
       keyid: ENV['GURUNAVI_API_KEY'],
       hit_per_page: 30
     }
+    latitude, longitude = params[:latlng].scan(/[0-9]+.[0-9]+/)
 
     if params[:area] == "現在地"
-      query.merge!(current_point)
+      query.merge!(current_point(latitude,longitude))
       @zoom = 18
     elsif params[:area].present?
       freeword += ',' + params[:area]
     end
+
+
 
     query.merge!({freeword: freeword})
     response = Faraday.get(url, query)
@@ -55,11 +57,11 @@ class RestaurantsController < ApplicationController
   private
 
   def current_point
-    if @latitude.nil?
+    if latitude.nil?
       flash[:danger] = "現在地を取得できませんでした。もう一度お願いします。"
       redirect_back(fallback_location: root_path)
     else
-      current_point = { latitude: @latitude, longitude: @longitude }
+      current_point = { latitude: latitude, longitude: longitude }
     end
   end
 
