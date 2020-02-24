@@ -43,7 +43,9 @@
 <div class="col-sm-5">
   <div class="item_pr_long">
     <button>お店情報</button>
-    <p><%= @restaurant.pr_long %></p>
+    <% if @restaurant.pr_long %>
+      <p><%= @restaurant.pr_long %></p>
+    <% end %>
   </div>
   <dl class="restaurant-info-table">
     <dt class="restaurant-info-table_title"><i class="fas fa-utensils"></i>ジャンル</dt>

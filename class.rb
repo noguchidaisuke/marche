@@ -1,41 +1,6 @@
 class RestaurantsController < ApplicationController
   include CommonActions
-#目的はinterfaceを作ること。
-#mergeしたい
-=begin
-query = {
-  keyid: ENV['GURUNAVI_API_KEY'],
-  hit_per_page: 30
-}
-query
-=>freeword
-=>latlong
 
-#やりたいことはmergeすること。引数を投げたらそれに相当するfreeword,area,latlngを適当に回収してほしい。mergeしてほしい。
-
-query.merge!(freeword)
-class Query
-  attr_reader :query
-  def initialize(query)
-    @query= query
-  end
-  def add(hoge)
-    query
-  end
-end
-class Freeword
-  def foo
-    query{}
-  end
-end
-class Latlng
-  def bar
-  end
-end
-
-class Query.new(query)
-=end
-query
   def new
     restaurants = []
     @zoom = 16
@@ -46,18 +11,8 @@ query
       keyid: ENV['GURUNAVI_API_KEY'],
       hit_per_page: 30
     }
-    area = params[:area].presence
-
-    if params[:area] == "現在地"
-      query.merge!(current_point)
-    elsif params[:area].present?
-      if freeword
-        freeword += ',' + params[:area]
-      else
-        params[:area]
-      end
-    end
-
+    area = params[:area]
+    
     if area == "現在地"
       query.merge!(current_point)
     elsif area.present?
@@ -67,7 +22,7 @@ query
     query.merge!({freeword: freeword})
     response = Faraday.get(url, query)
     response_json = JSON.parse(response.body)
-    make_result(response_json)
+    make_result(response_json,restaurants)
   end
 
   def show
@@ -90,7 +45,9 @@ query
       @zoom = 18
     end
   end
-
+  def divide_for_distination
+    
+  end
   def make_freeword(freeword, area)
     if freeword
       freeword += ',' + area
@@ -99,7 +56,7 @@ query
     end
   end
 
-  def make_result
+  def make_result (response_json,restaurants)
     if response_json.present?
       begin
         response_json['rest'].each do |rest|
@@ -114,7 +71,7 @@ query
         @centerlat = @restaurants.last.latitude
         @centerlong = @restaurants.last.longitude
       rescue => e
-        puts e
+        logger.error e.message
         flash[:danger] = '該当のお店が見つかりませんでした。他のキーワードでお願いします'
         redirect_to root_path
       end

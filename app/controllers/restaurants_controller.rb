@@ -1,45 +1,33 @@
 class RestaurantsController < ApplicationController
-  include CommonActions
   def new
-    restaurants = []
     @zoom = 16
     url = 'https://api.gnavi.co.jp/RestSearchAPI/v3/'
     freeword = params[:freeword].presence
-    @latitude, @longitude = params[:latlng].scan(/[0-9]+.[0-9]+/)
+    area = params[:area]
+    latitude, longitude = params[:latlng].scan(/[0-9]+.[0-9]+/)
     query = {
       keyid: ENV['GURUNAVI_API_KEY'],
       hit_per_page: 30
     }
-
-    if params[:area] == "現在地"
-      query.merge!(current_point)
+    if area == "現在地"
+      query.merge!(current_point(latitude,longitude))
       @zoom = 18
-    elsif params[:area].present?
-      freeword += ',' + params[:area]
+    elsif area.present?
+      freeword += ',' + area
     end
-
+    
     query.merge!({freeword: freeword})
     response = Faraday.get(url, query)
     response_json = JSON.parse(response.body)
-
-    if response_json.present?
-      begin
-        response_json['rest'].each do |rest|
-          hash = make_hash(rest)
-          restaurant = Restaurant.find_by(g_id: hash[:g_id]) || Restaurant.create(hash)  #なぜかf_or_c_by使えない、、、
-          #restaurant=Restaurant.find_or_create_by(make_hash(rest))
-          restaurant.shop_image1 = 'https://ximg.retty.me/crop/s172x172/-/retty_main/images/noimg_200_150.png' if restaurant.shop_image1.empty?
-          restaurants << restaurant
-        end
-        restaurants = restaurants.to_ary
-        @restaurants = Kaminari.paginate_array(restaurants).page(params[:page]).per(10)
-        @centerlat = @restaurants.last.latitude
-        @centerlong = @restaurants.last.longitude
-      rescue => e
-        puts e
-        flash[:danger] = '該当のお店が見つかりませんでした。他のキーワードでお願いします'
-        redirect_to root_path
-      end
+    begin
+      restaurants = restaurants_factory(response_json)
+      @restaurants = Kaminari.paginate_array(restaurants).page(params[:page]).per(10)
+      @centerlat = @restaurants.first.latitude
+      @centerlong = @restaurants.first.longitude
+    rescue => e
+      logger.error e.message
+      flash[:danger] = '該当のお店が見つかりませんでした。他のキーワードでお願いします'
+      redirect_to root_path
     end
   end
 
@@ -53,13 +41,12 @@ class RestaurantsController < ApplicationController
   end
 
   private
-
-  def current_point
-    if @latitude.nil?
+  def current_point(latitude,longitude)
+    if latitude.nil?
       flash[:danger] = "現在地を取得できませんでした。もう一度お願いします。"
       redirect_back(fallback_location: root_path)
     else
-      current_point = { latitude: @latitude, longitude: @longitude }
+      { latitude: latitude, longitude: longitude }
     end
   end
 
@@ -78,5 +65,16 @@ class RestaurantsController < ApplicationController
       category: rest['category'] ,
       station: rest['access']['station']
     }
+  end
+
+  def restaurants_factory(response_json)
+    empty_box = []
+    response_json['rest'].each do |rest|
+      hash = make_hash(rest)
+      restaurant = Restaurant.find_by(g_id: hash[:g_id]) || Restaurant.create(hash)  #なぜかf_or_c_by使えない、、、
+      restaurant.shop_image1 = 'https://ximg.retty.me/crop/s172x172/-/retty_main/images/noimg_200_150.png' if restaurant.shop_image1.empty?
+      empty_box << restaurant
+    end
+    empty_box.to_ary
   end
 end
