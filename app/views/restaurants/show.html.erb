@@ -1,7 +1,17 @@
 <%= render 'restaurant_nav'%>
-
-    <div id="map"></div>
-
+<div class="show-restaurant_map">
+  <div id="map"></div>
+</div>
+<%if @comment_images %>
+  <h4 class="mt-1">投稿された画像一覧</h4>
+  <div class="show-restaurant_right_images">
+    <% @comment_images.each do |comment_image| %>
+      <% comment_image.images.each do |image| %>
+        <%= image_tag image.variant(resize: '180x180!') %>
+      <% end %>
+    <% end %>
+  </div>
+<%end%>
 <div class="comment-area col-sm-7">
   <div class="item-desc">
     <p class="item-title show_title_size"><%= @restaurant.name %></p>
@@ -19,24 +29,23 @@
         </span>
       <%end%>
     </div>
-    <%if @comment_images %>
-      <div class="show-restaurant_right_images">
-        <% @comment_images.each do |comment_image| %>
-          <% comment_image.images.each do |image| %>
-            <%= image_tag image.variant(resize: '200x200!') %>
-          <% end %>
-        <% end %>
-      </div>
-    <%end%>
   </div>
 
   <div class="comment_listTitle">レビュー　一覧</div>
-  <%= render @comments %>
+  <% if @comments.present? %>
+    <%= render @comments %>
+  <% else %>
+    <div class="empty_comments">
+      <h1><%= link_to '一つ目のレビューを書く', new_restaurant_comment_path(@restaurant) %></h1>
+    </div>
+  <% end %>
 </div>
 <div class="col-sm-5">
   <div class="item_pr_long">
     <button>お店情報</button>
-    <p><%= @restaurant.pr_long %></p>
+    <% if @restaurant.pr_long %>
+      <p><%= @restaurant.pr_long %></p>
+    <% end %>
   </div>
   <dl class="restaurant-info-table">
     <dt class="restaurant-info-table_title"><i class="fas fa-utensils"></i>ジャンル</dt>

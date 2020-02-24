@@ -1,76 +1,53 @@
 <%= render 'restaurant_nav'%>
 <% content_for :cover do %>
-  <div class="background">
-    <div class="serch-result"><span class="serch-word">検索ワード:</span><%= params[:freeword] %><span class="p-l"><%=params[:area]%></span></div>
+  <div class="new-restaurant overflow-hidden">
+    <div class="search-result"><span class="search-word">検索ワード:</span><%= params[:freeword] %><span class="p-l"><%=params[:area]%></span></div>
     <div class="row">
       <div class="new-restaurant-container">
-        <div class="col-sm-5 scroll">
+        <div class="col-xs-5 scroll">
           <% @restaurants.each do |restaurant| %>
-            <div class="new-restaurant">
-              <%= link_to '',restaurant,class: 'restaurant-link'%>
+            <div class="new-restaurant-result"  id="<%= restaurant.id %>">
+              <%= link_to '',restaurant,class: 'restaurant-link', target: "newtab"%>
               <img src="<%= restaurant.shop_image1 %>" class="new-restaurant_img">
-              <div class="new-item-desc">
+              <div class="new-item_desc">
                 <h3 class="item-title m-t20 half"><%= restaurant.name %></h3>
                 <p class="item-pr m-t40"><%= restaurant.pr_short %></p>
-                <div class="star-rating" data-score=<%= @avg_comment_rating %>></div>
+                <div class="star-rating" data-score=<%= restaurant.avg_rating %>></div>
               </div>
             </div>
           <%end%>
         </div>
-        <div id="map" class="col-sm-7 fixed"></div>
+        <div id="map" class="col-xs-7 fixed"></div>
     </div>
   </div>
   <%= paginate @restaurants %>
 <% end %>
 
-<style>
-#map{
-  height: 680px;
-}
-.new-restaurant:hover {
-  background-color:#FFFFEE;
-}
-.serch-result{
-  font-size:17px;
-  color:#333333;
-}
-.serch-word{
-  font-size:13px;
-  color:black;
-  margin-right:5px;
-}
-.serch-result span{
-  padding-left:15px;
-}
-
-</style>
-
 <script>
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
       zoom: <%= @zoom %>,
-      center: {lat: <%= @centerlat %>, lng: <%=@centerlong %>}
+      center: {lat: <%= @restaurants.first.latitude %>, lng: <%= @restaurants.first.longitude %>}
   });
-  <% @restaurants.each do |restaurant| %>
-    (function(){
-    var infowindow = new google.maps.InfoWindow({
-        content: '<div class="google-message"><%=link_to restaurant.name,restaurant%></div>'
-      });
-      var marker = new google.maps.Marker({
+  var marker, infowindow;
+  <% @restaurants.reverse.each do |restaurant| %>
+      marker = new google.maps.Marker({
         position: {lat: <%= restaurant.latitude %>, lng: <%= restaurant.longitude %>},
-        map: map,
+        map: map
       });
+      infowindow = new google.maps.InfoWindow({content: '<%= restaurant.name %>'});
       infowindow.open(map, marker);
-    })();
   <% end %>
+  google.maps.event.addDomListener(window, 'load', initMap);
 }
 $('.star-rating').raty({
-    path: '/assets/',
-    readOnly: true,
-    score: function() {
-          return $(this).attr('data-score');
+  path: '/assets/',
+  readOnly: true,
+  score: function() {
+        return $(this).attr('data-score');
   }
 });
 </script>
+
 <%= javascript_include_tag 'googlemap.js' %>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbs-NqOhNQ_4ZB_gdsVID5h0LWSEX2GIE&callback=initMap" async defer></script>

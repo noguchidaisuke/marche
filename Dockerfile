@@ -6,10 +6,7 @@ COPY Gemfile /myapp/Gemfile
 COPY Gemfile.lock /myapp/Gemfile.lock
 RUN bundle install
 COPY . /myapp
-RUN mkdir -p tmp/sockets
-RUN mkdir -p tmp/pids
-VOLUME /myapp/log
+RUN touch /myapp/tmp/sockets/unicorn.sock
 VOLUME /myapp/tmp/sockets
-VOLUME /myapp/tmp/pids
-VOLUME a:/myapp/public
+VOLUME /myapp/public
 CMD bash -c "rm -f tmp/pids/unicorn.pid && unicorn -c config/unicorn.rb -E production"

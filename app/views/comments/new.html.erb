@@ -6,12 +6,12 @@
           <div id="star-rating" class="new-rating"></div>
           <%= f.text_area :comment,class:'new-restaurant_comment' %>
         </div>
-        <div class="form-new_restaurant_img">
-          <%= f.label :images %>
+        <div class="new-restaurant_img">
+          <%= f.label :images, '投稿画像  ( 複数選択可能 )' %>
           <%= f.file_field :images, multiple: true,id:"images" %>
         </div>
         <div id="preview" style="display:none"></div>
-        <%= f.submit'submit' %>
+        <%= f.submit '投稿する！' ,class:'btn btn-primary' %>
     <%end%>
   </div>
   <div class="recent-comments scroll col-sm-3">
@@ -19,39 +19,7 @@
     <%= render @comments %>
   </div>
 </div>
-<style>
-.new-restaurant_top{
-  padding:10px;
-}
 
-.new-rating img{
-  height:30px;
-  width:30px;
-}
-.new-restaurant_comment{
-  font-size:20px;
-}
-.new_restaurant_img{
-
-}
-.recent-comments{
-  border-left:1px solid #ccc;
-  padding-left:10px;
-  height:750px;
-  position:absolute;
-  top:70px;
-  right:0px;
-}
-#preview{
-  display:flex;
-  justify-content:space-around;
-}
-#preview img{
-  width:21%;
-  height:21%;
-}
-
-</style>
 <script>
 $('#star-rating').raty({
   path: '/assets/',

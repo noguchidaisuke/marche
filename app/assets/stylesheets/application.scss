@@ -12,12 +12,8 @@
 .flex{
   display:flex;
 }
-.alert{
-  position: absolute;
-  left: 35%;
-  right: 0;
-  margin: auto;
-  width:30%;
+.overflow-hidden{
+  overflow:hidden;
 }
 /* user image設定 */
 .user-icon-profile img {
@@ -606,10 +602,12 @@ footer {
   font-weight:bold;
   font-size:27px;
 }
-#map{
-  height: 350px;
-  width:100%;
-  margin: 0 auto;
+.show-restaurant_map{
+  #map{
+    height: 350px;
+    width:100%;
+    margin: 0 auto;
+  }
 }
 .write-review,.show-restaurant_like form input{
   border: 1px solid #ccc;
@@ -637,10 +635,10 @@ footer {
 .show-restaurant_right_images{
   display:flex;
   flex-wrap:wrap;
-  margin-top:20px;
+  margin-top:10px;
   img{
     object-fit: cover;
-    margin-right:10px;
+    margin-right:5px;
   }
 }
 .show-restaurant_cover{
@@ -702,34 +700,54 @@ footer {
 }
 
 /*new-restaurant*/
-.scroll{
-  overflow:scroll;
-  height:680px;
-}
-.new-restaurant-container{
-  margin-top: 10px;
-}
 .new-restaurant{
-  position:relative;
-  display:flex;
-  background-color: #fff;
-  border-top:1px solid #dfdfdf;
-  border-bottom:1px solid #dfdfdf;
-  padding:10px 10px 10px 5px;
-}
-.new-restaurant_img{
-  width:40%;
-  height:200px;
-  margin-right:10px;
-}
-.new-item-desc{
-  width:60%;
-}
-.background{
-  overflow:hidden;
+  .search-result{
+    font-size:17px;
+    color:#333333;
+    span{
+      padding-left:15px;
+    }
+  }
+  .search-word{
+    font-size:13px;
+    color:black;
+    margin-right:5px;
+  }
+  .new-restaurant-container{
+    margin-top: 10px;
+    .scroll{
+      overflow:scroll;
+      height:680px;
+    }
+    #map{
+      height:680px;
+    }
+  }
+  .new-restaurant-result{
+    position:relative;
+    display:flex;
+    background-color: #fff;
+    border-top:1px solid #dfdfdf;
+    border-bottom:1px solid #dfdfdf;
+    padding:10px 10px 10px 5px;
+    &:hover{
+      background-color:#FFFFEE;
+    }
+  }
+  .new-restaurant_img{
+    width:40%;
+    height:200px;
+    margin-right:10px;
+  }
+  .new-item_desc{
+    width:60%;
+    .star-rating{
+      
+    }
+  }
 }
 .google-message{
-  width:50px;
+  width:80px;
   height:20px;
 }
 .restaurant-link{
@@ -834,6 +852,19 @@ footer {
   padding-bottom: 10px;
   font-size:20px;
   font-weight:bold;
+}
+.empty_comments{
+  border-radius:10px;
+  border:6px solid darkorange;
+  margin-top:30px;
+  width:70%;
+  h1{
+    text-align: center;
+    padding:50px 0;
+    a{
+      color:darkorange;
+    }
+  }
 }
 .comment-link:hover{
   text-decoration:none;
@@ -1020,6 +1051,53 @@ footer {
     padding:0 5px;
     font-weight:bold;
   }
+}
+
+/* commetns　新規投稿*/
+
+
+.new-restaurant_top{
+  padding:10px;
+  .new-restaurant_form{
+     margin:20px 0;
+  }
+  .new-restaurant_img{
+    margin:20px 0;
+  }
+}
+.new-rating img{
+  height:25px;
+  width:25px;
+}
+.new-restaurant_comment{
+  font-size:15px;
+  width:100%;
+  min-height: 200px;
+  margin-top:20px;
+  padding:10px;
+}
+
+.recent-comments{
+  border-left:1px solid #ccc;
+  padding-left:10px;
+  height:750px;
+  position:absolute;
+  top:70px;
+  right:0px;
+}
+
+#preview{
+  display:flex;
+  justify-content:space-around;
+  img{
+    height:200px!important;
+    width:200px!important;
+    margin-bottom:20px;
+  }
+}
+#preview img{
+  width:21%;
+  height:21%;
 }
 
 /*ranking*/

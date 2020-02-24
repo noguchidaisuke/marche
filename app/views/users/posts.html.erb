@@ -1,0 +1,26 @@
+<%content_for :cover do%>
+  <div class="mypage_cover">
+    <div class="container">
+      <div class="row">
+        <%= render 'sidebar',user: @user %>
+        <div class="col-sm-8 col-sm-offset-1">
+          <h2 class="text-center follow_and_follower_title" style="font-family:HiraKakuStdN-W8; color:darkorange;">口コミを投稿したお店</h2>
+          <div class="row follow_and_follower_container">
+            <% @restaurants.each do |restaurant|%>
+              <%= link_to restaurant_path(restaurant) do %>
+                <div class="flex col-sm-5 follow_and_follower">
+                  <div class="follow_image">
+                    <%= image_tag(restaurant.shop_image1) %>
+                  </div>
+                  <div class="follow_desc">
+                    <p class="follow_name"><%= restaurant.name %></p>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<%end%>
