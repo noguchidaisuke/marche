@@ -2,20 +2,32 @@ class RestaurantsController < ApplicationController
   def new
     @zoom = 16
     url = 'https://api.gnavi.co.jp/RestSearchAPI/v3/'
-    freeword = params[:freeword].presence
+    freeword = params[:freeword]
     area = params[:area]
     latitude, longitude = params[:latlng].scan(/[0-9]+.[0-9]+/)
     query = {
       keyid: ENV['GURUNAVI_API_KEY'],
       hit_per_page: 30
     }
+
+    ###　検索欄が空欄の場合
+    if freeword.empty? && area.empty?
+      flash[:danger] = "フリーワードかエリアは必須です。"
+      redirect_back(fallback_location: root_path) and return
+    end
+    ### 現在地取得できていない場合の処理
+    if area == "現在地" && latitude == nil
+      flash[:danger] = "現在地を取得できませんでした。もう一度お願いします。"
+      redirect_back(fallback_location: root_path) and return
+    end
+
+    ###　必要なquery作成
     if area == "現在地"
-      query.merge!(current_point(latitude,longitude))
+      query.merge!({latitude: latitude, longitude: longitude})
       @zoom = 18
-    elsif area.present?
+    else
       freeword += ',' + area
     end
-    
     query.merge!({freeword: freeword})
     response = Faraday.get(url, query)
     response_json = JSON.parse(response.body)
@@ -27,7 +39,7 @@ class RestaurantsController < ApplicationController
     rescue => e
       logger.error e.message
       flash[:danger] = '該当のお店が見つかりませんでした。他のキーワードでお願いします'
-      redirect_to root_path
+      redirect_back(fallback_location: root_path)
     end
   end
 
@@ -41,14 +53,6 @@ class RestaurantsController < ApplicationController
   end
 
   private
-  def current_point(latitude,longitude)
-    if latitude.nil?
-      flash[:danger] = "現在地を取得できませんでした。もう一度お願いします。"
-      redirect_back(fallback_location: root_path)
-    else
-      { latitude: latitude, longitude: longitude }
-    end
-  end
 
   def make_hash(rest)
     {

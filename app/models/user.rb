@@ -1,9 +1,10 @@
 class User < ApplicationRecord
   before_save { self.email.downcase! }
   has_one_attached :avatar
-  validates :name, presence: true, length: { maximum: 10 }
+  validates :name, presence: true, length: { minimum: 3, maximum: 10 }
   validates :email, presence: true, length: { maximum: 255 },uniqueness: true,
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+  validates :password, length: { minimum: 4 }
   validates :profile, length: { maximum: 255 }
   has_secure_password
 

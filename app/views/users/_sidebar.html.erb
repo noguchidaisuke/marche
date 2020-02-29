@@ -11,7 +11,7 @@
         <%= link_to user_posts_path(user) do %><li><span class="fas fa-check"></span>投稿一覧</li><%end%>
         <% if current_user == user %>
             <%= link_to logout_path, method: :delete do %><li class="logout"><span class="fas fa-sign-out-alt"></span>ログアウト</li><%end%>
-        <%end%>
+        <% end %>
         </ul>
     </div>
 </div>

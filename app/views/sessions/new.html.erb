@@ -9,12 +9,12 @@
           <%= form_with scope: :session,url: login_path do |f| %>
             <form class="col-12">
               <div class="form-login email">
-                <%= f.text_field :email, class: 'form-control',placeholder: "Email" %>
+                <%= f.text_field :email,id: "Email", class: 'form-control',placeholder: "Email" %>
               </div>
               <div class="form-login password">
-                <%= f.text_field :password, class: 'form-control',placeholder: "Password" %>
+                <%= f.text_field :password,id: "Password", class: 'form-control',placeholder: "Password" %>
               </div>
-              <button type="submit" class="btn-login"><i class="fas fa-sign-in-alt"></i>ログイン</button>
+              <button type="submit" class="btn-login" value="ログイン"><i class="fas fa-sign-in-alt"></i>ログイン</button>
               <p class="or">or</p>
               <button type="submit" class="btn-tweet-login"><i class="fab fa-twitter"></i>Twitterでログイン</button>
             </form>

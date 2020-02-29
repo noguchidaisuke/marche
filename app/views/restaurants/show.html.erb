@@ -2,7 +2,7 @@
 <div class="show-restaurant_map">
   <div id="map"></div>
 </div>
-<%if @comment_images %>
+<% if @comment_images.present? %>
   <h4 class="mt-1">投稿された画像一覧</h4>
   <div class="show-restaurant_right_images">
     <% @comment_images.each do |comment_image| %>

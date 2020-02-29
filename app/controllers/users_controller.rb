@@ -45,8 +45,9 @@ class UsersController < ApplicationController
   end
 
   def userposts
-    @restaurants = @user.comments
+    @comments = @user.comments.includes(:restaurant).with_attached_images
   end
+
   private
 
   def user_params

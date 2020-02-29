@@ -795,7 +795,16 @@ footer {
 .chat-box{
   margin:10px 0 20px 10px;
 }
-
+.comment_each_image{
+  position:relative;
+  .image_remover{
+    background-color: tomato;
+    color:white;
+    font-size:13px;
+    position:absolute;
+    right:3px;
+  }
+}
 .user-icon{
   img{
     border-radius:50%;
@@ -874,15 +883,21 @@ footer {
   font-size: 13px;
   text-align: left;
   position:relative;
-  i{
+  i.fa-calendar-alt{
     padding-right:10px;
     padding-left:7px;
   }
-  .btn{
+  .btn-success{
+    position:absolute;
+    right:50px;
+    top:-7px;
+    font-size:10px;
+  }
+  .btn-danger{
     position:absolute;
     right:10px;
     top:-7px;
-    
+    font-size:10px;
   }
 }
 /* restaurant show button*/
@@ -947,6 +962,42 @@ footer {
   }
 }
 
+.edit-user_page{
+  .form-effect{
+    border: 1px solid #ccc;
+    box-shadow:0 0 2px;
+    border-radius:3px;
+    margin-bottom:30px;
+    height:35px;
+  }
+  .form-area{
+    height:150px;
+    padding:10px;
+  }
+  .edit-user_title{
+    padding-bottom:20px;
+    margin-top:0px;
+    border-bottom:1px solid #ccc;
+    font-family:'HiraMinProN-W3';
+    font-weight:bold;
+  }
+  .edit-user_label{
+    padding-top:5px;
+    font-size:1.2em;
+    margin-right:10px;
+  }
+  .edit-user_submit{
+    background-color: #fff;
+    border-radius:30px;
+    padding:10px 20px;
+    font-size:1.2em;
+    width:50%;
+    display:inline-block;
+    color:white;
+    background-color:darkorange;
+    font-weight:bold;
+  }
+}
 /* follow follower */
 .following{
   border:none;
@@ -961,6 +1012,9 @@ footer {
     color:black;
     padding-right:5px;
   }
+}
+.show-user_name{
+  width:60%;
 }
 .relation_count{
   margin-top:30px;
@@ -1022,7 +1076,7 @@ footer {
   height:90px;
   padding:5px;
   border-radius:3px;
-  margin:10px 15px 10px 10px ;
+  margin:10px 15px 10px 10px;
   background-color: #fff;
   color:darkslategrey;
   text-decoration:none;
@@ -1053,6 +1107,57 @@ footer {
   }
 }
 
+/* user posts */
+.userposts_comment{
+  box-shadow:0 0 5px;
+  height:100px;
+  padding:5px;
+  border-radius:3px;
+  margin:10px 15px 10px 10px;
+  background-color: #fff;
+  color:darkslategrey;
+  text-decoration:none;
+  &:hover{
+    background-color: #FFFFDD;
+  }
+  .follow_image img{
+    width:90px;
+    height:100%;
+  }
+  .follow_image{
+    width:30%;
+    margin-right:10px;
+  }
+  .userposts_desc{
+    padding:15px 0;
+    width:70%;
+    position:relative;
+    .userposts_restaurant_title{
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      overflow: hidden;
+      font-size:15px;
+      font-weight:bold;
+    }
+    .star-rating{
+      position:absolute;
+      bottom:10px;
+      left:0px;
+    }
+    .comment_effect{
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      font-size:11px;
+      color:#555555;
+      padding-top:5px;
+      &::before{
+        padding-right:5px;
+      }
+    }
+  }
+}
 /* commetns　新規投稿*/
 
 

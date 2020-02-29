@@ -4,7 +4,7 @@
       <div class="row">
         <%= render 'sidebar',user: @user %>
         <div class="col-sm-8">
-          <div class="mypage">
+          <div class="mypage edit-user_page">
             <h3 class="edit-user_title text-center">プロフィール編集</h3>
             <%= form_with model: @user,method: :patch do |f| %>
               <div class="form-group row">
@@ -36,39 +36,3 @@
     </div>
   </div>
 <%end%>
-<style>
-.form-effect{
-  border: 1px solid #ccc;
-  box-shadow:0 0 2px;
-  border-radius:3px;
-  margin-bottom:30px;
-  height:35px;
-}
-.form-area{
-  height:150px;
-  padding:10px;
-}
-.edit-user_title{
-  padding-bottom:20px;
-  margin-top:0px;
-  border-bottom:1px solid #ccc;
-  font-family:'HiraMinProN-W3';
-  font-weight:bold;
-}
-.edit-user_label{
-  padding-top:5px;
-  font-size:1.2em;
-  margin-right:10px;
-}
-.edit-user_submit{
-  background-color: #fff;
-  border-radius:30px;
-  padding:10px 20px;
-  font-size:1.2em;
-  width:50%;
-  display:inline-block;
-  color:white;
-  background-color:darkorange;
-  font-weight:bold;
-}
-</style>

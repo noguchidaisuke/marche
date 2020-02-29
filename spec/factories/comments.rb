@@ -1,6 +1,8 @@
 FactoryBot.define do
   factory :comment do
-    comment {'test'}
+    comment { "example" }
+    rating { 5 }
+    association :user
     association :restaurant
   end
 end

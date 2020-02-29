@@ -1,0 +1,41 @@
+<%content_for :cover do%>
+  <div class="mypage_cover">
+    <div class="container">
+      <div class="row">
+        <%= render 'sidebar',user: @user %>
+        <div class="col-sm-8 col-sm-offset-1">
+          <h2 class="text-center follow_and_follower_title" style="font-family:HiraKakuStdN-W8; color:darkorange;">口コミ投稿したお店一覧</h2>
+          <div class="row follow_and_follower_container">
+          <% @comments.each do |comment| %>
+            <%= link_to restaurant_path(comment.restaurant) do %>
+              <div class="flex col-sm-5 userposts_comment">
+                <div class="follow_image">
+                  <% if comment.images.attached? %>
+                    <%= image_tag comment.images.first %>
+                  <% else %>
+                    <img src='https://ximg.retty.me/crop/s172x172/-/retty_main/images/noimg_200_150.png'>
+                  <% end %>
+                </div>
+                <div class="userposts_desc">
+                  <p class="userposts_restaurant_title"><%= comment.restaurant.name %></p>
+                  <p class="fas fa-comment-dots comment_effect"><%= comment.comment %></p>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<%end%>
+
+<script>
+  $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>

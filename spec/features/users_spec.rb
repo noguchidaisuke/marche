@@ -1,14 +1,14 @@
 require 'rails_helper'
 
-RSpec.feature "users", type: :feature do
-    scenario "login confirmation" do
-      user = FactoryBot.create(:user)
-      visit root_path
-      click_link "ログイン"
-      fill_in "session[email]", with: user.email
-      fill_in "session[password]", with: user.password
-      click_button "ログイン"
+RSpec.feature "Users", type: :feature do
+  scenario "pending..." do
+    user = FactoryBot.create(:user)
 
-      expect(page).to have_content "ランキング"
-    end
+    visit root_path
+    click_link "Login"
+
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
+    click_button "ログイン"
+  end
 end
