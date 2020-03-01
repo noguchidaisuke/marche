@@ -24,11 +24,11 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      flash[:success] = 'ユーザの登録をしました。'
+      flash[:success] = 'プロフィールを編集しました！'
       redirect_to @user
     else
-      flash.now[:danger] = 'ユーザの登録に失敗しました。'
-      render edit_user_path(@user)
+      flash[:danger] = '編集に失敗しました。'
+      redirect_back(fallback_location: root_path)
     end
   end
 

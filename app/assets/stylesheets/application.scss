@@ -1036,11 +1036,14 @@ footer {
 }
 .profile{
   font-weight:bold;
+  background-color: #fafafa;
+  border:1px solid #ccc;
+  border-radius: 3px;
+  padding:10px;
+  overflow: auto;
   p{
-    background-color: #fafafa;
-    border:1px solid #ccc;
-    border-radius: 3px;
-    padding:10px;
+    width:100%;
+    font-size:13px;
   }
 }
 
@@ -1180,7 +1183,6 @@ footer {
 }
 .new-restaurant_comment{
   font-size:15px;
-  width:100%;
   min-height: 200px;
   margin-top:20px;
   padding:10px;

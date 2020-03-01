@@ -35,9 +35,10 @@ function initMap() {
         position: {lat: <%= restaurant.latitude %>, lng: <%= restaurant.longitude %>},
         map: map
       });
-      infowindow = new google.maps.InfoWindow({content: '<%= restaurant.name %>'});
+      infowindow = new google.maps.InfoWindow({content: '<%= link_to restaurant.name,restaurant %>'});
       infowindow.open(map, marker);
   <% end %>
+
   google.maps.event.addDomListener(window, 'load', initMap);
 }
 $('.star-rating').raty({

@@ -7,7 +7,7 @@ class RestaurantsController < ApplicationController
     latitude, longitude = params[:latlng].scan(/[0-9]+.[0-9]+/)
     query = {
       keyid: ENV['GURUNAVI_API_KEY'],
-      hit_per_page: 30
+      hit_per_page: 32
     }
 
     ###　検索欄が空欄の場合
@@ -33,7 +33,7 @@ class RestaurantsController < ApplicationController
     response_json = JSON.parse(response.body)
     begin
       restaurants = restaurants_factory(response_json)
-      @restaurants = Kaminari.paginate_array(restaurants).page(params[:page]).per(10)
+      @restaurants = Kaminari.paginate_array(restaurants).page(params[:page]).per(8)
       @centerlat = @restaurants.first.latitude
       @centerlong = @restaurants.first.longitude
     rescue => e
@@ -49,7 +49,7 @@ class RestaurantsController < ApplicationController
     @comment = @restaurant.comments.new
     @comments = @restaurant.comments.with_attached_images.includes(:user).order(created_at: :DESC)
     @comment_images = @comments.select{ |comment| comment.images.attached? }
-    @avg_comment_rating = @comments.average(:rating)&.round(1) || 0
+    @avg_comment_rating = @comments.average(:rating)&.round(1) || 3
   end
 
   private

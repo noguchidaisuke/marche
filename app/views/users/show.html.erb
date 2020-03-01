@@ -25,7 +25,7 @@
                 <% if @user.profile %>
                   <h3>プロフィール</h3>
                   <div class="profile">
-                    <p><%= @user.profile %></p>
+                    <%= simple_format(@user.profile) %>
                   </div>
                 <% end %>
               </div>

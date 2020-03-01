@@ -4,7 +4,7 @@
         <h2><%= @restaurant.name %></h2>
         <div class="new-restaurant_form">
           <div id="star-rating" class="new-rating"></div>
-          <%= f.text_area :comment,class:'new-restaurant_comment' %>
+          <%= f.text_area :comment,class:'new-restaurant_comment', cols: 40 %>
         </div>
         <div class="new-restaurant_img">
           <%= f.label :images, '投稿画像  ( 複数選択可能 )' %>
@@ -21,3 +21,4 @@
 </div>
 
 <%= javascript_include_tag "preview.js" %>
+
