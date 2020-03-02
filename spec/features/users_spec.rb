@@ -2,13 +2,10 @@ require 'rails_helper'
 
 RSpec.feature "Users", type: :feature do
   scenario "pending..." do
-    user = FactoryBot.create(:user)
-
+    user = FactoryBot.create(:user,:testuser)
     visit root_path
     click_link "Login"
-
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-    click_button "ログイン"
+    click_button "テストログイン"
+    save_and_open_page
   end
 end
