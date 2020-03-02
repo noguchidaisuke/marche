@@ -20,7 +20,7 @@ jobs:
             docker-compose run web bundle install
       - run:
           name: migrate db
-          command: docker-compose run web rails db:create db:migrate
+          command: docker-compose run web rails db:create db:migrate db:seed
       - run:
           name: test
           command: |
