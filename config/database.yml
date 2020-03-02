@@ -13,15 +13,15 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: root
-  #password: password
-  #host: db
+  username: ENV['MYSQL_USER']
+  password: ENV['MYSQL_PASSWORD']
+  host: db
 
 development:
   <<: *default
   database: app_development
-  password:
-  host: localhost
+  #password:
+  #host: localhost
 
 test:
   <<: *default
