@@ -29,9 +29,6 @@ body {
 footer {
   margin-top: 40px;
 }
-.m-t40{
-  margin-top:40px;
-}
 .m-t20{
   margin-top:20px;
 }
@@ -745,8 +742,17 @@ footer {
   }
   .new-item_desc{
     width:60%;
-    .star-rating{
-      
+    .new_item_title{
+      font-family:HiraKakuStdN-W8;
+    }
+    .item_pr_short{
+      margin-top:20px;
+      font-size:12px;
+      font-weight:bold;
+      color:darkblue;
+    }
+    .star-rating img{
+      height:20px;
     }
   }
 }

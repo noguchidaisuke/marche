@@ -10,8 +10,8 @@
               <%= link_to '',restaurant,class: 'restaurant-link', target: "newtab"%>
               <img src="<%= restaurant.shop_image1 %>" class="new-restaurant_img">
               <div class="new-item_desc">
-                <h3 class="item-title m-t20 half"><%= restaurant.name %></h3>
-                <p class="item-pr m-t40"><%= restaurant.pr_short %></p>
+                <h4 class="new_item_title m-t20 half"><%= restaurant.name %></h4>
+                <p class="item_pr_short"><%= restaurant.pr_short %></p>
                 <div class="star-rating" data-score=<%= restaurant.avg_rating %>></div>
               </div>
             </div>
@@ -32,7 +32,7 @@ function initMap() {
   var marker, infowindow;
   <% @restaurants.reverse.each do |restaurant| %>
       marker = new google.maps.Marker({
-        position: {lat: <%= restaurant.latitude %>, lng: <%= restaurant.longitude %>},
+        position: {lat: <%= restaurant.latitude || 0 %>, lng: <%= restaurant.longitude || 0 %>},
         map: map
       });
       infowindow = new google.maps.InfoWindow({content: '<%= link_to restaurant.name,restaurant %>'});

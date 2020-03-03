@@ -28,7 +28,6 @@
                 <%= f.label :profile, class: 'col-xs-3 text-right edit-user_label' %>
                 <%= f.text_area :profile, class: 'form-effect form-area col-xs-8',placeholder: "プロフィール" %>
               </div>
-              <%= f.hidden_field :password, value: @user.password_digest %>
               <div class="text-center"><%= f.submit '変更する',class: 'edit-user_submit' %></div>
             <% end %>
           </div>

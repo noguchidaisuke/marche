@@ -4,7 +4,7 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { minimum: 3, maximum: 10 }
   validates :email, presence: true, length: { maximum: 50 },uniqueness: true,
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
-  validates :password, length: { minimum: 4 }
+  validates :password, length: { minimum: 4 }, on: :create
   validates :profile, length: { maximum: 200 }
   has_secure_password
 
