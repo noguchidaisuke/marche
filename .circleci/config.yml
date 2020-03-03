@@ -8,12 +8,18 @@ jobs:
     steps:
       - checkout
       - run:
-           name: add env
-           command: echo MYSQL_USER=$MYSQL_USER > .env && echo MYSQL_USER=$MYSQL_PASSWORD >> .env && echo GURUNAVI_API_KEY=$GURUNAVI_API_KEY >> .env
+          name: add env
+          command: |
+            echo MYSQL_USER=$MYSQL_USER > .env
+            echo MYSQL_USER=$MYSQL_PASSWORD >> .env
+            echo GURUNAVI_API_KEY=$GURUNAVI_API_KEY >> .env
+            echo SECRET_KEY_BASE=$SECRET_KEY_BASE >> .env
       - run:
-           name: up
-           command: docker-compose up -d
-
+          name: up
+          command: docker-compose up -d
+      - run:
+          name: db create
+          commend: docker-compose run web rails db:create RAILS_ENV=production
   deploy:
    machine:
     image: circleci/classic:edge
