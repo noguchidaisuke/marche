@@ -4,31 +4,12 @@ jobs:
     docker:
     machine:
       image: circleci/classic:edge
-    working_directory: ~/myapp
+    working_directory: /myapp
     steps:
       - checkout
       - run:
            name: up
-           command: docker-compose up -d
-      - run:
-           name: sleep for DB launch
-           command: |
-            sleep 10
-      - run:
-           name: create env file
-           command: |
-            echo "abcdefg" > ~/myapp/addfile.rb
-      - run:
-           name: bundle install
-           command: |
-            docker-compose run web bundle install
-      - run:
-          name: migrate db
-          command: docker-compose run web rails db:create db:migrate
-      - run:
-          name: test
-          command: |
-            docker-compose run web bundle exec rspec
+           command: echo "abc" > /myapp/addfile.rb
   deploy:
    machine:
     image: circleci/classic:edge
