@@ -17,7 +17,7 @@ jobs:
       - run:
            name: create env file
            command: |
-            echo "abcdefg" > /myapp/addfile.rb
+            echo "abcdefg" > ~/myapp/addfile.rb
       - run:
            name: bundle install
            command: |
