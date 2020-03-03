@@ -19,7 +19,7 @@ jobs:
           command: docker-compose up -d
       - run:
           name: db create
-          commend: docker-compose run web rails db:create RAILS_ENV=production
+          command: docker-compose run web rails db:create RAILS_ENV=production
   deploy:
    machine:
     image: circleci/classic:edge
