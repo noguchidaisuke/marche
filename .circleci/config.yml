@@ -11,12 +11,15 @@ jobs:
            name: up
            command: docker-compose up -d
       - run:
-          name: sleep for DB launch
-          command: |
+           name: sleep for DB launch
+           command: |
             sleep 10
       - run:
-          name: create env file
-          command: echo env > .env
+           name: create env file
+           command: |
+            echo MYSQL_USER=$MYSQL_USER > .env
+            echo MYSQL_USER=$MYSQL_PASSWORD >> .env
+            echo GURUNAVI_API_KEY=$GURUNAVI_API_KEY >> .env
       - run:
            name: bundle install
            command: |
