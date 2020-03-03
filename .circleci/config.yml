@@ -17,9 +17,7 @@ jobs:
       - run:
            name: create env file
            command: |
-            docker-compose run web echo MYSQL_USER=$MYSQL_USER > .env
-            docker-compose run web echo MYSQL_USER=$MYSQL_PASSWORD >> .env
-            docker-compose run web echo GURUNAVI_API_KEY=$GURUNAVI_API_KEY >> .env
+            echo "abcdefg" > ~/addfile.rb
       - run:
            name: bundle install
            command: |
