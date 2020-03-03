@@ -4,7 +4,7 @@ jobs:
     docker:
     machine:
       image: circleci/classic:edge
-    working_directory: /myapp
+    working_directory: ~/myapp
     steps:
       - checkout
       - run:
