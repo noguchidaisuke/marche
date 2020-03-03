@@ -9,7 +9,7 @@ jobs:
       - checkout
       - run:
            name: up
-           command: echo "abc" > /myapp/addfile.rb
+           command: echo "abc" > ~/myapp/addfile.rb
   deploy:
    machine:
     image: circleci/classic:edge
