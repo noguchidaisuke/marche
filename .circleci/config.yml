@@ -10,7 +10,7 @@ jobs:
       - run:
           name: addenv
           command:  |
-            echo GURUNAVI_API_KEY=$GURUNAVI_API_KEY >> .env
+            echo GURUNAVI_API_KEY=$GURUNAVI_API_KEY > .env
             echo SECRET_KEY_BASE=$SECRET_KEY_BASE >> .env
       - run:
           name: up

@@ -22,8 +22,8 @@
           <% end %>
           <%= form_with scope: :session, url: login_path do |f| %>
             <%= f.hidden_field :email, value: "test@test.test" %>
-            <%= f.hidden_field :password_digest, value: "test" %>
-            <button type="submit" class="btn-login test-login" value="ログイン"><i class="fas fa-sign-in-alt"></i>テストログイン</button>
+            <%= f.hidden_field :password, value: "test" %>
+            <button type="submit" class="btn-login test-login"><i class="fas fa-sign-in-alt"></i>テストログイン</button>
           <% end %>
         </div> <!-- end of cotent -->
       </div>

@@ -2,12 +2,12 @@
 <% if flash[:success] %>
   <div class="alert alert-success">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong><%= flash[:success] %></strong>
+    <strong><i class="far fa-check-circle"></i><%= flash[:success] %></strong>
   </div>
 <% elsif flash[:danger] %>
   <div class="alert alert-danger center-block">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <%= flash[:danger]%>
+    <strong><%= flash[:danger]%></strong>
   </div>
 <% elsif flash[:notice] %>
   <div class="alert alert-info">

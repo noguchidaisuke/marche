@@ -14,18 +14,19 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password: password
-  host: db
+  #password: password
+  #host: db
 
 development:
   <<: *default
   database: app_development
-  #password:
-  #host: localhost
+  password:
+  host: localhost
 
 test:
   <<: *default
   database: app_test
+
 production:
   <<: *default
   database: app_production
