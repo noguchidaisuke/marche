@@ -57,7 +57,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-doc'
   gem 'vcr'
-  gem 'webmock'
+  gem 'webmock','>= 3.5'
   gem 'launchy'
 end
 
