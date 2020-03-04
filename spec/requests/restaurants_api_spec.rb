@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'Restaurants API',type: :request do
-    it 'can get connection to Gurunavi API' do
+    it 'can get connection to Gurunavi API',vcr: { cassette_name: 'foo_api' } do
         url = 'https://api.gnavi.co.jp/RestSearchAPI/v3/'
         params = {
             keyid: ENV['GURUNAVI_API_KEY'],
