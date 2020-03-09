@@ -15,7 +15,7 @@ module CommonActions
 
   def require_user_logged_in
     unless logged_in?
-      redirect_to login_url,:notice=>"ログインしてください"
+      redirect_to login_url,notice: "ログインしてください"
     end
   end
   

@@ -1,14 +1,14 @@
 version: '3'
 services:
-  db:
-    build: ./mysql
+  db_dev:
+    image: mysql:5.7
     volumes:
       - db-volume-dev:/var/lib/mysql
     ports:
       - '3306:3306'
     environment:
       MYSQL_ROOT_PASSWORD: password
-  web:
+  web_dev:
     build:
      context: .
      dockerfile: dockerfile.dev
@@ -19,15 +19,15 @@ services:
     tty: true
     stdin_open: true
     depends_on:
-      - db
-  server:
+      - db_dev
+  server_dev:
     build: ./nginx.dev
     volumes:
       - socket-data:/myapp/tmp/sockets
     ports:
       - 3001:3001
     depends_on:
-      - web
+      - web_dev
 volumes:
   bundle_path:
   socket-data:
