@@ -35,18 +35,7 @@ jobs:
     image: circleci/classic:edge
    steps:
     - checkout
-    - run:
-       name: into ecs
-       command: $(aws ecr get-login --region ${AWS_REGION} --no-include-email)
-    - run:
-       name: ECR build
-       command: docker build -t ${AWS_ID}/gnavi_web .
-    - run:
-        name: ECR push
-        command: docker push ${AWS_ID}/gnavi_web
-    - run:
-       name: deploy
-       command: scripts/ecs-deploy --cluster lll --service-name gnavi-sv --region ${AWS_REGION} --image ${AWS_ID}/gnavi_web:latest --timeout 200
+    
 workflows:
   version: 2
   build_and_deploy:
