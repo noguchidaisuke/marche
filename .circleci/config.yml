@@ -1,7 +1,6 @@
 version: 2
 jobs:
   build:
-    docker:
     machine:
       image: circleci/classic:edge
     working_directory: ~/myapp
