@@ -12,6 +12,8 @@ jobs:
           command:  |
             echo GURUNAVI_API_KEY=$GURUNAVI_API_KEY > .env
             echo SECRET_KEY_BASE=$SECRET_KEY_BASE >> .env
+            echo AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID >> .env
+            echo AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY >> .env
       
   deploy:
    machine:
