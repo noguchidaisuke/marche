@@ -15,19 +15,19 @@ jobs:
             echo AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID >> .env
             echo AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY >> .env
       - run:
-          name: up
-          command: docker-compose up -d
-      - run:
-          name: sleep for DB launch
-          command: |
-            sleep 10
-      - run:
           name: bundle install
           command: |
             docker-compose run web bundle install
       - run:
           name: migrate db
           command: docker-compose run web rails db:create db:migrate
+      - run:
+          name: up
+          command: docker-compose up -d
+      - run:
+          name: sleep for DB launch
+          command: |
+            sleep 10
       - run:
           name: test
           command: |
@@ -56,7 +56,7 @@ jobs:
         command: docker push ${AWS_ID}/gnavi_web
     - run:
        name: deploy
-       command: scripts/ecs-deploy --cluster lll --service-name gnavi-sv1 --region ${AWS_REGION} --image ${AWS_ID}/gnavi_web:latest --timeout 200
+       command: scripts/ecs-deploy --cluster lll --service-name gnavi-sv1 --region ${AWS_REGION} --image ${AWS_ID}/gnavi_web:latest --timeout 600
 workflows:
   version: 2
   build_and_deploy:
