@@ -1,6 +1,6 @@
 version: '3'
 services:
-  db_dev:
+  db:
     image: mysql:5.7
     volumes:
       - db-volume-dev:/var/lib/mysql
@@ -19,7 +19,7 @@ services:
     tty: true
     stdin_open: true
     depends_on:
-      - db_dev
+      - db
   server_dev:
     build: ./nginx.dev
     volumes:
