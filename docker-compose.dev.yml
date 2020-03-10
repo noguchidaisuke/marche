@@ -7,6 +7,7 @@ services:
     ports:
       - '3306:3306'
     environment:
+      MYSQL_ROOT_USER: root
       MYSQL_ROOT_PASSWORD: password
   web_dev:
     build:
@@ -14,8 +15,8 @@ services:
      dockerfile: dockerfile.dev
     volumes:
       - .:/myapp
-      - socket-data:/myapp/tmp/sockets
-      - log-data:/myapp/log
+      - socket-data-dev:/myapp/tmp/sockets
+      - log-data-dev:/myapp/log
     tty: true
     stdin_open: true
     depends_on:
@@ -23,13 +24,13 @@ services:
   server_dev:
     build: ./nginx.dev
     volumes:
-      - socket-data:/myapp/tmp/sockets
+      - socket-data-dev:/myapp/tmp/sockets
     ports:
       - 3001:3001
     depends_on:
       - web_dev
 volumes:
   bundle_path:
-  socket-data:
-  log-data:
+  socket-data-dev:
+  log-data-dev:
   db-volume-dev:
