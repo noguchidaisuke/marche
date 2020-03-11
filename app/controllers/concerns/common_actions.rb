@@ -18,10 +18,4 @@ module CommonActions
       redirect_to login_url,notice: "ログインしてください"
     end
   end
-  
-  module ClassMethods
-    def foo
-      puts 'foo'
-    end
-  end
 end

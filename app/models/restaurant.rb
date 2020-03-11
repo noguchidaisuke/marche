@@ -6,10 +6,10 @@ class Restaurant < ApplicationRecord
   validates :pr_short, length: { maximum: 255 }
   validates :g_id, presence: true, length: { maximum: 20 }
 
-  has_many :likes
+  has_many :likes, dependent: :destroy
   has_many :users, through: :likes
   has_many :like_users, through: :likes, source: :user
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   def avg_rating
     self.comments.average(:rating)&.round(1) || 3
