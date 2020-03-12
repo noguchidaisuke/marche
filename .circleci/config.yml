@@ -13,24 +13,7 @@ jobs:
             echo SECRET_KEY_BASE=$SECRET_KEY_BASE >> .env
             echo AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID >> .env
             echo AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY >> .env
-      - run:
-          name: up
-          command: docker-compose up -d
-      - run:
-          name: sleep for DB launch
-          command: |
-            sleep 10
-      - run:
-          name: bundle install
-          command: |
-            docker-compose run web bundle install
-      - run:
-          name: migrate db
-          command: docker-compose run web rails db:create db:migrate
-      - run:
-          name: test
-          command: |
-            docker-compose run web bundle exec rspec
+
   deploy:
    machine:
     image: circleci/classic:edge
@@ -61,6 +44,3 @@ workflows:
   build-and-deploy:
     jobs:
       - build
-      - deploy:
-         requires:
-          - build
