@@ -7,6 +7,7 @@
             <i class="fab fa-gofore"></i>
           </div>
           <%= form_with scope: :session,url: login_path do |f| %>
+
             <form class="col-12">
               <div class="form-login email">
                 <%= f.text_field :email,id: "Email", class: 'form-control',placeholder: "Email" %>

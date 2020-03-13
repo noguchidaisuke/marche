@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       flash[:success] = 'ログインに成功しました。'
       redirect_to @user
     else
-      flash.now[:danger] = 'メールアドレスかパスワードが間違っています。'
+      flash.now[:danger] = invalid_reason(@user,password)
       render 'new'
     end
   end
@@ -32,6 +32,16 @@ class SessionsController < ApplicationController
       return true
     else
       return false
+    end
+  end
+
+  def invalid_reason(user,password)
+    if user.nil? && password.empty?
+      "EmailとPasswordが間違っています"
+    elsif user.nil?
+      "Emailが間違っています"
+    else
+      "Passwordのみ間違っています"
     end
   end
 end

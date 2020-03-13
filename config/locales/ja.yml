@@ -1,4 +1,10 @@
 ja:
+  activerecord:
+    attributes:
+      user:
+        name: 名前
+        email: メール
+        password: パスワード
   views:
     pagination:
       first: "&laquo; 最初"
