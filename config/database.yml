@@ -13,24 +13,24 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: root
+  username: marche_root
   password: password
-  host: db
+  host: localhost
+  #password: password
+  #host: db
 
 development:
   <<: *default
-  database: app_development
-  #password:
-  #host: localhost
+  database: marche_development
 
 test:
   <<: *default
-  database: app_test
+  database: marche_test
 
 production:
   <<: *default
-  database: app_production
+  database: marche_production
   #adapter: mysql
   #encoding: unicode
   #pool: 5
-  host: aws-and-infra-db.cvh8iz4psy0l.ap-northeast-1.rds.amazonaws.com
+  #host: aws-and-infra-db.cvh8iz4psy0l.ap-northeast-1.rds.amazonaws.com
